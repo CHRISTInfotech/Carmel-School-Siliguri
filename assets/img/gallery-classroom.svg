@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#56CCF2" stop-opacity="0.18" />
+      <stop offset="1" stop-color="#F0C24B" stop-opacity="0.14" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g)" />
+  <rect x="140" y="170" width="920" height="430" rx="28" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.18)" stroke-width="2" />
+  <rect x="210" y="240" width="500" height="160" rx="18" fill="rgba(0,0,0,0.16)" />
+  <rect x="210" y="430" width="780" height="110" rx="18" fill="rgba(0,0,0,0.12)" />
+  <text x="70" y="110" font-family="Segoe UI, Arial, sans-serif" font-size="54" fill="rgba(255,255,255,0.90)">Classrooms</text>
+</svg>
+

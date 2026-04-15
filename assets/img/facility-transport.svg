@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2F80ED" stop-opacity="0.18" />
+      <stop offset="1" stop-color="#F0C24B" stop-opacity="0.12" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" rx="28" fill="url(#bg)" />
+  <g fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.22)" stroke-width="2">
+    <rect x="190" y="250" width="820" height="220" rx="28" />
+    <rect x="250" y="290" width="220" height="80" rx="18" />
+    <rect x="500" y="290" width="220" height="80" rx="18" />
+    <rect x="750" y="290" width="200" height="80" rx="18" />
+    <circle cx="360" cy="490" r="44" />
+    <circle cx="840" cy="490" r="44" />
+  </g>
+  <g opacity="0.9">
+    <rect x="150" y="540" width="900" height="42" rx="20" fill="rgba(255,255,255,0.10)" />
+    <text x="170" y="569" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="rgba(255,255,255,0.90)">Transport &amp; Safety</text>
+  </g>
+</svg>
+

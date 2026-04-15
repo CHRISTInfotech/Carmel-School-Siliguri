@@ -1,0 +1,27 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Profile card illustration">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" />
+      <stop offset="1" stop-color="#F4E9EA" />
+    </linearGradient>
+    <linearGradient id="accent" x1="160" y1="120" x2="640" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#80131A" />
+      <stop offset="1" stop-color="#A62A35" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" rx="40" fill="url(#bg)" />
+  <rect x="40" y="40" width="720" height="520" rx="32" fill="white" stroke="#E8D8DA" stroke-width="4" />
+  <rect x="68" y="68" width="664" height="124" rx="24" fill="url(#accent)" opacity="0.12" />
+  <circle cx="180" cy="270" r="78" fill="url(#accent)" opacity="0.18" />
+  <circle cx="180" cy="242" r="42" fill="#80131A" opacity="0.88" />
+  <path d="M110 392C128 342 154 326 180 326C206 326 232 342 250 392V448H110V392Z" fill="#80131A" opacity="0.88" />
+  <rect x="310" y="238" width="360" height="28" rx="14" fill="#80131A" opacity="0.20" />
+  <rect x="310" y="288" width="280" height="20" rx="10" fill="#80131A" opacity="0.16" />
+  <rect x="310" y="326" width="320" height="20" rx="10" fill="#80131A" opacity="0.12" />
+  <rect x="310" y="380" width="220" height="18" rx="9" fill="#80131A" opacity="0.10" />
+  <rect x="310" y="426" width="170" height="18" rx="9" fill="#80131A" opacity="0.10" />
+  <rect x="620" y="386" width="80" height="80" rx="20" fill="#80131A" opacity="0.12" />
+  <path d="M648 418H672" stroke="#80131A" stroke-width="8" stroke-linecap="round" />
+  <path d="M660 406V430" stroke="#80131A" stroke-width="8" stroke-linecap="round" />
+  <rect x="68" y="500" width="664" height="20" rx="10" fill="#80131A" opacity="0.10" />
+</svg>

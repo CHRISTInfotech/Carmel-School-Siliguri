@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#27AE60" stop-opacity="0.16" />
+      <stop offset="1" stop-color="#D44A5E" stop-opacity="0.12" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g)" />
+  <g fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.20)" stroke-width="2">
+    <path d="M350 210 h220 v70 l-80 150 v170 a110 110 0 0 1-220 0 V430 l80-150z" />
+    <path d="M700 220 h180 v55 l-65 120 v160 a95 95 0 0 1-190 0 V395 l75-120z" />
+  </g>
+  <text x="70" y="110" font-family="Segoe UI, Arial, sans-serif" font-size="54" fill="rgba(255,255,255,0.90)">Science Lab</text>
+</svg>
+

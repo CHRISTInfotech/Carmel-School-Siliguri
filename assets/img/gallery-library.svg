@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9B51E0" stop-opacity="0.14" />
+      <stop offset="1" stop-color="#F0C24B" stop-opacity="0.14" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g)" />
+  <g fill="rgba(0,0,0,0.14)">
+    <rect x="170" y="210" width="120" height="380" rx="18" />
+    <rect x="320" y="210" width="140" height="380" rx="18" />
+    <rect x="490" y="210" width="110" height="380" rx="18" />
+    <rect x="630" y="210" width="170" height="380" rx="18" />
+    <rect x="830" y="210" width="130" height="380" rx="18" />
+    <rect x="990" y="210" width="70" height="380" rx="18" />
+  </g>
+  <text x="70" y="110" font-family="Segoe UI, Arial, sans-serif" font-size="54" fill="rgba(255,255,255,0.90)">Library</text>
+</svg>
+

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D44A5E" stop-opacity="0.16" />
+      <stop offset="1" stop-color="#2F80ED" stop-opacity="0.12" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g)" />
+  <g fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.18)" stroke-width="2">
+    <rect x="180" y="250" width="840" height="340" rx="34" />
+    <rect x="240" y="320" width="240" height="90" rx="20" />
+    <rect x="520" y="320" width="240" height="90" rx="20" />
+    <rect x="800" y="320" width="160" height="90" rx="20" />
+  </g>
+  <text x="70" y="110" font-family="Segoe UI, Arial, sans-serif" font-size="54" fill="rgba(255,255,255,0.90)">Events</text>
+</svg>
+

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#27AE60" stop-opacity="0.16" />
+      <stop offset="1" stop-color="#D44A5E" stop-opacity="0.12" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" rx="28" fill="url(#bg)" />
+  <g fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.22)" stroke-width="2">
+    <path d="M330 120 h170 v50 l-60 105 v150 a80 80 0 0 1-160 0 V275 l50-105z" />
+    <path d="M690 120 h170 v50 l-60 105 v150 a80 80 0 0 1-160 0 V275 l50-105z" />
+  </g>
+  <g opacity="0.9">
+    <rect x="150" y="540" width="900" height="42" rx="20" fill="rgba(255,255,255,0.10)" />
+    <text x="170" y="569" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="rgba(255,255,255,0.90)">Science Facilities</text>
+  </g>
+</svg>
+

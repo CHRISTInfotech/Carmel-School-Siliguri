@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2F80ED" stop-opacity="0.18" />
+      <stop offset="1" stop-color="#F0C24B" stop-opacity="0.12" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g)" />
+  <g fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.18)" stroke-width="2">
+    <rect x="180" y="220" width="420" height="260" rx="28" />
+    <rect x="620" y="220" width="400" height="260" rx="28" />
+    <rect x="220" y="520" width="760" height="80" rx="22" />
+  </g>
+  <text x="70" y="110" font-family="Segoe UI, Arial, sans-serif" font-size="54" fill="rgba(255,255,255,0.90)">Computer Lab</text>
+</svg>
+

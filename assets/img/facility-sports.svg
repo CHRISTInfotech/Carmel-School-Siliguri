@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F2994A" stop-opacity="0.18" />
+      <stop offset="1" stop-color="#56CCF2" stop-opacity="0.12" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" rx="28" fill="url(#bg)" />
+  <circle cx="420" cy="330" r="120" fill="rgba(0,0,0,0.14)" stroke="rgba(255,255,255,0.18)" stroke-width="2" />
+  <circle cx="770" cy="330" r="120" fill="rgba(0,0,0,0.14)" stroke="rgba(255,255,255,0.18)" stroke-width="2" />
+  <path d="M190 460 C 340 360, 520 520, 600 410 C 700 280, 840 360, 1010 250" stroke="rgba(255,255,255,0.22)" stroke-width="3" fill="none" />
+  <g opacity="0.9">
+    <rect x="150" y="540" width="900" height="42" rx="20" fill="rgba(255,255,255,0.10)" />
+    <text x="170" y="569" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="rgba(255,255,255,0.90)">Sports &amp; Playground</text>
+  </g>
+</svg>
+

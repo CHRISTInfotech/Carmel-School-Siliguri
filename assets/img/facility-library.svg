@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0C24B" stop-opacity="0.18" />
+      <stop offset="1" stop-color="#9B51E0" stop-opacity="0.14" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" rx="28" fill="url(#bg)" />
+  <g fill="rgba(0,0,0,0.14)" opacity="0.85">
+    <rect x="140" y="140" width="120" height="360" rx="18" />
+    <rect x="290" y="140" width="140" height="360" rx="18" />
+    <rect x="460" y="140" width="110" height="360" rx="18" />
+    <rect x="600" y="140" width="170" height="360" rx="18" />
+    <rect x="800" y="140" width="120" height="360" rx="18" />
+    <rect x="950" y="140" width="110" height="360" rx="18" />
+  </g>
+  <g opacity="0.9">
+    <rect x="150" y="540" width="900" height="42" rx="20" fill="rgba(255,255,255,0.10)" />
+    <text x="170" y="569" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="rgba(255,255,255,0.90)">Library</text>
+  </g>
+</svg>
+

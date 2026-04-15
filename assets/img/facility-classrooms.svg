@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0C24B" stop-opacity="0.22" />
+      <stop offset="1" stop-color="#D44A5E" stop-opacity="0.14" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" rx="28" fill="url(#bg)" />
+  <rect x="70" y="90" width="1060" height="430" rx="22" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.20)" stroke-width="2" />
+  <rect x="110" y="130" width="520" height="140" rx="18" fill="rgba(0,0,0,0.18)" />
+  <rect x="110" y="300" width="520" height="180" rx="18" fill="rgba(0,0,0,0.12)" />
+  <rect x="670" y="130" width="420" height="350" rx="18" fill="rgba(0,0,0,0.14)" />
+  <g opacity="0.9">
+    <rect x="150" y="540" width="900" height="42" rx="20" fill="rgba(255,255,255,0.10)" />
+    <text x="170" y="569" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="rgba(255,255,255,0.90)">Classrooms</text>
+  </g>
+</svg>
+
