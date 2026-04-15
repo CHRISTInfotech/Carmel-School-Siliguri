@@ -63,7 +63,8 @@
 
     <main id="main">
       <section class="hero section">
-        <div class="container hero__inner row g-5 align-items-center">
+        <div class="container">
+          <div class="hero__inner row g-5 align-items-center">
           <div class="hero__content col-12 col-lg-6">
             <p class="eyebrow">K.E. Carmel School, Siliguri</p>
             <h1>Quality Education with Strong Values</h1>
@@ -75,18 +76,24 @@
               <a class="btn btn--primary" href="admissions.html">Admissions</a>
               <a class="btn btn--ghost" href="contact.html">Contact Us</a>
             </div>
-            <div class="hero__meta row row-cols-1 row-cols-md-3 g-3">
-              <div class="meta-card">
-                <div class="meta-card__title">Curriculum</div>
-                <div class="meta-card__value">ICSE</div>
+            <div class="hero__meta row row-cols-1 row-cols-md-3 g-3 mt-0">
+              <div class="col">
+                <div class="meta-card">
+                  <div class="meta-card__title">Curriculum</div>
+                  <div class="meta-card__value">ICSE</div>
+                </div>
               </div>
-              <div class="meta-card">
-                <div class="meta-card__title">Medium</div>
-                <div class="meta-card__value">English</div>
+              <div class="col">
+                <div class="meta-card">
+                  <div class="meta-card__title">Medium</div>
+                  <div class="meta-card__value">English</div>
+                </div>
               </div>
-              <div class="meta-card">
-                <div class="meta-card__title">Classes</div>
-                <div class="meta-card__value">Nursery to X</div>
+              <div class="col">
+                <div class="meta-card">
+                  <div class="meta-card__title">Classes</div>
+                  <div class="meta-card__value">Nursery to X</div>
+                </div>
               </div>
             </div>
           </div>
@@ -94,7 +101,7 @@
           <div class="hero__visual col-12 col-lg-6" aria-hidden="true">
             <div class="hero-card">
               <div class="hero-card__title">Why Choose K.E. Carmel?</div>
-              <ul class="checklist">
+              <ul class="check-list">
                 <li>Academic excellence & conceptual learning</li>
                 <li>Discipline, values & character building</li>
                 <li>Safe and supportive learning environment</li>
@@ -114,6 +121,7 @@
               </div>
             </div>
           </div>
+          </div>
         </div>
         <div class="hero__bg" aria-hidden="true"></div>
       </section>
@@ -124,8 +132,9 @@
             <h2>About K.E. Carmel School</h2>
             <p class="section__sub">Quality Education with Strong Values</p>
           </div>
-          <div class="row row-cols-1 row-cols-lg-2 g-4">
-            <div class="card col-12 col-lg-6 h-100">
+          <div class="row row-cols-1 row-cols-lg-2 g-2">
+            <div class="col-12 col-lg-6">
+              <div class="card h-100">
               <h3 class="h3">School Overview</h3>
               <p>
                 K.E. Carmel School, Siliguri is a well-established co-educational institution dedicated to providing quality education
@@ -136,16 +145,19 @@
                 Located in Siliguri, West Bengal, the school follows a balanced approach to education, combining academics with
                 co-curricular and extracurricular activities to ensure the overall development of students.
               </p>
+              </div>
             </div>
-            <div class="card col-12 col-lg-6 h-100">
+            <div class="col-12 col-lg-6">
+              <div class="card h-100">
               <h3 class="h3">Why Choose K.E. Carmel School?</h3>
-              <ul class="bullets">
+              <ul class="check-list">
                 <li>Focus on academic excellence and conceptual learning</li>
                 <li>Emphasis on discipline, values, and character building</li>
                 <li>Safe and supportive learning environment</li>
                 <li>Equal importance to academics and co-curricular activities</li>
                 <li>Experienced and dedicated teaching staff</li>
               </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -186,113 +198,168 @@
         </div>
       </section>
 
+      <section class="section">
+        <div class="container">
+          <div class="section__head">
+            <h2>School Announcements</h2>
+            <p class="section__sub">Notice board and important updates.</p>
+          </div>
+          <div class="row row-cols-1 row-cols-lg-2 g-2 mt-24">
+            <div class="col">
+              <div class="card card--accent announcement-card h-100">
+                <div class="announcement-card__meta">
+                  <span class="announcement-card__badge">Urgent</span>
+                  <span class="announcement-card__date">April 15, 2026</span>
+                </div>
+                <h3 class="h3 announcement-card__title">School Holiday Notice</h3>
+                <p class="announcement-card__text">The school will remain closed tomorrow due to unseasonal heavy rainfall warnings. Online assignments will be posted on the portal.</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card announcement-card h-100">
+                <div class="announcement-card__meta">
+                  <span class="announcement-card__badge" style="background: rgba(11, 18, 32, 0.08); color: rgba(11, 18, 32, 0.7)">General</span>
+                  <span class="announcement-card__date">April 10, 2026</span>
+                </div>
+                <h3 class="h3 announcement-card__title">Parent-Teacher Meeting Schedule</h3>
+                <p class="announcement-card__text">The PTM for the first quarter will be held on upcoming Saturday. Please check the timings section for your respective class roll numbers.</p>
+              </div>
+            </div>
+          </div>
+          <div class="callout mt-24 d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+            <div class="callout__text">
+              <strong>Stay Informed:</strong> Missing a circular? View the complete list of announcements.
+            </div>
+            <a class="btn btn--ghost" href="announcements.html">View All Announcements</a>
+          </div>
+        </div>
+      </section>
+
       <section class="section section--alt">
         <div class="container">
           <div class="section__head">
-            <h2>Recent Events & Achievements</h2>
+            <h2>Recent Events &amp; Achievements</h2>
             <p class="section__sub">Recent highlights from school celebrations, competitions, and student recognition.</p>
           </div>
-          <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
-            <article class="card event-card col">
-              <div class="event-card__media">
-                <img src="assets/images/home/image_4.png" alt="Students participating in a sports event" loading="lazy" />
-              </div>
-              <div class="event-card__body">
-                <div class="event-card__meta">
-                  <span class="event-card__tag">Event</span>
-                  <span class="event-card__date">March 2026</span>
+          <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-2">
+            <div class="col">
+              <article class="card event-card h-100">
+                <div class="event-card__media">
+                  <img src="assets/images/home/image_4.png" alt="Students participating in a sports event" loading="lazy" />
                 </div>
-                <div class="event-card__title">Annual Sports Meet</div>
-                <p class="event-card__text">
-                  Students took part in races, relays, and team games that encouraged sportsmanship, fitness, and house spirit.
-                </p>
-              </div>
-            </article>
+                <div class="event-card__body">
+                  <div class="event-card__meta">
+                    <span class="event-card__tag">Event</span>
+                    <span class="event-card__date">March 2026</span>
+                  </div>
+                  <div class="event-card__title">Annual Sports Meet</div>
+                  <p class="event-card__text">
+                    Students took part in races, relays, and team games that encouraged sportsmanship, fitness, and house spirit.
+                  </p>
+                </div>
+              </article>
+            </div>
 
-            <article class="card event-card col">
-              <div class="event-card__media">
-                <img src="assets/images/about/image_2.png" alt="Students gathered for a school program" loading="lazy" />
-              </div>
-              <div class="event-card__body">
-                <div class="event-card__meta">
-                  <span class="event-card__tag">Event</span>
-                  <span class="event-card__date">February 2026</span>
+            <div class="col">
+              <article class="card event-card h-100">
+                <div class="event-card__media">
+                  <img src="assets/images/about/image_2.png" alt="Students gathered for a school program" loading="lazy" />
                 </div>
-                <div class="event-card__title">Science Exhibition</div>
-                <p class="event-card__text">
-                  Classes presented simple models and working exhibits that showcased curiosity, creativity, and practical learning.
-                </p>
-              </div>
-            </article>
+                <div class="event-card__body">
+                  <div class="event-card__meta">
+                    <span class="event-card__tag">Event</span>
+                    <span class="event-card__date">February 2026</span>
+                  </div>
+                  <div class="event-card__title">Science Exhibition</div>
+                  <p class="event-card__text">
+                    Classes presented simple models and working exhibits that showcased curiosity, creativity, and practical learning.
+                  </p>
+                </div>
+              </article>
+            </div>
 
-            <article class="card event-card col">
-              <div class="event-card__media">
-                <img src="assets/images/home/image_2.png" alt="Students receiving recognition at an award function" loading="lazy" />
-              </div>
-              <div class="event-card__body">
-                <div class="event-card__meta">
-                  <span class="event-card__tag">Achievement</span>
-                  <span class="event-card__date">January 2026</span>
+            <div class="col">
+              <article class="card event-card h-100">
+                <div class="event-card__media">
+                  <img src="assets/images/home/image_2.png" alt="Students receiving recognition at an award function" loading="lazy" />
                 </div>
-                <div class="event-card__title">Merit Award Ceremony</div>
-                <p class="event-card__text">
-                  Students with outstanding academic performance and regular attendance were recognized in the school assembly.
-                </p>
-              </div>
-            </article>
+                <div class="event-card__body">
+                  <div class="event-card__meta">
+                    <span class="event-card__tag">Achievement</span>
+                    <span class="event-card__date">January 2026</span>
+                  </div>
+                  <div class="event-card__title">Merit Award Ceremony</div>
+                  <p class="event-card__text">
+                    Students with outstanding academic performance and regular attendance were recognized in the school assembly.
+                  </p>
+                </div>
+              </article>
+            </div>
           </div>
 
           <div class="callout mt-24 d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
             <div class="callout__text">
               <strong>View the full showcase:</strong> Explore more sample events, achievements, and school moments on the new page.
             </div>
-            <a class="btn btn--primary" href="events.html">View Events & Achievements</a>
+            <a class="btn btn--primary" href="events.html">View Events &amp; Achievements</a>
           </div>
         </div>
       </section>
 
       <section class="section section--alt">
-        <div class="container row row-cols-1 row-cols-lg-2 g-4">
-          <div class="card col-12 col-lg-6 h-100">
+        <div class="container">
+          <div class="row row-cols-1 row-cols-lg-2 g-2">
+          <div class="col-12 col-lg-6">
+            <div class="card h-100">
             <h2 class="h3">Our Approach to Learning</h2>
             <p>
               Learning goes beyond textbooks. Students are encouraged to think independently, ask questions, and develop problem-solving
               skills through interactive teaching methods, activity-based learning, and regular assessments.
             </p>
+            </div>
           </div>
-          <div class="card col-12 col-lg-6 h-100">
+          <div class="col-12 col-lg-6">
+            <div class="card h-100">
             <h2 class="h3">Holistic Development</h2>
             <p>Students are encouraged to participate in:</p>
-            <ul class="bullets">
+            <ul class="check-list">
               <li>Sports and physical activities</li>
               <li>Cultural events and competitions</li>
               <li>Academic and co-curricular programs</li>
             </ul>
             <p class="muted">These experiences help build confidence, teamwork, and leadership qualities.</p>
+            </div>
+          </div>
           </div>
         </div>
       </section>
 
       <section class="section">
-        <div class="container row row-cols-1 row-cols-lg-2 g-4">
-          <div class="card col-12 col-lg-6 h-100">
+        <div class="container">
+          <div class="row row-cols-1 row-cols-lg-2 g-2">
+          <div class="col-12 col-lg-6">
+            <div class="card h-100">
             <h2 class="h3">Holistic Development</h2>
             <p>The school believes in the all-round development of every child. Students are encouraged to participate in:</p>
-            <ul class="bullets">
+            <ul class="check-list">
               <li>Sports and physical activities</li>
               <li>Cultural events and competitions</li>
               <li>Academic and co-curricular programs</li>
             </ul>
             <p class="muted">This helps in building confidence, teamwork, and leadership qualities.</p>
+            </div>
           </div>
-          <div class="card col-12 col-lg-6 h-100">
+          <div class="col-12 col-lg-6">
+            <div class="card h-100">
             <h2 class="h3">Admissions Open</h2>
             <p>
               Admissions are open for the upcoming academic session. Parents are encouraged to visit the school campus or contact the
               office for detailed information about the admission process.
             </p>
-            <h3 class="h4">Stay Connected</h3>
+            <h3 class="h3 mt-3">Stay Connected</h3>
             <p class="muted">Keep visiting this page for the latest updates on school activities, announcements, and achievements.</p>
+            </div>
+          </div>
           </div>
         </div>
       </section>
@@ -303,23 +370,31 @@
             <h2>Quick Links</h2>
             <p class="section__sub">Explore key information about our school.</p>
           </div>
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-4">
-            <a class="card col h-100" href="about.html">
-              <h3>About Us</h3>
-              <p class="muted">History, vision, mission and principal’s message.</p>
-            </a>
-            <a class="card col h-100" href="management.html">
-              <h3>Management</h3>
-              <p class="muted">Management body and our commitment to values.</p>
-            </a>
-            <a class="card col h-100" href="academics.html">
-              <h3>Academics</h3>
-              <p class="muted">ICSE curriculum, classes offered, and methodology.</p>
-            </a>
-            <a class="card col h-100" href="facilities.html">
-              <h3>Facilities</h3>
-              <p class="muted">Campus, labs, library, sports and transport.</p>
-            </a>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-2">
+            <div class="col">
+              <a class="card h-100" href="about.html">
+                <h3>About Us</h3>
+                <p class="muted">History, vision, mission and principal’s message.</p>
+              </a>
+            </div>
+            <div class="col">
+              <a class="card h-100" href="management.html">
+                <h3>Management</h3>
+                <p class="muted">Management body and our commitment to values.</p>
+              </a>
+            </div>
+            <div class="col">
+              <a class="card h-100" href="academics.html">
+                <h3>Academics</h3>
+                <p class="muted">ICSE curriculum, classes offered, and methodology.</p>
+              </a>
+            </div>
+            <div class="col">
+              <a class="card h-100" href="facilities.html">
+                <h3>Facilities</h3>
+                <p class="muted">Campus, labs, library, sports and transport.</p>
+              </a>
+            </div>
           </div>
 
           <div class="callout mt-24 d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
@@ -339,16 +414,21 @@
           <div class="footer__brand">K.E. Carmel School, Siliguri</div>
           <div class="footer__small">© <span data-year></span> K.E. Carmel School. All rights reserved.</div>
         </div>
-          <div class="footer__right">
-            <a href="about.html">About</a>
-            <a href="management.html">Management</a>
-            <a href="academics.html">Academics</a>
-            <a href="admissions.html">Admissions</a>
-            <a href="events.html">Events</a>
-            <a href="contact.html">Contact</a>
-          </div>
+        <div class="footer__right">
+          <a href="about.html">About</a>
+          <a href="management.html">Management</a>
+          <a href="academics.html">Academics</a>
+          <a href="admissions.html">Admissions</a>
+          <a href="events.html">Events</a>
+          <a href="announcements.html">Announcements</a>
+          <a href="contact.html">Contact</a>
         </div>
-      </footer>
+      </div>
+      <hr class="footer__divider" />
+      <div class="footer__credit container">
+        Designed, Developed &amp; Maintained by &nbsp;|&nbsp; CHRIST Infotech (Software Research &amp; Development Center), CHRIST University, Pune - Lavasa, India
+      </div>
+    </footer>
 
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script defer src="assets/js/main.js"></script>
