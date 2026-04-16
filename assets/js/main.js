@@ -3,12 +3,15 @@
   const navToggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector("#site-nav");
   const navLinks = Array.from(document.querySelectorAll(".site-nav__link"));
+  const mobileBreakpoint = window.matchMedia("(max-width: 720px)");
 
   const setNavOpen = (open) => {
     if (!header || !navToggle) return;
     header.dataset.open = open ? "true" : "false";
     navToggle.setAttribute("aria-expanded", open ? "true" : "false");
   };
+
+  const closeNav = () => setNavOpen(false);
 
   if (navToggle && nav) {
     navToggle.addEventListener("click", () => setNavOpen(header?.dataset.open !== "true"));
@@ -18,13 +21,21 @@
       const target = e.target;
       if (!(target instanceof Node)) return;
       if (header.contains(target)) return;
-      setNavOpen(false);
+      closeNav();
     });
 
     nav.addEventListener("click", (e) => {
       const target = e.target;
       if (!(target instanceof HTMLElement)) return;
-      if (target.closest("a")) setNavOpen(false);
+      if (target.closest("a")) closeNav();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeNav();
+    });
+
+    mobileBreakpoint.addEventListener("change", (event) => {
+      if (!event.matches) closeNav();
     });
   }
 
