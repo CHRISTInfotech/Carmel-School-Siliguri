@@ -1,4 +1,42 @@
 (() => {
+  // Give every inner page the same shell and visual language as the redesigned homepage.
+  const isHomePage = document.body.classList.contains("home-page");
+  if (!isHomePage) {
+    document.body.classList.add("inner-page", "is-loading");
+    document.body.classList.add(`page-${(window.location.pathname.split("/").pop() || "inner").replace(/\.html$/i, "")}`);
+    if (!document.querySelector('link[href*="family=DM+Sans"]')) {
+      document.head.insertAdjacentHTML("beforeend", '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"><link rel="preload" href="assets/images/logo/temp-carmel-school-logo.png" as="image" type="image/png">');
+    }
+    document.querySelector(".topbar")?.remove();
+
+    const oldHeader = document.querySelector("header[data-header]");
+    if (oldHeader) {
+      oldHeader.outerHTML = `
+        <div class="splash" data-splash role="status" aria-label="Loading K.E. Carmel School website">
+          <div class="splash__mark"><img src="assets/images/logo/temp-carmel-school-logo.png" alt="K.E. Carmel School logo"></div>
+          <p class="splash__name">K.E. Carmel School</p><span class="splash__place">Siliguri</span><span class="splash__loader" aria-hidden="true"></span>
+        </div>
+        <header class="home-header inner-header" data-header>
+          <div class="home-container social-bar"><div class="elements-social social-icon"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="X">X</a><a href="#" aria-label="YouTube">▶</a><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="WhatsApp">◉</a><a href="tel:+916295975836" aria-label="Call">☎</a></div><a class="overlay-admission" href="admissions.html">Get Admission</a></div>
+          <div class="home-container home-header__inner">
+            <nav class="home-nav home-nav--left"><a class="site-nav__link" href="index.html">Home</a><a class="site-nav__link" href="about.html">About</a><a class="site-nav__link" href="academics.html">Academics</a><a class="site-nav__link" href="management.html">Management</a></nav>
+            <a class="home-brand" href="index.html" aria-label="K.E. Carmel School Siliguri home"><img src="assets/images/logo/temp-carmel-school-logo.png" alt=""><span><strong>K. E. CARMEL</strong><small>SCHOOL, SILIGURI</small><em>To Plant And Nurture</em></span></a>
+            <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+            <nav class="home-nav home-nav--right"><a class="site-nav__link" href="facilities.html">Facilities</a><a class="site-nav__link" href="admissions.html">Admissions</a><a class="site-nav__link" href="events.html">Events</a><a class="site-nav__link" href="gallery.html">Gallery</a><a class="site-nav__link" href="contact.html">Contact</a></nav>
+            <nav id="site-nav" class="mobile-home-nav site-nav" aria-label="Mobile navigation"><a class="site-nav__link" href="index.html">Home</a><a class="site-nav__link" href="about.html">About</a><a class="site-nav__link" href="academics.html">Academics</a><a class="site-nav__link" href="management.html">Management</a><a class="site-nav__link" href="facilities.html">Facilities</a><a class="site-nav__link" href="admissions.html">Admissions</a><a class="site-nav__link" href="events.html">Events</a><a class="site-nav__link" href="gallery.html">Gallery</a><a class="site-nav__link" href="contact.html">Contact</a></nav>
+          </div>
+        </header>`;
+    }
+
+    const oldFooter = document.querySelector("footer");
+    if (oldFooter) {
+      oldFooter.outerHTML = `
+        <footer class="home-footer"><div class="home-container footer-main"><div class="footer-about"><a class="home-brand home-brand--footer" href="index.html"><img src="assets/images/logo/temp-carmel-school-logo.png" alt=""><span><strong>K. E. CARMEL</strong><small>SCHOOL, SILIGURI</small><em>To Plant And Nurture</em></span></a><p class="text-light">A co-educational English-medium institution committed to academic excellence, discipline, strong values and holistic development.</p><div class="elements-social footer-social"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="X">X</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="LinkedIn">in</a></div></div><div><h3>Quick Links</h3><a href="index.html">Home</a><a href="about.html">About</a><a href="academics.html">Academics</a><a href="management.html">Management</a></div><div><h3>Quick Links</h3><a href="facilities.html">Facilities</a><a href="admissions.html">Admissions</a><a href="events.html">Events</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div></div><div class="home-container footer-bottom"><a href="#main">Go Top ↑</a><p style="color:#ffffff9a">© <span data-year></span> K.E. Carmel School, Siliguri. All Rights Reserved.</p></div><div class="home-container footer-credit-line">Designed, Developed &amp; Maintained by&nbsp; | &nbsp;<a href="https://christinfotech.org/" target="_blank" rel="noopener"><strong>CHRIST Infotech</strong></a> (Software Research &amp; Development Center), <a href="https://lavasa.christuniversity.in/" target="_blank" rel="noopener"><strong>CHRIST University, Pune - Lavasa</strong></a>, India</div></footer>`;
+    }
+
+    document.querySelectorAll("main .section__head, main .card, main .gallery__item, main .person-card, main .event-card, main .achievement-card").forEach((item) => item.classList.add("reveal"));
+  }
+
   const header = document.querySelector("[data-header]");
   const navToggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector("#site-nav");
@@ -75,5 +113,136 @@
       window.location.href = `mailto:kecarmel.ambari@gmail.com?subject=${subject}&body=${body}`;
       if (note) note.textContent = "If your email app did not open, please email us at kecarmel.ambari@gmail.com.";
     });
+  }
+
+  // Homepage splash screen. It also appears briefly for internal page navigation.
+  const splash = document.querySelector("[data-splash]");
+  const hideSplash = () => {
+    if (!splash) return;
+    splash.classList.add("is-hidden");
+    document.body.classList.remove("is-loading");
+  };
+  if (splash) {
+    window.addEventListener("load", () => window.setTimeout(hideSplash, 650), { once: true });
+    window.setTimeout(hideSplash, 2200);
+    document.querySelectorAll('a[href$=".html"]').forEach((link) => {
+      link.addEventListener("click", (event) => {
+        if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        const href = link.getAttribute("href");
+        if (!href || link.target === "_blank") return;
+        event.preventDefault();
+        splash.classList.remove("is-hidden");
+        document.body.classList.add("is-loading");
+        window.setTimeout(() => { window.location.href = href; }, 330);
+      });
+    });
+  }
+
+  // Homepage hero carousel.
+  const carousel = document.querySelector("[data-carousel]");
+  if (carousel) {
+    const slides = Array.from(carousel.querySelectorAll(".home-slide"));
+    const dots = Array.from(carousel.querySelectorAll("[data-carousel-dot]"));
+    let currentSlide = 0;
+    let autoplay;
+    const showSlide = (index) => {
+      currentSlide = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => slide.classList.toggle("is-active", i === currentSlide));
+      dots.forEach((dot, i) => dot.classList.toggle("is-active", i === currentSlide));
+    };
+    const startAutoplay = () => {
+      window.clearInterval(autoplay);
+      autoplay = window.setInterval(() => showSlide(currentSlide + 1), 6000);
+    };
+    carousel.querySelector("[data-carousel-prev]")?.addEventListener("click", () => { showSlide(currentSlide - 1); startAutoplay(); });
+    carousel.querySelector("[data-carousel-next]")?.addEventListener("click", () => { showSlide(currentSlide + 1); startAutoplay(); });
+    dots.forEach((dot, index) => dot.addEventListener("click", () => { showSlide(index); startAutoplay(); }));
+    carousel.addEventListener("mouseenter", () => window.clearInterval(autoplay));
+    carousel.addEventListener("mouseleave", startAutoplay);
+    startAutoplay();
+  }
+
+  // Gentle reveal transitions as sections enter the viewport.
+  const revealItems = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12 });
+    revealItems.forEach((item) => revealObserver.observe(item));
+  } else {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+  }
+
+  // The homepage navigation starts over the hero and becomes compact after scrolling.
+  if (header && (document.body.classList.contains("home-page") || document.body.classList.contains("inner-page"))) {
+    const updateHeader = () => header.classList.toggle("is-sticky", window.scrollY > 120);
+    updateHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
+  }
+
+  // Reusable horizontal sliders used by notices, facilities and campus stories.
+  const initTrackSlider = (rootSelector, trackSelector, prevSelector, nextSelector) => {
+    const root = document.querySelector(rootSelector);
+    const track = root?.querySelector(trackSelector);
+    if (!root || !track) return;
+    const items = Array.from(track.children);
+    let position = 0;
+    const visibleItems = () => {
+      if (window.innerWidth <= 700) return 1;
+      if (root.matches("[data-story-slider]")) return Math.max(1, Math.floor(window.innerWidth / 332));
+      if (root.matches("[data-card-slider]")) return window.innerWidth <= 1000 ? 2 : 3;
+      return 2;
+    };
+    const render = () => {
+      const first = items[0];
+      if (!first) return;
+      const gap = parseFloat(getComputedStyle(track).gap) || 0;
+      const max = Math.max(0, items.length - visibleItems());
+      position = Math.min(position, max);
+      track.style.transform = `translateX(-${position * (first.getBoundingClientRect().width + gap)}px)`;
+    };
+    root.querySelector(prevSelector)?.addEventListener("click", () => { position = Math.max(0, position - 1); render(); });
+    root.querySelector(nextSelector)?.addEventListener("click", () => { position = Math.min(Math.max(0, items.length - visibleItems()), position + 1); render(); });
+    window.addEventListener("resize", render);
+    render();
+  };
+  initTrackSlider("[data-strip-slider]", "[data-strip-track]", "[data-strip-prev]", "[data-strip-next]");
+  initTrackSlider("[data-card-slider]", "[data-card-track]", "[data-card-prev]", "[data-card-next]");
+  initTrackSlider("[data-story-slider]", "[data-story-track]", "[data-story-prev]", "[data-story-next]");
+
+  document.querySelectorAll(".faq-list details").forEach((item) => {
+    item.addEventListener("toggle", () => {
+      if (!item.open) return;
+      item.parentElement?.querySelectorAll("details").forEach((other) => {
+        if (other !== item) other.removeAttribute("open");
+      });
+    });
+  });
+
+  // PowerPoint-style Float In for every homepage section heading and Notice Board carousel.
+  const floatTargets = document.querySelectorAll([
+    ".home-page .section-heading",
+    ".home-page .notice-strip__title",
+    ".home-page .notice-viewport",
+    ".home-page .welcome-copy h2",
+    ".home-page .stats-heading",
+    ".home-page .leadership-copy h2",
+  ].join(","));
+  floatTargets.forEach((target) => target.classList.add("float-in-target"));
+  if ("IntersectionObserver" in window) {
+    const floatObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-floated");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.18 });
+    floatTargets.forEach((target) => floatObserver.observe(target));
+  } else {
+    floatTargets.forEach((target) => target.classList.add("is-floated"));
   }
 })();
