@@ -4322,6 +4322,18 @@ textarea:not(.form-control):focus-visible {
   gap: 24px;
 }
 
+/* Gallery page uses Bootstrap gutters; an additional flex gap forced one card per row. */
+.page-gallery .gallery.row {
+  gap: 0;
+  --bs-gutter-x: 24px;
+  --bs-gutter-y: 24px;
+}
+
+.page-gallery .gallery.row>.col {
+  flex: 0 0 auto;
+  width: 50%;
+}
+
 .inner-page .gallery__item {
   padding: 10px 10px 0;
   overflow: hidden;
