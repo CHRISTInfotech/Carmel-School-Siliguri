@@ -139,9 +139,9 @@
         </div>
 
         <div class="mt-24">
-          <div class="card">
+          <div class="card enquiry-card">
             <h2 class="h3">Enquiry Form</h2>
-            <form class="form" data-enquiry-form>
+            <form class="form" onsubmit="return false;">
               <label class="field">
                 <span class="field__label form-label">Name</span>
                 <input class="form-control" name="name" type="text" autocomplete="name" required />
@@ -159,8 +159,7 @@
                 <textarea class="form-control" name="message" rows="5" required></textarea>
               </label>
               <div class="form__actions">
-                <button class="btn btn--primary" type="submit">Send Enquiry</button>
-                <p class="form__note muted" data-form-note>This opens your email app to send the message.</p>
+                <button class="btn btn--primary" type="button">Send Enquiry</button>
               </div>
             </form>
           </div>

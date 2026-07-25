@@ -4114,6 +4114,59 @@ textarea:not(.form-control):focus-visible {
   }
 }
 
+/* Final icon, statistics and contact-form refinements */
+.social-icon a svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.stats-grid {
+  width: 100%;
+  margin-inline: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.stats-grid article {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stats-grid article i svg {
+  width: 34px;
+  height: 34px;
+  display: block;
+}
+
+.page-contact .enquiry-card {
+  color: #fff;
+  border-color: rgba(255, 255, 255, .18) !important;
+  background: var(--template-green);
+}
+
+.page-contact .enquiry-card:hover {
+  border-color: rgba(255, 255, 255, .3) !important;
+  box-shadow: 0 20px 42px rgba(0, 70, 43, .22);
+}
+
+.page-contact .enquiry-card h2,
+.page-contact .enquiry-card .field__label {
+  color: #fff;
+}
+
+.page-contact .enquiry-card .form-control {
+  color: #242424;
+  border-color: rgba(255, 255, 255, .5);
+  background: #fff;
+}
+
+.page-contact .enquiry-card .btn--primary {
+  color: #24200a;
+  background: var(--template-yellow);
+}
+
 /* Shared inner-page design system */
 .inner-page {
   --template-green: #00643d;
@@ -4332,6 +4385,34 @@ textarea:not(.form-control):focus-visible {
 .page-gallery .gallery.row>.col {
   flex: 0 0 auto;
   width: 50%;
+}
+
+/* Keep statistic SVGs consistent with the other circular icons. */
+.stats-grid i svg {
+  display: block;
+  width: 42px;
+  height: 42px;
+}
+
+/* This must follow the generic inner-page card rules. */
+.inner-page.page-contact .enquiry-card,
+.inner-page.page-contact .enquiry-card:hover {
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, .22) !important;
+  background: #00643d !important;
+}
+
+.inner-page.page-contact .enquiry-card h2,
+.inner-page.page-contact .enquiry-card label,
+.inner-page.page-contact .enquiry-card .field__label,
+.inner-page.page-contact .enquiry-card .form__actions {
+  color: #fff !important;
+}
+
+.inner-page.page-contact .enquiry-card .btn--primary {
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, .55);
+  background: #004f30 !important;
 }
 
 .inner-page .gallery__item {
