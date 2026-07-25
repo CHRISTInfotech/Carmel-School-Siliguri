@@ -34,6 +34,10 @@
         <footer class="home-footer"><div class="home-container footer-main"><div class="footer-about"><a class="home-brand home-brand--footer" href="index.html"><img src="assets/images/logo/temp-carmel-school-logo.png" alt=""><span><strong>K. E. CARMEL</strong><small>SCHOOL, SILIGURI</small><em>To Plant And Nurture</em></span></a><p class="text-light">A co-educational English-medium institution committed to academic excellence, discipline, strong values and holistic development.</p><div class="elements-social footer-social"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="X">X</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="LinkedIn">in</a></div></div><div><h3>Quick Links</h3><a href="index.html">Home</a><a href="about.html">About</a><a href="academics.html">Academics</a><a href="management.html">Management</a></div><div><h3>Quick Links</h3><a href="facilities.html">Facilities</a><a href="admissions.html">Admissions</a><a href="events.html">Events</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div></div><div class="home-container footer-bottom"><a href="#main">Go Top ↑</a><p style="color:#ffffff9a">© <span data-year></span> K.E. Carmel School, Siliguri. All Rights Reserved.</p></div><div class="home-container footer-credit-line">Designed, Developed &amp; Maintained by&nbsp; | &nbsp;<a href="https://christinfotech.org/" target="_blank" rel="noopener"><strong>CHRIST Infotech</strong></a> (Software Research &amp; Development Center), <a href="https://lavasa.christuniversity.in/" target="_blank" rel="noopener"><strong>CHRIST University, Pune - Lavasa</strong></a>, India</div></footer>`;
     }
 
+    const topSocial = document.querySelector(".social-icon");
+    const footerSocial = document.querySelector(".footer-social");
+    if (topSocial && footerSocial) footerSocial.innerHTML = topSocial.innerHTML;
+
     document.querySelectorAll("main .section__head, main .card, main .gallery__item, main .person-card, main .event-card, main .achievement-card").forEach((item) => item.classList.add("reveal"));
   }
 
@@ -193,6 +197,8 @@
     let position = 0;
     const visibleItems = () => {
       if (window.innerWidth <= 700) return 1;
+      if (root.matches("[data-activity-slider]")) return 6;
+      if (root.matches("[data-gallery-slider]")) return 5;
       if (root.matches("[data-story-slider]")) return Math.max(1, Math.floor(window.innerWidth / 332));
       if (root.matches("[data-card-slider]")) return window.innerWidth <= 1000 ? 2 : 3;
       return 2;
@@ -205,14 +211,24 @@
       position = Math.min(position, max);
       track.style.transform = `translateX(-${position * (first.getBoundingClientRect().width + gap)}px)`;
     };
-    root.querySelector(prevSelector)?.addEventListener("click", () => { position = Math.max(0, position - 1); render(); });
-    root.querySelector(nextSelector)?.addEventListener("click", () => { position = Math.min(Math.max(0, items.length - visibleItems()), position + 1); render(); });
+    root.querySelector(prevSelector)?.addEventListener("click", () => {
+      const max = Math.max(0, items.length - visibleItems());
+      position = position <= 0 ? max : position - 1;
+      render();
+    });
+    root.querySelector(nextSelector)?.addEventListener("click", () => {
+      const max = Math.max(0, items.length - visibleItems());
+      position = position >= max ? 0 : position + 1;
+      render();
+    });
     window.addEventListener("resize", render);
     render();
   };
   initTrackSlider("[data-strip-slider]", "[data-strip-track]", "[data-strip-prev]", "[data-strip-next]");
   initTrackSlider("[data-card-slider]", "[data-card-track]", "[data-card-prev]", "[data-card-next]");
   initTrackSlider("[data-story-slider]", "[data-story-track]", "[data-story-prev]", "[data-story-next]");
+  initTrackSlider("[data-activity-slider]", "[data-activity-track]", "[data-activity-prev]", "[data-activity-next]");
+  initTrackSlider("[data-gallery-slider]", "[data-gallery-track]", "[data-gallery-prev]", "[data-gallery-next]");
 
   document.querySelectorAll(".faq-list details").forEach((item) => {
     item.addEventListener("toggle", () => {
