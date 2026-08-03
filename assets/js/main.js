@@ -132,7 +132,7 @@
     document.body.classList.remove("is-loading");
   };
   if (splash) {
-    window.addEventListener("load", () => window.setTimeout(hideSplash, 5000), { once: true });
+    window.addEventListener("load", () => window.setTimeout(hideSplash, 1000), { once: true });
     window.setTimeout(hideSplash, 12000);
     document.querySelectorAll('a[href$=".html"]').forEach((link) => {
       link.addEventListener("click", (event) => {
@@ -311,6 +311,53 @@
       }
     });
   });
+
+  // Facilities rules open in a modal so every summary card remains equal in size.
+  const rulesTriggers = document.querySelectorAll("[data-rules-modal]");
+  if (rulesTriggers.length) {
+    document.body.insertAdjacentHTML("beforeend", `
+      <div class="rules-modal" data-rules-dialog hidden role="dialog" aria-modal="true" aria-labelledby="rules-modal-title">
+        <div class="rules-modal__backdrop" data-rules-close></div>
+        <div class="rules-modal__dialog">
+          <div class="rules-modal__header">
+            <div><p data-rules-label></p><h2 id="rules-modal-title">Rules</h2></div>
+            <button type="button" data-rules-close aria-label="Close rules modal">&times;</button>
+          </div>
+          <div class="rules-modal__content">
+            <img class="rules-modal__image" data-rules-image src="" alt="">
+            <div data-rules-content></div>
+          </div>
+        </div>
+      </div>`);
+    const rulesModal = document.querySelector("[data-rules-dialog]");
+    const rulesContent = rulesModal.querySelector("[data-rules-content]");
+    const rulesLabel = rulesModal.querySelector("[data-rules-label]");
+    const rulesImage = rulesModal.querySelector("[data-rules-image]");
+    let rulesReturnFocus = null;
+    const closeRulesModal = () => {
+      rulesModal.hidden = true;
+      document.body.classList.remove("rules-modal-open");
+      rulesReturnFocus?.focus();
+    };
+    rulesTriggers.forEach((trigger) => trigger.addEventListener("click", () => {
+      const source = document.getElementById(trigger.dataset.rulesSource);
+      if (!source) return;
+      rulesContent.innerHTML = source.innerHTML;
+      rulesLabel.textContent = trigger.dataset.rulesLabel || "Facility";
+      const cardImage = trigger.closest(".facility")?.querySelector(".facility-static-media img");
+      rulesImage.src = cardImage?.getAttribute("src") || "";
+      rulesImage.alt = cardImage?.getAttribute("alt") || `${rulesLabel.textContent} facility`;
+      rulesImage.hidden = !rulesImage.src;
+      rulesReturnFocus = trigger;
+      rulesModal.hidden = false;
+      document.body.classList.add("rules-modal-open");
+      rulesModal.querySelector(".rules-modal__header button")?.focus();
+    }));
+    rulesModal.querySelectorAll("[data-rules-close]").forEach((control) => control.addEventListener("click", closeRulesModal));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !rulesModal.hidden) closeRulesModal();
+    });
+  }
 
   // Shared medium-size image carousel modal for Facilities and Events cards.
   const mediaGallerySets = {

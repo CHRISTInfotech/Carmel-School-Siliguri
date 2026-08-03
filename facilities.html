@@ -90,10 +90,9 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-2 mt-24">
           <div class="col">
             <div class="facility card h-100">
-              <button class="card-media-carousel" type="button" data-media-gallery="classrooms"
-                aria-label="Open Classrooms image gallery"><img class="facility__img"
+              <div class="facility-static-media"><img class="facility__img"
                   src="assets/images/KE CARMEL (1)/Classroom/IMG-20260801-WA0023.jpg.jpeg" alt="Students learning in a classroom"
-                  loading="lazy" /><span>View gallery</span></button>
+                  loading="lazy" /></div>
               <h2 class="h3">Classrooms</h2>
               <ul class="check-list">
                 <li>Spacious and well-ventilated</li>
@@ -104,32 +103,48 @@
           </div>
           <div class="col">
             <div class="facility card h-100">
-              <button class="card-media-carousel" type="button" data-media-gallery="laboratories"
-                aria-label="Open Laboratories image gallery"><img class="facility__img"
+              <div class="facility-static-media"><img class="facility__img"
                   src="assets/images/KECS/Biology Lab/IMG_20260728_111214.jpg.jpeg" alt="School laboratory"
-                  loading="lazy" /><span>View gallery</span></button>
+                  loading="lazy" /></div>
               <h2 class="h3">Laboratories</h2>
-              <ul class="check-list"><li>The Computer Lab, Science Labs and Library must be used with utmost care.</li><li>If anything is found missing or damaged, students will have to share the expenses in common.</li><li>Students must not open the CPU or unplug the mouse from the computers.</li></ul>
+              <ul class="check-list">
+                <li>Well-equipped with modern instruments and equipment</li>
+                <li>Safe and practical environment for hands-on learning</li>
+                <li>Encourages scientific exploration and innovation</li>
+              </ul>
+              <div id="laboratory-rules" class="facility-rules-source" hidden>
+                <ul class="check-list">
+                  <li>The Computer Lab, Science Labs and Library must be used with utmost care.</li>
+                  <li>If anything is found missing or damaged, students will have to share the expenses in common.</li>
+                  <li>Students must not open the CPU or unplug the mouse from the computers.</li>
+                </ul>
+              </div>
+              <button class="facility-read-more" type="button" data-rules-modal
+                data-rules-source="laboratory-rules" data-rules-label="Laboratories">Read More</button>
             </div>
           </div>
           <div class="col">
             <div class="facility card h-100">
-              <button class="card-media-carousel" type="button" data-media-gallery="library"
-                aria-label="Open Library image gallery"><img class="facility__img"
+              <div class="facility-static-media"><img class="facility__img"
                   src="assets/images/KECS/Library/IMG_20260728_111849.jpg.jpeg" alt="School library"
-                  loading="lazy" /><span>View gallery</span></button>
+                  loading="lazy" /></div>
               <h2 class="h3">Library</h2>
-              <ul class="facility-rules check-list" data-expandable-list>
-                <li>Students may borrow only one book at a time and retain it for one week. Borrowed books are not
-                  transferable.</li>
-                <li>If a book is not returned on the due date a fine of Rs. 5/- per day thereafter is imposed.</li>
-                <li>Reference books, periodicals, etc. should not be taken out of the reading room.</li>
-                <li>Borrowers must report any damage, loss of pages, pictures etc. to the Librarian before they accept
-                  the books. If any book is lost, damaged or badly handled, the actual cost for the replacement of the
-                  book will have to be paid by the borrower. No page shall be mutilated, torn or spoilt.</li>
-                <li>Strict silence should be maintained inside the Library and Reading Room.</li>
+              <ul class="check-list">
+                <li>Wide range of books collection and learning resources</li>
+                <li>Quiet and comfortable space for reading and research</li>
+                <li>Promotes knowledge, curiosity, and lifelong learning</li>
               </ul>
-              <button class="facility-read-more" type="button" data-expand-list aria-expanded="false">Read More</button>
+              <div id="library-rules" class="facility-rules-source" hidden>
+                <ul class="facility-rules check-list">
+                  <li>Students may borrow only one book at a time and retain it for one week. Borrowed books are not transferable.</li>
+                  <li>If a book is not returned on the due date a fine of Rs. 5/- per day thereafter is imposed.</li>
+                  <li>Reference books, periodicals, etc. should not be taken out of the reading room.</li>
+                  <li>Borrowers must report any damage, loss of pages, pictures etc. to the Librarian before they accept the books. If any book is lost, damaged or badly handled, the actual cost for the replacement of the book will have to be paid by the borrower. No page shall be mutilated, torn or spoilt.</li>
+                  <li>Strict silence should be maintained inside the Library and Reading Room.</li>
+                </ul>
+              </div>
+              <button class="facility-read-more" type="button" data-rules-modal
+                data-rules-source="library-rules" data-rules-label="Library">Read More</button>
             </div>
           </div>
         </div>
@@ -137,20 +152,9 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-2 mt-24">
           <div class="col">
             <div class="facility card h-100">
-              <button class="card-media-carousel" type="button" data-media-gallery="science-facilities"
-                aria-label="Open Science Facilities image gallery"><img class="facility__img"
-                  src="assets/images/KECS/Chemistry Lab/IMG_20260728_111343.jpg.jpeg" alt="Chemistry laboratory"
-                  loading="lazy" /><span>View gallery</span></button>
-              <h2 class="h3">Science Facilities</h2>
-              <ul class="check-list"><li>The science laboratories support practical learning and must be used with utmost care.</li><li>Missing or damaged equipment will require students to share the replacement expense in common.</li></ul>
-            </div>
-          </div>
-          <div class="col">
-            <div class="facility card h-100">
-              <button class="card-media-carousel" type="button" data-media-gallery="sports-playground"
-                aria-label="Open Sports and Playground image gallery"><img class="facility__img"
+              <div class="facility-static-media"><img class="facility__img"
                   src="assets/images/KE CARMEL (1)/Sports day/IMG-20260715-WA0035.jpg"
-                  alt="Students participating in sports" loading="lazy" /><span>View gallery</span></button>
+                  alt="Students participating in sports" loading="lazy" /></div>
               <h2 class="h3">Sports &amp; Playground</h2>
               <ul class="check-list">
                 <li>Open space for outdoor games and activities</li>
@@ -161,15 +165,14 @@
           </div>
           <div class="col">
             <div class="facility card h-100">
-              <button class="card-media-carousel" type="button" data-media-gallery="transport-safety"
-                aria-label="Open Transport and Safety image gallery"><img class="facility__img"
+              <div class="facility-static-media"><img class="facility__img"
                   src="assets/images/KE CARMEL (1)/School Bus/IMG_7596.jpg" alt="School bus"
-                  loading="lazy" /><span>View gallery</span></button>
+                  loading="lazy" /></div>
               <h2 class="h3">Transport &amp; Safety</h2>
               <ul class="check-list">
-                <li>Transport facility may be available for selected routes</li>
-                <li>Clean campus and disciplined atmosphere</li>
+                <li>Reliable transportation with well-maintained buses</li>
                 <li>Focus on student safety and well-being</li>
+                <li>Route coverage designed for student convenience</li>
               </ul>
             </div>
           </div>
