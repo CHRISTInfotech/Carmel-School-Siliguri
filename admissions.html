@@ -87,6 +87,24 @@
           </div>
         </div>
 
+        <div class="about-tabs" data-vertical-tabs>
+          <aside class="about-tabs__sidebar" aria-label="Admission page sections">
+            <p class="about-tabs__eyebrow">Explore Admissions</p>
+            <nav class="about-tabs__nav" aria-label="Admission section navigation">
+              <button class="about-tabs__button is-active" type="button" aria-current="true"
+                aria-controls="admission-process" data-tab-target="admission-process"><span>Admission Process</span><span aria-hidden="true">&#8594;</span></button>
+              <button class="about-tabs__button" type="button" aria-controls="admission-apply"
+                data-tab-target="admission-apply"><span>Apply Online</span><span aria-hidden="true">&#8594;</span></button>
+              <button class="about-tabs__button" type="button" aria-controls="admission-documents"
+                data-tab-target="admission-documents"><span>Documents &amp; Guidelines</span><span aria-hidden="true">&#8594;</span></button>
+              <button class="about-tabs__button" type="button" aria-controls="admission-fees"
+                data-tab-target="admission-fees"><span>School Fees</span><span aria-hidden="true">&#8594;</span></button>
+              <button class="about-tabs__button" type="button" aria-controls="admission-help"
+                data-tab-target="admission-help"><span>Need Assistance?</span><span aria-hidden="true">&#8594;</span></button>
+            </nav>
+          </aside>
+          <div class="about-tabs__content">
+        <section class="about-tab-panel" id="admission-process">
         <div class="row row-cols-1 row-cols-lg-2 g-2 mt-24">
           <div class="col">
             <div class="card h-100">
@@ -106,7 +124,34 @@
             </div>
           </div>
         </div>
+        </section>
 
+        <section class="about-tab-panel admission-application mt-24 p-4 p-lg-5 rounded-4 text-white bg-dark" id="admission-apply"
+          aria-labelledby="admission-application-title">
+          <div class="row align-items-center g-4">
+            <div class="col-12 col-lg-8">
+              <p class="eyebrow mb-2">Online Application</p>
+              <h2 id="admission-application-title" class="h3 text-light">Apply for Admission</h2>
+              <p class="mb-3">Candidates or parents can submit the applicant’s details through our online Google
+                Form. Please keep the student’s personal, academic and parent or guardian information ready before
+                beginning the application.</p>
+              <p class="admission-application__note mb-0">Submitting this form records an admission enquiry only.
+                Admission remains subject to seat availability, document verification and the school’s admission
+                procedure.</p>
+            </div>
+            <div class="col-12 col-lg-4 text-lg-end">
+              <!-- Replace the placeholder below with the school's published Google Form URL. -->
+              <a class="btn btn--primary admission-application__button"
+                href="https://docs.google.com/forms/d/e/REPLACE_WITH_GOOGLE_FORM_ID/viewform" target="_blank"
+                rel="noopener noreferrer" aria-label="Open the admission application Google Form in a new tab">
+                Open Admission Form <span aria-hidden="true">↗</span>
+              </a>
+              <small class="d-block mt-2">The application form opens in a new tab.</small>
+            </div>
+          </div>
+        </section>
+
+        <section class="about-tab-panel" id="admission-documents">
         <div class="row row-cols-1 row-cols-lg-2 g-2 mt-24">
           <div class="col">
             <div class="card h-100">
@@ -136,9 +181,10 @@
             </div>
           </div>
         </div>
+        </section>
 
-        <article class="card admission-fees mt-24">
-          <h2 class="h3">School Fees Details</h2>
+        <article class="about-tab-panel card admission-fees mt-24" id="admission-fees">
+          <h2 class="h3 text-light">School Fees Details</h2>
           <ol class="facility-rules check-list">
             <li>The school fees & bus fees cover twelve calendar months and must be paid in advance at the Bank, informed from the school office. One time payment will offer certain rebate.</li>
             <li>The fees are to be paid before 10th of each month or the specified date in school calendar failing of which, a late fee of Rs. 50/- will be levied per month. prolonged fee dues beyond one month will attract additional fine.</li>
@@ -149,13 +195,15 @@
           </ol>
         </article>
 
-        <div class="callout mt-24 d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 bg-dark">
+        <div class="about-tab-panel callout mt-24 d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 bg-dark" id="admission-help">
           <div class="callout__text">
             <strong>Need assistance?</strong> For admission-related queries, parents can visit the school campus or
             contact the school
             office during working hours. Our staff will guide you through the process.
           </div>
           <a class="btn btn--primary" href="contact.html">Enquire Now</a>
+        </div>
+          </div>
         </div>
       </div>
     </section>

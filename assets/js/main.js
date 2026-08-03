@@ -1,11 +1,15 @@
 (() => {
   // Give every inner page the same shell and visual language as the redesigned homepage.
   const isHomePage = document.body.classList.contains("home-page");
+  const currentPageName = (window.location.pathname.split("/").pop() || "index.html").replace(/\.html$/i, "").toLowerCase();
+  const innerHeaderLogo = currentPageName === "about"
+    ? "assets/images/logo/logo4.jpeg"
+    : "assets/images/logo/temp-carmel-school-logo.png";
   if (!isHomePage) {
     document.body.classList.add("inner-page", "is-loading");
     document.body.classList.add(`page-${(window.location.pathname.split("/").pop() || "inner").replace(/\.html$/i, "")}`);
     if (!document.querySelector('link[href*="family=Manrope"]')) {
-      document.head.insertAdjacentHTML("beforeend", '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="preload" href="assets/images/logo/temp-carmel-school-logo.png" as="image" type="image/png">');
+      document.head.insertAdjacentHTML("beforeend", '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="preload" href="assets/images/logo/logo6.jpeg" as="image" type="image/jpeg">');
     }
     document.querySelector(".topbar")?.remove();
 
@@ -13,14 +17,14 @@
     if (oldHeader) {
       oldHeader.outerHTML = `
         <div class="splash" data-splash role="status" aria-label="Loading K.E. Carmel School website">
-          <div class="splash__mark"><img src="assets/images/logo/temp-carmel-school-logo.png" alt="K.E. Carmel School logo"></div>
+          <div class="splash__mark"><img src="assets/images/logo/logo6.jpeg" alt="K.E. Carmel School logo option 6"></div>
           <p class="splash__name">K.E. Carmel School</p><span class="splash__place">Siliguri</span><span class="splash__loader" aria-hidden="true"></span>
         </div>
         <header class="home-header inner-header" data-header>
           <div class="home-container social-bar"><div class="elements-social social-icon"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="X">X</a><a href="#" aria-label="YouTube">▶</a><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a><a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.6a8 8 0 0 1-11.8 7L4 20l1.4-4A8 8 0 1 1 20 11.6Z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 8.2c.2-.4.5-.4.8-.4h.4c.2 0 .4.1.5.5l.8 1.8c.1.3 0 .5-.2.7l-.6.7c-.2.2-.1.4 0 .6.6 1 1.4 1.8 2.5 2.3.2.1.4.1.6-.1l.8-1c.2-.2.4-.3.7-.2l1.8.9c.3.2.4.3.4.5 0 .5-.2 1.2-.7 1.6-.5.5-1.3.8-2.1.6-1.3-.3-3.1-1.1-4.7-2.6-1.3-1.3-2.2-2.8-2.5-4.1-.2-.8.1-1.4.5-1.8Z" fill="currentColor"/></svg></a><a href="tel:+916295975836" aria-label="Call">☎</a></div><a class="overlay-admission" href="admissions.html">Get Admission</a></div>
           <div class="home-container home-header__inner">
             <nav class="home-nav home-nav--left"><a class="site-nav__link" href="index.html">Home</a><a class="site-nav__link" href="about.html">About</a><a class="site-nav__link" href="academics.html">Academics</a><a class="site-nav__link" href="management.html">Management</a></nav>
-            <a class="home-brand" href="index.html" style="text-decoration: none;" aria-label="K.E. Carmel School Siliguri home"><img src="assets/images/logo/temp-carmel-school-logo.png" alt=""><span><strong>K. E. CARMEL</strong><small>SCHOOL, SILIGURI</small><em>To Plant And Nurture</em></span></a>
+            <a class="home-brand" href="index.html" style="text-decoration: none;" aria-label="K.E. Carmel School Siliguri home"><img src="${innerHeaderLogo}" alt="K.E. Carmel School logo"><span><strong>K. E. CARMEL</strong><small>SCHOOL, SILIGURI</small><em>To Plant And Nurture</em></span></a>
             <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
             <nav class="home-nav home-nav--right"><a class="site-nav__link" href="facilities.html">Facilities</a><a class="site-nav__link" href="admissions.html">Admissions</a><a class="site-nav__link" href="events.html">Events</a><a class="site-nav__link" href="gallery.html">Gallery</a><a class="site-nav__link" href="contact.html">Contact</a></nav>
             <nav id="site-nav" class="mobile-home-nav site-nav" aria-label="Mobile navigation"><a class="site-nav__link" href="index.html">Home</a><a class="site-nav__link" href="about.html">About</a><a class="site-nav__link" href="academics.html">Academics</a><a class="site-nav__link" href="management.html">Management</a><a class="site-nav__link" href="facilities.html">Facilities</a><a class="site-nav__link" href="admissions.html">Admissions</a><a class="site-nav__link" href="events.html">Events</a><a class="site-nav__link" href="gallery.html">Gallery</a><a class="site-nav__link" href="contact.html">Contact</a></nav>
@@ -128,8 +132,8 @@
     document.body.classList.remove("is-loading");
   };
   if (splash) {
-    window.addEventListener("load", () => window.setTimeout(hideSplash, 650), { once: true });
-    window.setTimeout(hideSplash, 2200);
+    window.addEventListener("load", () => window.setTimeout(hideSplash, 5000), { once: true });
+    window.setTimeout(hideSplash, 12000);
     document.querySelectorAll('a[href$=".html"]').forEach((link) => {
       link.addEventListener("click", (event) => {
         if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
@@ -198,10 +202,10 @@
     let position = 0;
     const visibleItems = () => {
       if (window.innerWidth <= 700) return 1;
-      if (root.matches("[data-activity-slider]")) return 6;
+      if (root.matches("[data-activity-slider]")) return window.innerWidth <= 1000 ? 2 : 4;
       if (root.matches("[data-gallery-slider]")) return 5;
       if (root.matches("[data-story-slider]")) return Math.max(1, Math.floor(window.innerWidth / 332));
-      if (root.matches("[data-card-slider]")) return window.innerWidth <= 1000 ? 2 : 3;
+      if (root.matches("[data-card-slider]")) return window.innerWidth <= 1000 ? 2 : 4;
       return 2;
     };
     const render = () => {
@@ -251,6 +255,257 @@
     });
   });
 
+  document.querySelectorAll("button[data-expand-content]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const group = button.dataset.expandGroup;
+      const target = button.dataset.expandTarget;
+      const contents = target
+        ? [document.getElementById(target)].filter(Boolean)
+        : group
+        ? Array.from(document.querySelectorAll(`[data-expandable-content][data-expand-group="${group}"]`))
+        : [button.closest(".card")?.querySelector("[data-expandable-content]")].filter(Boolean);
+      const buttons = target
+        ? [button]
+        : group
+        ? Array.from(document.querySelectorAll(`button[data-expand-content][data-expand-group="${group}"]`))
+        : [button];
+      const expanded = !contents.every((content) => content.classList.contains("is-expanded"));
+      contents.forEach((content) => content.classList.toggle("is-expanded", expanded));
+      buttons.forEach((control) => {
+        control.setAttribute("aria-expanded", String(expanded));
+        control.textContent = expanded ? "Show Less" : "Read More";
+      });
+      const revealTargets = button.dataset.revealTargets?.split(/\s+/).filter(Boolean) || [];
+      revealTargets.forEach((id) => {
+        const element = document.getElementById(id);
+        if (element) element.hidden = !expanded;
+      });
+      if (expanded && button.hasAttribute("data-hide-on-expand")) {
+        button.hidden = true;
+      }
+      if (!expanded && revealTargets.length) {
+        revealTargets.forEach((id) => {
+          const element = document.getElementById(id);
+          element?.classList.remove("is-expanded");
+          if (element?.matches("button[data-expand-content]")) {
+            element.setAttribute("aria-expanded", "false");
+            element.textContent = "Read More";
+          }
+        });
+      }
+      if (!expanded && button.dataset.resetContent) {
+        button.dataset.resetContent.split(/\s+/).filter(Boolean).forEach((id) => {
+          document.getElementById(id)?.classList.remove("is-expanded");
+        });
+        button.dataset.resetHide?.split(/\s+/).filter(Boolean).forEach((id) => {
+          const element = document.getElementById(id);
+          if (element) element.hidden = true;
+        });
+        button.dataset.resetShow?.split(/\s+/).filter(Boolean).forEach((id) => {
+          const element = document.getElementById(id);
+          if (!element) return;
+          element.hidden = false;
+          element.setAttribute("aria-expanded", "false");
+          element.textContent = "Read More";
+        });
+      }
+    });
+  });
+
+  // Shared medium-size image carousel modal for Facilities and Events cards.
+  const mediaGallerySets = {
+    "classrooms": [
+      "assets/images/KE CARMEL (1)/Classroom/IMG-20260801-WA0023.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Classroom/IMG-20260801-WA0024.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Classroom/IMG-20260801-WA0025.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Classroom/IMG-20260801-WA0026.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Classroom/IMG-20260801-WA0028.jpeg",
+      "assets/images/KE CARMEL (1)/Classroom/A3IMG-20260801-WA0016.jpeg"
+    ],
+    "laboratories": [
+      "assets/images/KECS/Biology Lab/IMG_20260728_111059.jpg.jpeg",
+      "assets/images/KECS/Biology Lab/IMG_20260728_111214.jpg.jpeg",
+      "assets/images/KECS/Chemistry Lab/IMG_20260728_111343.jpg.jpeg",
+      "assets/images/KECS/Chemistry Lab/IMG_20260728_111417.jpg.jpeg",
+      "assets/images/KECS/Computer lab/IMG_20260728_110708.jpg.jpeg",
+      "assets/images/KECS/Computer lab/IMG_20260728_110827.jpg.jpeg",
+      "assets/images/KECS/Physics lab/IMG_20260728_110208.jpg.jpeg",
+      "assets/images/KECS/Physics lab/IMG_20260728_110324.jpg.jpeg"
+    ],
+    "gallery-science": [
+      "assets/images/KECS/Biology Lab/IMG_20260728_111059.jpg.jpeg",
+      "assets/images/KECS/Biology Lab/IMG_20260728_111214.jpg.jpeg",
+      "assets/images/KECS/Chemistry Lab/IMG_20260728_111343.jpg.jpeg",
+      "assets/images/KECS/Chemistry Lab/IMG_20260728_111417.jpg.jpeg",
+      "assets/images/KECS/Physics lab/IMG_20260728_110208.jpg.jpeg",
+      "assets/images/KECS/Physics lab/IMG_20260728_110324.jpg.jpeg"
+    ],
+    "gallery-computer": [
+      "assets/images/KECS/Computer lab/IMG_20260728_110708.jpg.jpeg",
+      "assets/images/KECS/Computer lab/IMG_20260728_110827.jpg.jpeg"
+    ],
+    "library": [
+      "assets/images/KECS/Library/IMG_20260728_111849.jpg.jpeg",
+      "assets/images/KECS/Library/IMG_20260728_111925.jpg.jpeg",
+      "assets/images/KECS/Library/IMG_20260728_112002.jpg.jpeg",
+      "assets/images/KECS/Library/IMG_20260728_112143.jpg.jpeg"
+    ],
+    "science-facilities": [
+      "assets/images/KECS/Chemistry Lab/IMG_20260728_111343.jpg.jpeg",
+      "assets/images/KECS/Chemistry Lab/IMG_20260728_111417.jpg.jpeg"
+    ],
+    "sports-playground": [
+      "assets/images/KE CARMEL (1)/Sports day/IMG-20260715-WA0028.jpg",
+      "assets/images/KE CARMEL (1)/Sports day/IMG-20260715-WA0029.jpg",
+      "assets/images/KE CARMEL (1)/Sports day/IMG-20260715-WA0035.jpg",
+      "assets/images/KE CARMEL (1)/Sports day/IMG-20260715-WA0037.jpg",
+      "assets/images/KE CARMEL (1)/Sports day/IMG-20260715-WA0041.jpg",
+      "assets/images/KE CARMEL (1)/Sports day/IMG-20260715-WA0042.jpg",
+      "assets/images/KE CARMEL (1)/Sports day/IMG-20260715-WA0044.jpg",
+      "assets/images/KE CARMEL (1)/Sports day/IMG-20260715-WA0045.jpg",
+      "assets/images/KE CARMEL (1)/Games/IMG-20220805-WA0025.jpg",
+      "assets/images/KE CARMEL (1)/Games/WhatsApp Image 2026-07-26 at 4.32.16 PM.jpeg"
+    ],
+    "transport-safety": [
+      "assets/images/KE CARMEL (1)/School Bus/20220803_144212.jpg",
+      "assets/images/KE CARMEL (1)/School Bus/IMG_20260717_130359.jpg",
+      "assets/images/KE CARMEL (1)/School Bus/IMG_7596.jpg"
+    ],
+    "co-curricular": [
+      "assets/images/KE CARMEL (1)/Co curicular activities/IMG-20220821-WA0008.jpg"
+    ],
+    "merit-awards": [
+      "assets/images/KE CARMEL (1)/Awards/Bosco Fizza, Don Bosco Oodlabari/WhatsApp Image 2026-07-26 at 6.10.34 PM (1).jpeg",
+      "assets/images/KE CARMEL (1)/Awards/Bosco Fizza, Don Bosco Oodlabari/WhatsApp Image 2026-07-26 at 6.10.34 PM.jpeg",
+      "assets/images/KE CARMEL (1)/Awards/Telegraph Awards/award1.jpeg",
+      "assets/images/KE CARMEL (1)/Awards/Telegraph Awards/award2.jpeg",
+      "assets/images/KE CARMEL (1)/Awards/Telegraph Awards/award3.jpeg",
+      "assets/images/KE CARMEL (1)/Awards/Telegraph Awards/award4.jpeg",
+      "assets/images/KE CARMEL (1)/Awards/Telegraph Awards/techersimg.jpeg",
+      "assets/images/KE CARMEL (1)/Awards/Telegraph Awards/WhatsApp Image 2026-07-26 at 6.10.35 PM (2).jpeg",
+      "assets/images/KE CARMEL (1)/Awards/Telegraph Awards/WhatsApp Image 2026-07-26 at 6.10.35 PM.jpeg"
+    ],
+    "cultural-day": [
+      "assets/images/KE CARMEL (1)/Annual Day/AB1_4388.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/AB1_4457.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/AB1_4603.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/AB1_4728.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/AB1_4903.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/AB1_4919.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/AB1_5004.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/DSC01964.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/DSC01971.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/DSC01980.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/DSC02022.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/DSC02086.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/DSC02093.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/DSC02341.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/DSC02506.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/DSC02512.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/DSC02609.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/DSC02770.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/DSC02868.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/DSC_8371.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/DSC_8379.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/DSC_8392.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/DSC_8418.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/DSC_8424.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/DSC_8474.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/DSC_8476.jpg",
+      "assets/images/KE CARMEL (1)/Annual Day/DSC_8512.jpg"
+    ],
+    "campus-cleanliness": [
+      "assets/images/KE CARMEL (1)/school photo/IMG_20260717_130345.jpg",
+      "assets/images/KE CARMEL (1)/school photo/IMG_20260717_130347.jpg"
+    ],
+    "recent-achievements": [
+      "assets/images/KE CARMEL (1)/Awards/Telegraph Awards/award1.jpeg",
+      "assets/images/KE CARMEL (1)/Awards/Telegraph Awards/award2.jpeg",
+      "assets/images/KE CARMEL (1)/Awards/Telegraph Awards/award3.jpeg",
+      "assets/images/KE CARMEL (1)/Awards/Telegraph Awards/award4.jpeg"
+    ]
+  };
+
+  const mediaTriggers = document.querySelectorAll("[data-media-gallery]");
+  if (mediaTriggers.length) {
+    mediaTriggers.forEach((trigger) => {
+      const images = mediaGallerySets[trigger.dataset.mediaGallery] || [];
+      trigger.classList.toggle("has-multiple-images", images.length > 1);
+    });
+    document.body.insertAdjacentHTML("beforeend", `
+      <div class="media-gallery-modal" data-media-modal hidden role="dialog" aria-modal="true" aria-labelledby="media-gallery-title">
+        <div class="media-gallery-modal__backdrop" data-media-close></div>
+        <div class="media-gallery-modal__dialog">
+          <div class="media-gallery-modal__header">
+            <h2 id="media-gallery-title">Image Gallery</h2>
+            <button type="button" data-media-close aria-label="Close image gallery">×</button>
+          </div>
+          <div class="media-gallery-modal__stage">
+            <button type="button" class="media-gallery-modal__arrow media-gallery-modal__arrow--prev" data-media-prev aria-label="Previous image">‹</button>
+            <img data-media-image src="" alt="">
+            <button type="button" class="media-gallery-modal__arrow media-gallery-modal__arrow--next" data-media-next aria-label="Next image">›</button>
+          </div>
+          <div class="media-gallery-modal__counter" data-media-counter></div>
+        </div>
+      </div>`);
+    const modal = document.querySelector("[data-media-modal]");
+    const modalImage = modal.querySelector("[data-media-image]");
+    const modalTitle = modal.querySelector("#media-gallery-title");
+    const modalCounter = modal.querySelector("[data-media-counter]");
+    let activeImages = [];
+    let activeIndex = 0;
+    let activeTitle = "Image Gallery";
+    let returnFocus = null;
+
+    const renderMediaImage = () => {
+      modalImage.src = activeImages[activeIndex] || "";
+      modalImage.alt = `${activeTitle}, image ${activeIndex + 1}`;
+      modalCounter.textContent = `${activeIndex + 1} / ${activeImages.length}`;
+      const hasMultiple = activeImages.length > 1;
+      modal.querySelector("[data-media-prev]").hidden = !hasMultiple;
+      modal.querySelector("[data-media-next]").hidden = !hasMultiple;
+    };
+    const closeMediaModal = () => {
+      modal.hidden = true;
+      document.body.classList.remove("media-modal-open");
+      returnFocus?.focus();
+    };
+    const moveMedia = (direction) => {
+      activeIndex = (activeIndex + direction + activeImages.length) % activeImages.length;
+      renderMediaImage();
+    };
+
+    mediaTriggers.forEach((trigger) => {
+      const openMediaGallery = () => {
+        activeImages = mediaGallerySets[trigger.dataset.mediaGallery] || [];
+        if (!activeImages.length) return;
+        activeIndex = Number(trigger.dataset.mediaStart || 0) % activeImages.length;
+        activeTitle = trigger.getAttribute("aria-label")?.replace(/^Open\s+/i, "") || "Image Gallery";
+        modalTitle.textContent = activeTitle;
+        returnFocus = trigger;
+        renderMediaImage();
+        modal.hidden = false;
+        document.body.classList.add("media-modal-open");
+        modal.querySelector("[data-media-close]:last-child")?.focus();
+      };
+      trigger.addEventListener("click", openMediaGallery);
+      trigger.addEventListener("keydown", (event) => {
+        if (!["Enter", " "].includes(event.key)) return;
+        event.preventDefault();
+        openMediaGallery();
+      });
+    });
+    modal.querySelectorAll("[data-media-close]").forEach((control) => control.addEventListener("click", closeMediaModal));
+    modal.querySelector("[data-media-prev]").addEventListener("click", () => moveMedia(-1));
+    modal.querySelector("[data-media-next]").addEventListener("click", () => moveMedia(1));
+    document.addEventListener("keydown", (event) => {
+      if (modal.hidden) return;
+      if (event.key === "Escape") closeMediaModal();
+      if (event.key === "ArrowLeft") moveMedia(-1);
+      if (event.key === "ArrowRight") moveMedia(1);
+    });
+  }
+
   // PowerPoint-style Float In for every homepage section heading and Notice Board carousel.
   const floatTargets = document.querySelectorAll([
     ".home-page .section-heading",
@@ -273,4 +528,42 @@
   } else {
     floatTargets.forEach((target) => target.classList.add("is-floated"));
   }
+
+  // About page: section navigation with smooth scrolling and scroll-aware highlighting.
+  document.querySelectorAll("[data-vertical-tabs]").forEach((tabGroup) => {
+    const controls = Array.from(tabGroup.querySelectorAll("[data-tab-target]"));
+    const sections = controls.map((control) => document.getElementById(control.dataset.tabTarget)).filter(Boolean);
+    if (!controls.length || !sections.length) return;
+
+    const setActiveControl = (sectionId) => {
+      controls.forEach((control) => {
+        const active = control.dataset.tabTarget === sectionId;
+        control.classList.toggle("is-active", active);
+        if (active) control.setAttribute("aria-current", "true");
+        else control.removeAttribute("aria-current");
+      });
+    };
+
+    controls.forEach((control) => control.addEventListener("click", () => {
+      const target = document.getElementById(control.dataset.tabTarget);
+      if (!target) return;
+      setActiveControl(target.id);
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }));
+
+    sections.forEach((section) => section.classList.add("section-fade-target"));
+    if ("IntersectionObserver" in window) {
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-section-visible");
+          setActiveControl(entry.target.id);
+        });
+      }, { rootMargin: "-24% 0px -55% 0px", threshold: 0.01 });
+      sections.forEach((section) => sectionObserver.observe(section));
+    } else {
+      sections.forEach((section) => section.classList.add("is-section-visible"));
+    }
+
+  });
 })();

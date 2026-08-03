@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
-    content="About K.E. Carmel School, Siliguri — history, vision, mission and principal’s message." />
+    content="About K.E. Carmel School, Siliguri — history, vision, mission and educational values." />
   <title>About • K.E. Carmel School, Siliguri</title>
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
@@ -87,166 +87,285 @@
           </div>
         </div>
 
-        <section class="section" style="padding-top: 2rem; padding-bottom: 0;">
-          <div class="section__head">
-            <h2>School Life</h2>
-            <p class="section__sub">A look at assemblies, classroom moments, and daily campus life.</p>
-          </div>
-          <div class="gallery about-gallery" aria-label="About school photos">
-            <figure class="gallery__item">
-              <img src="assets/images/about/image_1.png" alt="Large school assembly in the campus courtyard"
-                loading="lazy" />
-              <figcaption>Assembly</figcaption>
-            </figure>
-            <figure class="gallery__item">
-              <img src="assets/images/about/image_2.png"
-                alt="Students gathered in a classroom or hall for a prayer session" loading="lazy" />
-              <figcaption>Prayer gathering</figcaption>
-            </figure>
-            <figure class="gallery__item">
-              <img src="assets/images/about/image_3.png"
-                alt="Students standing in a corridor with teachers in the background" loading="lazy" />
-              <figcaption>Campus line-up</figcaption>
-            </figure>
-            <figure class="gallery__item">
-              <img src="assets/images/about/image_4.png" alt="Students posing together with backpacks on campus"
-                loading="lazy" />
-              <figcaption>Student life</figcaption>
-            </figure>
-          </div>
-        </section>
+        <div class="about-tabs" data-vertical-tabs>
+          <aside class="about-tabs__sidebar" aria-label="About page sections">
+            <p class="about-tabs__eyebrow">Explore our school</p>
+            <nav class="about-tabs__nav" aria-label="About page section navigation">
+              <button class="about-tabs__button is-active" id="about-tab-school-life" type="button" aria-current="true"
+                aria-controls="about-panel-school-life" data-tab-target="about-panel-school-life">
+                <span>School Life</span><span aria-hidden="true">&#8594;</span>
+              </button>
+              <button class="about-tabs__button" id="about-tab-about-us" type="button"
+                aria-controls="about-panel-about-us" data-tab-target="about-panel-about-us">
+                <span>About Us</span><span aria-hidden="true">&#8594;</span>
+              </button>
+              <button class="about-tabs__button" id="about-tab-motto" type="button" aria-controls="about-panel-motto"
+                data-tab-target="about-panel-motto">
+                <span>Motto &amp; Affiliation</span><span aria-hidden="true">&#8594;</span>
+              </button>
+              <button class="about-tabs__button" id="about-tab-history" type="button"
+                aria-controls="about-panel-history" data-tab-target="about-panel-history">
+                <span>School History</span><span aria-hidden="true">&#8594;</span>
+              </button>
+              <button class="about-tabs__button" id="about-tab-vision" type="button" aria-controls="about-panel-vision"
+                data-tab-target="about-panel-vision">
+                <span>Vision &amp; Mission</span><span aria-hidden="true">&#8594;</span>
+              </button>
+            </nav>
+          </aside>
 
-        <section class="about-band about-band--ink">
-        <article class="card about-content-card">
-          <h2 class="h3">About Us</h2>
-          <!-- <p>K.E. Carmel Group of Schools, West Bengal belongs to the Christian Catholic Religious Congregation of Carmelites of Mary Immaculate (C.M.I.) Fathers. It is solely owned and managed by C.M.I. Dharmanivas Educational Trust (DET) and C.M.I. Dharmaniketan Educational Trust (Eastern Region), under the aegis of Dharmaniketan C.M.I. Sub Region, West Bengal, of C.M.I. St. Joseph’s Province, Trivandrum, Kerala, India.</p>
+          <div class="about-tabs__content">
+            <div class="about-tab-panel is-active" id="about-panel-school-life" aria-labelledby="about-tab-school-life">
+              <section class="section school-life-section" style="padding-top: 2rem; padding-bottom: 0;">
+                <div class="section__head">
+                  <h2>School Life</h2>
+                  <p class="section__sub">A look at assemblies, classroom moments, and daily campus life.</p>
+                </div>
+                <div class="gallery about-gallery" aria-label="About school photos">
+                  <figure class="gallery__item">
+                    <img src="assets/images/about/image_1.png" alt="Large school assembly in the campus courtyard"
+                      loading="lazy" />
+                    <figcaption>Assembly</figcaption>
+                  </figure>
+                  <figure class="gallery__item">
+                    <img src="assets/images/about/image_2.png"
+                      alt="Students gathered in a classroom or hall for a prayer session" loading="lazy" />
+                    <figcaption>Prayer gathering</figcaption>
+                  </figure>
+                  <figure class="gallery__item">
+                    <img src="assets/images/about/image_3.png"
+                      alt="Students standing in a corridor with teachers in the background" loading="lazy" />
+                    <figcaption>Campus line-up</figcaption>
+                  </figure>
+                  <figure class="gallery__item">
+                    <img src="assets/images/KE CARMEL (1)/Students/A4IMG-20260801-WA0017.jpeg"
+                      alt="Students enjoying school life on campus" loading="lazy" />
+                    <figcaption>Student life</figcaption>
+                  </figure>
+                </div>
+              </section>
+            </div>
+
+            <div class="about-tab-panel" id="about-panel-about-us" aria-labelledby="about-tab-about-us">
+              <section class="about-band about-band--ink">
+                <article class="card about-content-card">
+                  <h2 class="h3">About Us</h2>
+                  <div id="about-us-part-1" class="read-more-content read-more-content--about-part"
+                    data-expandable-content>
+                    <!-- <p>K.E. Carmel Group of Schools, West Bengal belongs to the Christian Catholic Religious Congregation of Carmelites of Mary Immaculate (C.M.I.) Fathers. It is solely owned and managed by C.M.I. Dharmanivas Educational Trust (DET) and C.M.I. Dharmaniketan Educational Trust (Eastern Region), under the aegis of Dharmaniketan C.M.I. Sub Region, West Bengal, of C.M.I. St. Joseph’s Province, Trivandrum, Kerala, India.</p>
             <p>The group draws inspiration from Saint Kuriakose Elias Chavara (1805–1871), a saint and social reformer and one of the founders of the C.M.I. Congregation—the first Catholic religious congregation for men in India. Following his vision, the congregation has established more than 700 educational institutions in India and abroad. K.E. Carmel Group carries this vision through eight educational institutions in West Bengal and is approved as a Minority Educational Institution under F.No.1525 of 2006-143/8. The school imparts instruction from Nursery to Class XII under the CISCE curriculum, New Delhi.</p>
             <p>Our institutions are open to all, irrespective of sex, caste, colour or faith. Catholic students receive religious formation based on Gospel values, while others receive moral and spiritual formation. Curricular and co-curricular activities support the integral development of every student.</p>
             <p>The C.M.I. Missionary Fathers invest their best in forming the next generation as a contribution to national development. Committed teachers accompany students in their physical, intellectual, moral, cultural, aesthetic, emotional, spiritual and skill development.</p>
             <p>We form leaders who are intellectually competent, spiritually mature, morally upright, psychologically integrated, physically healthy, socially responsible and God-loving—people who champion justice, love, truth and peace and remain open to further growth.</p> -->
-          <p>K.E. Carmel Group of Schools, West Bengal belongs to the Christian Catholic Religious Congregation of
-            Carmelites of Mary Immaculate (C.M.I) Fathers. It is solely owned and managed by C.M.I Dharmanivas
-            Educational Trust (DET) and C.M.I. Dharmaniketan Educational Trust (Eastern Region) under the aegis of
-            Dharmaniketan C.M.I Sub Region, West Bengal of C.M.I St. Joseph’s Province, Trivandrum, Kerala, India. It
-            draws inspiration from Saint Kuriakose Elias Chavara (1805-71), a Saint and Social Reformer of the 19th
-            Century in the state of Kerala, India. He is one of the founders of the C.M.I Congregation, which is the
-            first Catholic Religious Congregation for men in India. Following his vision, C.M.I Congregation has
-            established more than 700 educational institutions all over India and abroad. The most reputed universities,
-            colleges, schools and other educational institutions which are run by C.M.I Congregation in India always
-            stand forth in excellence. The vision of education provided by C.M.I congregation focuses exclusively on the
-            integral development of rural areas of India by providing quality education. K. E. Carmel Group, with this
-            noble vision, flourishes with eight educational institutions in the state of West Bengal. The group is
-            approved as a Minority Educational Institution as F.No.1525 of 2006-143/8. It imparts instructions to
-            students from NURSERY TO CLASS XII under CISCE curriculum, New Delhi, India.</p>
-          <p>Being aware that educational process is the most important human resource development, we open our
-            institutions to all, irrespective of sex, caste, colour or faith. We usually prefer Catholics as members of
-            our Minority Community and give them religious formation based on the values of Gospel while others are
-            provided with moral and spiritual formation. We organize various curricular and co-curricular activities for
-            the integral development of our students,</p>
-          <p>The CMI Missionary Fathers from Kerala (St. Joseph’s Province, Trivandrum) invest their best for the
-            excellent formation of the next generation as our contribution towards the national development. Through our
-            educational institutions we respond to the national need o preparing the youth to be socially responsible so
-            that India becomes a supreme power house by the year 2030. Hence, we select and train committed teachers,
-            who stand by our students in their physical, intellectual, moral, cultural, aesthetic, emotional, spiritual
-            and skill developments. We have been nurturing them with our rich experience in education for the past 189
-            years upholding the age-old spiritual traditions of India and of the St. Thomas Christians of Apostolic
-            origin.</p>
-          <p>Hence, we pay attention in forming leaders who are intellectually competent, spiritually mature, morally
-            upright, psychologically integrated, physically healthy, socially acceptable and God-loving who will
-            champion the cause of justice love, truth and peace, and who are ever open to further growth. The secret of
-            our success in education is a community teachers who are committed to their vocation, professionally
-            competent, morally upright, just and humane in dealings and who grow with the nation in the right vision of
-            development. We aspire towards creating a just an humane society w ere dignity o a person is respected
-            unjust social structures are challenged, our cultural heritage of ahimsa, secularism, religious harmony and
-            national integration are to field and where the poor and marginalized are specially attended to.</p>
-        </article>
-        </section>
+                    <p>K.E. Carmel Group of Schools, West Bengal belongs to the Christian Catholic Religious
+                      Congregation of
+                      Carmelites of Mary Immaculate (C.M.I) Fathers. It is solely owned and managed by C.M.I Dharmanivas
+                      Educational Trust (DET) and C.M.I. Dharmaniketan Educational Trust (Eastern Region) under the
+                      aegis of
+                      Dharmaniketan C.M.I Sub Region, West Bengal of C.M.I St. Joseph’s Province, Trivandrum, Kerala,
+                      India. It
+                      draws inspiration from Saint Kuriakose Elias Chavara (1805-71), a Saint and Social Reformer of the
+                      19th
+                      Century in the state of Kerala, India. He is one of the founders of the C.M.I Congregation, which
+                      is the
+                      first Catholic Religious Congregation for men in India. Following his vision, C.M.I Congregation
+                      has
+                      established more than 700 educational institutions all over India and abroad. The most reputed
+                      universities,
+                      colleges, schools and other educational institutions which are run by C.M.I Congregation in India
+                      always
+                      stand forth in excellence. The vision of education provided by C.M.I congregation focuses
+                      exclusively on the
+                      integral development of rural areas of India by providing quality education. K. E. Carmel Group,
+                      with this
+                      noble vision, flourishes with eight educational institutions in the state of West Bengal. The
+                      group is
+                      approved as a Minority Educational Institution as F.No.1525 of 2006-143/8. It imparts instructions
+                      to
+                      students from NURSERY TO CLASS XII under CISCE curriculum, New Delhi, India.</p>
+                    <p>Being aware that educational process is the most important human resource development, we open
+                      our
+                      institutions to all, irrespective of sex, caste, colour or faith. We usually prefer Catholics as
+                      members of
+                      our Minority Community and give them religious formation based on the values of Gospel while
+                      others are
+                      provided with moral and spiritual formation. We organize various curricular and co-curricular
+                      activities for
+                      the integral development of our students,</p>
+                  </div>
+                  <button id="about-us-part-1-button" class="facility-read-more" type="button" data-expand-content
+                    data-expand-target="about-us-part-1" data-reveal-targets="about-us-part-2 about-us-part-2-button"
+                    data-hide-on-expand aria-expanded="false">Read More</button>
+                  <div id="about-us-part-2" class="read-more-content read-more-content--about-part mt-3"
+                    data-expandable-content hidden>
+                    <p>The CMI Missionary Fathers from Kerala (St. Joseph’s Province, Trivandrum) invest their best for
+                      the
+                      excellent formation of the next generation as our contribution towards the national development.
+                      Through our
+                      educational institutions we respond to the national need o preparing the youth to be socially
+                      responsible so
+                      that India becomes a supreme power house by the year 2030. Hence, we select and train committed
+                      teachers,
+                      who stand by our students in their physical, intellectual, moral, cultural, aesthetic, emotional,
+                      spiritual
+                      and skill developments. We have been nurturing them with our rich experience in education for the
+                      past 189
+                      years upholding the age-old spiritual traditions of India and of the St. Thomas Christians of
+                      Apostolic
+                      origin.</p>
+                    <p>Hence, we pay attention in forming leaders who are intellectually competent, spiritually mature,
+                      morally
+                      upright, psychologically integrated, physically healthy, socially acceptable and God-loving who
+                      will
+                      champion the cause of justice love, truth and peace, and who are ever open to further growth. The
+                      secret of
+                      our success in education is a community teachers who are committed to their vocation,
+                      professionally
+                      competent, morally upright, just and humane in dealings and who grow with the nation in the right
+                      vision of
+                      development. We aspire towards creating a just an humane society w ere dignity o a person is
+                      respected
+                      unjust social structures are challenged, our cultural heritage of ahimsa, secularism, religious
+                      harmony and
+                      national integration are to field and where the poor and marginalized are specially attended to.
+                    </p>
+                  </div>
+                  <button id="about-us-part-2-button" class="facility-read-more" type="button" data-expand-content
+                    data-expand-target="about-us-part-2" data-reset-show="about-us-part-1-button"
+                    data-reset-hide="about-us-part-2 about-us-part-2-button"
+                    data-reset-content="about-us-part-1 about-us-part-2" aria-expanded="false" hidden>Read More</button>
+                </article>
+              </section>
+            </div>
 
-        <div class="row row-cols-1 row-cols-lg-2 g-3 mt-24">
-          <div class="col">
-            <article class="card h-100">
-              <h2 class="h3">Our Motto</h2>
-              <p>Everyone has received a Divine Call to devote oneself to the welfare of society (Jeremiah 1:10). Based
-                on this ideal, K.E. Carmel School has the motto <strong>“To Plant and Nurture.”</strong> K.E.C.S. stands
-                for value-laden <strong>Kinship, Excellence and Character.</strong></p>
-              <p>Education brings teachers, parents and students together to plant divine wisdom in young minds and
-                nurture its growth through concentration, dedication and hard work. We develop hands to help, lips to
-                smile and words to cheer others.</p>
-            </article>
-          </div>
-        </div>
-        <section class="about-band about-band--ink">
-        <article class="card affiliation-card">
-          <h2 class="h3">School History</h2>
-          <p>K.E. Carmel School, Siliguri is part of the K.E. Carmel Group of Schools, West Bengal, which belongs to the
-            Christian Catholic Religious Congregation of Carmelites of Mary Immaculate Fathers. The school is inspired
-            by the educational vision of Saint Kuriakose Elias Chavara, one of the founders of the C.M.I. Congregation
-            and a social reformer of the 19th century.
-            The institution functions under the C.M.I. Dharmaniketan Educational Trust and C.M.I. Dharmaniketan
-            Educational Trust, Eastern Region, under the aegis of Dharmaniketan C.M.I. Sub Region, West Bengal, of
-            C.M.I. St. Joseph’s Province, Trivandrum, Kerala. The C.M.I. Congregation has a long tradition in education
-            and has established many educational institutions across India and abroad.
-            K.E. Carmel Group was founded with the vision of providing quality education, especially with attention to
-            the integral development of students. The group has grown to include eight educational institutions in West
-            Bengal. K.E. Carmel School, Siliguri follows the C.I.S.C.E. / ISC curriculum, New Delhi, and serves students
-            from Nursery to Class XII.
-            The school continues the C.M.I. mission of forming students who are intellectually competent, spiritually
-            mature, morally upright, psychologically integrated, physically healthy and socially acceptable. Its motto,
-            “To Plant and Nurture”, reflects its commitment to nurturing young minds through value-based education,
-            discipline, character formation and holistic development.
-          </p>
-        </article>
-        </section>
+            <div class="about-tab-panel" id="about-panel-motto" aria-labelledby="about-tab-motto">
+              <div class="row row-cols-1 row-cols-lg-2 g-3 mt-24">
+                <div class="col">
+                  <article class="card h-100">
+                    <h2 class="h3">Our Motto</h2>
+                    <p>Everyone has received a Divine Call to devote oneself for the welfare of the society. (Jeremiah
+                      1:10). Based on this ideal, K.E. Carmel School has its motto <strong>‘To Plant and
+                        Nurture”.</strong> K.E.C.S.
+                      stands for <strong>‘value laden Kinship, Excellence and Character’.</strong></p>
 
+                    <p>Education is a process in which teachers, parents and students work together t o have the
+                      delicate seed of divine wisdom planted in the young minds and to nurture its spontaneous growth by
+                      providing an appropriate atmosphere of concentration, dedication and hard work.</p>
 
-        <article class="card affiliation-card mt-24">
-          <h2 class="h3">Affiliation</h2>
-          <p><strong>Affiliated to C.I.S.C.E./ISC (New Delhi)</strong><br>Registration No. WB449</p>
-          <p>C.I.S.C.E. (New Delhi) Curriculum<br>Council for the Indian School Certificate Examinations</p>
-          <p>The group is approved as a Minority Educational Institution under F.No.1525 of 2006-143/8.</p>
-        </article>
+                    <p>
+                      To educate is not merely to develop and improve an individual but to influence the family and
+                      society of which one is a member. It is his or her divine call to work towards the creation of a
+                      New Heaven and Earth by spreading happiness, peace, joy and love all around. We develop ands to he
+                      p, Lips to smile and Words to cheer up others.
+                    </p>
+                  </article>
+                </div>
+                <div class="col">
+                  <article class="card affiliation-card h-100">
+                    <h2 class="h3">Affiliation</h2>
+                    <p><strong>Affiliated to C.I.S.C.E./ISC (New Delhi)</strong><br>Registration No. WB449</p>
+                    <p>C.I.S.C.E. (New Delhi) Curriculum<br>Council for the Indian School Certificate Examinations</p>
+                    <p>The group is approved as a Minority Educational Institution under F.No.1525 of 2006-143/8.</p>
+                  </article>
+                </div>
+              </div>
+            </div>
 
-        <div class="row row-cols-1 row-cols-lg-2 g-3 mt-24 current-vision-mission">
-          <div class="col">
-            <article class="card card--accent h-100">
-              <h2 class="h3">Our Vision</h2>
-              <p>We imbibe our vision from the educational vision of St. Kurriakose Elias Chavara, our Heavenly Patron.
-                He believed that Reason must be guided by one’s aith in God and the latter should be educated which is
-                vital in one’s life due to it’s ability to mould. We open our institution to students beyond
-                discrimination. We never compromise with human values and promote Christian virtues of Love, Charity and
-                peaceful Co-existence. All our schools cater best education with modern technologies and amenities with
-                a host of experienced and committed staff. We see the latent potential of our students and mould them
-                into better individuals and globally competent citizens.</p>
-            </article>
-          </div>
-          <div class="col">
-            <article class="card card--accent h-100">
-              <h2 class="h3">Our Mission</h2>
-              <p>The CMI Mission aims at an education by which character is formed, strength of mind is increased,
-                intellect is expanded and help is extended for one to stand on one’s own feet with a conviction that
-                everyone is a precious gift of God.</p>
-              <p>Hence, K.E. Carmel nurtures the little minds to become: Intellectually competent, spiritually matured,
-                morally upright, psychologically integrated, physically healthy and socially acceptable.</p>
-              <p>K.E. Carmel School is a powerful agent of social change and aspires towards creating a just human
-                society where dignity of the person is respected, unjust social structures are challenged, cultural
-                heritage of Ahimsa, Satya, Secularism, democracy, religious harmony and national integration are upheld
-                and where the poor and marginalised are specially taken care of.</p>
-              <p>Here, young minds are inspired and helped to imbibe genuine human values in the present global context
-                of: Rampant injustice, Religion cultural fundamentalism, Environmental exploitation and the spread of
-                materialistic culture.</p>
-            </article>
-          </div>
-        </div>
+            <div class="about-tab-panel" id="about-panel-history" aria-labelledby="about-tab-history">
+              <section class="about-band about-band--ink">
+                <article class="card affiliation-card">
+                  <h2 class="h3">School History</h2>
+                  <div class="read-more-content" data-expandable-content>
+                    <p>K.E. Carmel School, Siliguri is part of the K.E. Carmel Group of Schools, West Bengal, which
+                      belongs to the
+                      Christian Catholic Religious Congregation of Carmelites of Mary Immaculate Fathers. The school is
+                      inspired
+                      by the educational vision of Saint Kuriakose Elias Chavara, one of the founders of the C.M.I.
+                      Congregation
+                      and a social reformer of the 19th century.
+                      The institution functions under the C.M.I. Dharmaniketan Educational Trust and C.M.I.
+                      Dharmaniketan
+                      Educational Trust, Eastern Region, under the aegis of Dharmaniketan C.M.I. Sub Region, West
+                      Bengal, of
+                      C.M.I. St. Joseph’s Province, Trivandrum, Kerala. The C.M.I. Congregation has a long tradition in
+                      education
+                      and has established many educational institutions across India and abroad.
+                      K.E. Carmel Group was founded with the vision of providing quality education, especially with
+                      attention to
+                      the integral development of students. The group has grown to include eight educational
+                      institutions in West
+                      Bengal. K.E. Carmel School, Siliguri follows the C.I.S.C.E. / ISC curriculum, New Delhi, and
+                      serves students
+                      from Nursery to Class XII.
+                      The school continues the C.M.I. mission of forming students who are intellectually competent,
+                      spiritually
+                      mature, morally upright, psychologically integrated, physically healthy and socially acceptable.
+                      Its motto,
+                      “To Plant and Nurture”, reflects its commitment to nurturing young minds through value-based
+                      education,
+                      discipline, character formation and holistic development.
+                    </p>
+                  </div>
+                  <button class="facility-read-more" type="button" data-expand-content aria-expanded="false">Read
+                    More</button>
+                </article>
+              </section>
+            </div>
 
-        <div class="card mt-24 current-principal-placeholder">
-          <h2 class="h3">Principal’s Message</h2>
-          <div class="empty-content-placeholder"
-            aria-label="Principal name, message and photograph will be added later">
-            <p>At K.E. Carmel School, we believe that education plays a vital role in shaping the future of every child.
-              Our goal is not
-              only to help students achieve academic success but also to guide them in becoming responsible, confident,
-              and value-driven
-              individuals.</p>
+            <div class="about-tab-panel" id="about-panel-vision" aria-labelledby="about-tab-vision">
+              <div class="row row-cols-1 row-cols-lg-2 g-3 mt-24 current-vision-mission">
+                <div class="col">
+                  <article class="card card--accent h-100">
+                    <h2 class="h3">Our Vision</h2>
+                    <div class="read-more-content" data-expandable-content>
+                      <p>We imbibe our vision from the educational vision of St. Kurriakose Elias Chavara, our Heavenly
+                        Patron.
+                        He believed that Reason must be guided by one’s aith in God and the latter should be educated
+                        which is
+                        vital in one’s life due to it’s ability to mould. We open our institution to students beyond
+                        discrimination. We never compromise with human values and promote Christian virtues of Love,
+                        Charity and
+                        peaceful Co-existence. All our schools cater best education with modern technologies and
+                        amenities with
+                        a host of experienced and committed staff. We see the latent potential of our students and mould
+                        them
+                        into better individuals and globally competent citizens.</p>
+                    </div>
+                    <button class="facility-read-more" type="button" data-expand-content aria-expanded="false">Read
+                      More</button>
+                  </article>
+                </div>
+                <div class="col">
+                  <article class="card card--accent h-100">
+                    <h2 class="h3">Our Mission</h2>
+                    <div class="read-more-content" data-expandable-content>
+                      <p>The CMI Mission aims at an education by which character is formed, strength of mind is
+                        increased,
+                        intellect is expanded and help is extended for one to stand on one’s own feet with a conviction
+                        that
+                        everyone is a precious gift of God.</p>
+                      <p>Hence, K.E. Carmel nurtures the little minds to become: Intellectually competent, spiritually
+                        matured,
+                        morally upright, psychologically integrated, physically healthy and socially acceptable.</p>
+                      <p>K.E. Carmel School is a powerful agent of social change and aspires towards creating a just
+                        human
+                        society where dignity of the person is respected, unjust social structures are challenged,
+                        cultural
+                        heritage of Ahimsa, Satya, Secularism, democracy, religious harmony and national integration are
+                        upheld
+                        and where the poor and marginalised are specially taken care of.</p>
+                      <p>Here, young minds are inspired and helped to imbibe genuine human values in the present global
+                        context
+                        of: Rampant injustice, Religion cultural fundamentalism, Environmental exploitation and the
+                        spread of
+                        materialistic culture.</p>
+                    </div>
+                    <button class="facility-read-more" type="button" data-expand-content aria-expanded="false">Read
+                      More</button>
+                  </article>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

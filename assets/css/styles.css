@@ -257,10 +257,10 @@ img {
   background: rgba(255, 255, 255, 0.15);
 }
 
-.site-nav__link[aria-current="page"] {
+/* .site-nav__link[aria-current="page"] {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
-}
+} */
 
 .site-nav__cta {
   background: transparent;
@@ -320,7 +320,7 @@ h3 {
 
 p {
   margin: 0.6rem 0 0;
-  color: rgba(11, 18, 32, 0.86);
+  /* color: rgba(11, 18, 32, 0.86); */
 }
 
 .muted {
@@ -719,7 +719,7 @@ a.card:hover {
 }
 
 .event-card__media {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 15 / 8;
   overflow: hidden;
   background: rgba(128, 19, 26, 0.06);
 }
@@ -766,7 +766,7 @@ a.card:hover {
 .event-card__title {
   font-size: 1.08rem;
   font-weight: 850;
-  color: var(--brand);
+  color: var(--cs-ink-soft);
   line-height: 1.2;
 }
 
@@ -2152,7 +2152,7 @@ textarea:not(.form-control):focus-visible {
 
 .leadership-copy blockquote {
   max-width: 700px;
-  margin: 25px 0;
+  margin: 1px 0;
   color: rgba(255, 255, 255, .82);
   font: italic 1.08rem/1.9 Georgia, serif;
 }
@@ -3490,6 +3490,123 @@ textarea:not(.form-control):focus-visible {
 .home-page .home-header:not(.is-sticky) .home-brand img{width:58px;height:58px}.home-page .home-header:not(.is-sticky) .home-brand span{display:grid;justify-items:start}
 .home-page .home-header:not(.is-sticky) .home-nav--left,.home-page .home-header:not(.is-sticky) .home-nav--right{grid-column:auto;grid-row:auto;flex:0 0 auto;gap:4px}.home-page .home-header:not(.is-sticky) .home-nav--left{order:2}.home-page .home-header:not(.is-sticky) .home-nav--right{order:3}
 .home-page .home-header:not(.is-sticky) .site-nav__link{padding:11px 8px;color:#fff;font-size:.78rem}
+}
+
+/* Shared image interaction used throughout the website. */
+main img {
+  transition: transform .7s ease;
+}
+main a:has(> img),
+main figure,
+main .welcome-frame,
+main .photo-placeholder,
+main .card:has(> img),
+main .facility:has(> img),
+main .story,
+main .home-slide {
+  overflow: hidden;
+}
+main a:hover img,
+main figure:hover img,
+main .card:hover > img,
+main .facility:hover > img,
+main .story:hover img,
+main .welcome-frame:hover img,
+main .leadership-photo:hover img,
+main .home-slide:hover > img,
+main .stats-grid article:hover img {
+  transform: scale(1.06);
+}
+
+/* By The Numbers now uses four photographic markers. */
+.home-page .stats-grid article i {
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,.32);
+}
+.home-page .stats-grid article i img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Extend the Principal portrait to follow the message column. */
+.home-page .leadership-photo {
+  align-self: stretch;
+}
+.home-page .leadership-photo .photo-placeholder {
+  height: 100%;
+  min-height: 720px;
+  aspect-ratio: auto;
+}
+
+/* Two independent, compact About Us disclosure groups. */
+.page-about .read-more-content--about-part {
+  max-height: 125px;
+}
+.page-about .read-more-content--about-part.is-expanded {
+  max-height: 2200px;
+}
+
+@media(max-width:700px) {
+  .home-page .leadership-photo .photo-placeholder { min-height: 520px; }
+  .page-about .read-more-content--about-part { max-height: 110px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main img { transition: none; }
+}
+
+/* Keep the About Vision and Mission cards independently sized. */
+.page-about .current-vision-mission.row {
+  align-items: flex-start !important;
+}
+.page-about .current-vision-mission.row > .col {
+  align-self: flex-start !important;
+}
+.page-about .current-vision-mission.row > .col > .card.h-100 {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+/* Independent expandable cards on About and Facilities pages. */
+.read-more-content {
+  position: relative;
+  max-height: 210px;
+  overflow: hidden;
+  transition: max-height .45s ease;
+}
+.read-more-content:not(.is-expanded)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 64px;
+  background: linear-gradient(transparent,#fff);
+  pointer-events: none;
+}
+.read-more-content.is-expanded { max-height: 3000px; }
+.page-about .about-content-card,
+.page-about .affiliation-card,
+.page-about .current-vision-mission .card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.page-about .facility-read-more { margin-top: 22px; }
+
+/* Expanding Library must not stretch its two neighbouring cards. */
+.page-facilities .row:has(.facility.card) { align-items: flex-start; }
+.page-facilities .row { align-items: flex-start; }
+.page-facilities .facility.card.h-100 {
+  height: auto !important;
+}
+
+@media(max-width:700px) {
+  .read-more-content { max-height: 190px; }
+  .read-more-content.is-expanded { max-height: 4000px; }
 }
 
 /* Index desktop topbar matching the supplied two-row reference. */
@@ -4938,7 +5055,7 @@ textarea:not(.form-control):focus-visible {
 
 .page-events .page-hero,
 .page-announcements .page-hero {
-  background-image: linear-gradient(90deg, rgba(0, 50, 31, .86), rgba(0, 50, 31, .18)), url("../images/home/Carousel_3.jpg");
+  background-image: linear-gradient(90deg, rgba(0, 50, 31, .86), rgba(0, 50, 31, .18)), url("../images/KE CARMEL (1)/Awards/Telegraph Awards/techersimg.jpeg");
 }
 
 .page-contact .page-hero {
@@ -7043,7 +7160,9 @@ main h4,
 .home-hero__content>p,
 .home-hero__content>span,
 .home-slide__content>p {
-  color: var(--cs-coral) !important;
+  /* color: var(--cs-coral) !important; */
+  color:var(--template-yellow) !important;
+
 }
 
 /* Beyond the classroom: deep-ink panel with equal, overflow-safe cards. */
@@ -7350,16 +7469,6 @@ main h4,
   line-height: 1;
 }
 
-.page-about .current-principal-placeholder {
-  display: block !important;
-}
-
-.page-about .current-vision-mission~.card.current-principal-placeholder.mt-24:last-child {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
 /* Academics card titles use the shared section-heading colour. */
 .page-academics main .card h2,
 .page-academics main .card h3,
@@ -7478,7 +7587,7 @@ main h4,
 }
 .page-events .section__head h2,
 .page-events .event-information .card h3 {
-  margin-left: 0 !important;
+  /* margin-left: 0 !important; */
   color: var(--template-green) !important;
   text-align: left !important;
 }
@@ -7641,6 +7750,34 @@ main h4,
 .home-page .activity-grid > a:nth-child(even) { background: var(--cs-ink-soft) !important; }
 .home-page .activity-grid > a i { color: var(--cs-amber); background: rgba(255,255,255,.08); }
 .home-page .activity-grid > a:hover { background: #294b6d !important; }
+.home-page .activity-grid > a {
+  padding: 0 0 22px;
+  overflow: hidden;
+  justify-content: flex-start;
+}
+.home-page .activity-grid > a > img {
+  width: 100%;
+  height: 145px;
+  flex: 0 0 145px;
+  object-fit: cover;
+  transition: transform .35s ease;
+}
+.home-page .activity-grid > a:hover > img { transform: scale(1.05); }
+.home-page .activity-grid > a > b { padding: 0 14px; }
+
+.home-page .leadership-photo .photo-placeholder {
+  overflow: hidden;
+  place-content: stretch;
+}
+.home-page .leadership-photo .photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  /* height: auto;
+  width: auto; */
+  opacity: 1;
+  object-fit: cover;
+  object-position: center top;
+}
 
 /* Cards placed on ink sections retain readable light surfaces. */
 .home-page .gallery-ribbon a { color: var(--cs-ink); background: #fff; }
@@ -7869,8 +8006,9 @@ main h4,
   background: transparent !important;
 }
 .page-admissions main > .section:first-child > .container > .callout {
+  margin-top: 55px !important;
   padding-top: 34px;
-  padding-bottom: 34px;
+  padding-bottom: 4px;
 }
 
 /* Events ends immediately after the final achievement section. */
@@ -8301,3 +8439,1417 @@ main h4,
 .home-page .home-header:not(.is-sticky) .site-nav__link{padding:11px 8px;color:#fff;font-size:.78rem}
 }
 
+/* Image-overlay card language shared with Learning Spaces. */
+@media(min-width:701px) {
+  .home-page .activity-grid.row {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 22px;
+  }
+}
+.home-page .activity-grid.row > a.col,
+.home-page .gallery-ribbon > a {
+  position: relative;
+  min-height: 340px;
+  height: 340px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 22px;
+  color: #fff;
+  background: var(--cs-ink) !important;
+  box-shadow: 0 14px 35px rgba(16,42,67,.16);
+  transform: none;
+}
+.home-page .activity-grid.row > a.col::after,
+.home-page .gallery-ribbon > a::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(180deg,transparent 35%,rgba(7,25,41,.88) 100%);
+  pointer-events: none;
+}
+.home-page .activity-grid.row > a.col > img,
+.home-page .gallery-ribbon > a > img {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  display: block;
+  border-radius: 22px;
+  object-fit: cover;
+}
+.home-page .activity-grid.row > a.col > b,
+.home-page .gallery-ribbon > a > span {
+  position: absolute;
+  z-index: 2;
+  right: 24px;
+  bottom: 24px;
+  left: 24px;
+  width: auto;
+  padding: 0;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.35;
+  text-align: left;
+}
+.home-page .activity-grid.row > a.col:hover,
+.home-page .gallery-ribbon > a:hover {
+  background: var(--cs-ink) !important;
+  transform: translateY(-6px);
+}
+
+@media(max-width:700px) {
+  .home-page .activity-grid.row > a.col,
+  .home-page .gallery-ribbon > a {
+    min-height: 320px;
+    height: 320px;
+  }
+}
+
+/* Final Home refinements: consistent radii and photographic statistics. */
+.home-page .activity-grid.row > a.col,
+.home-page .activity-grid.row > a.col > img {
+  border-radius: 22px !important;
+}
+
+.home-page .stats-grid article {
+  position: relative;
+  min-height: 220px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.18);
+  background: var(--cs-ink);
+}
+.home-page .stats-grid article::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(180deg,rgba(7,25,41,.06) 20%,rgba(7,25,41,.92) 100%);
+  pointer-events: none;
+}
+.home-page .stats-grid article > img {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.home-page .stats-grid article > strong,
+.home-page .stats-grid article > span {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-align: left;
+}
+
+.home-page .leadership-photo,
+.home-page .leadership-photo .photo-placeholder,
+.home-page .leadership-photo .photo-placeholder img {
+  border-radius: 24px;
+}
+
+@media(min-width:701px) {
+  .home-page .stories-section > .strip-controls button {
+    display: none;
+  }
+}
+@media(max-width:700px) {
+  .home-page .stories-section > .strip-controls {
+    display: flex;
+    justify-content: center;
+  }
+  .home-page .stories-section > .strip-controls button {
+    display: grid !important;
+  }
+  .home-page .leadership-photo {
+    width: min(100%,330px);
+    max-width: 330px;
+    margin-right: auto;
+    margin-left: auto;
+    justify-self: center;
+  }
+}
+
+/* Notice marker and rounded statistics cards. */
+.home-page .notice-strip__title h2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.home-page .notice-board-icon {
+  width: 42px;
+  height: 42px;
+  display: inline-grid;
+  flex: 0 0 42px;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--cs-ink);
+  background: var(--cs-amber);
+}
+.home-page .notice-board-icon svg {
+  width: 23px;
+  height: 23px;
+}
+.home-page .stats-grid article {
+  border-radius: 22px;
+}
+.home-page .stats-grid article > img {
+  border-radius: 22px;
+}
+
+/* School Life uses the same image-and-overlay card treatment as Home. */
+.page-about .about-gallery {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 20px;
+}
+.page-about .about-gallery .gallery__item {
+  position: relative;
+  height: 320px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 22px;
+  box-shadow: 0 14px 35px rgba(16,42,67,.16);
+}
+.page-about .about-gallery .gallery__item::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(180deg,transparent 38%,rgba(7,25,41,.9) 100%);
+  pointer-events: none;
+}
+.page-about .about-gallery .gallery__item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 22px;
+  object-fit: cover;
+}
+.page-about .about-gallery .gallery__item figcaption {
+  position: absolute;
+  z-index: 2;
+  right: 22px;
+  bottom: 22px;
+  left: 22px;
+  padding: 0;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-align: left;
+}
+
+@media(max-width:900px) {
+  .page-about .about-gallery { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:576px) {
+  .page-about .about-gallery { grid-template-columns: 1fr; }
+  .page-about .about-gallery .gallery__item { height: 300px; }
+}
+
+/* Management leadership profiles use Home-style image-overlay cards. */
+.page-management .management-leadership-grid {
+  max-width: 980px;
+}
+.page-management .management-leadership-grid .person-card {
+  position: relative;
+  min-height: 550px;
+  height: 550px !important;
+  display: block;
+  overflow: hidden;
+  border: 0 !important;
+  border-radius: 22px;
+  background: var(--cs-ink) !important;
+  box-shadow: 0 14px 35px rgba(16,42,67,.18);
+}
+.page-management .management-leadership-grid .person-card::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(180deg,transparent 35%,rgba(7,25,41,.94) 100%);
+  pointer-events: none;
+}
+.page-management .management-leadership-grid .person-card__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  background: var(--cs-ink);
+}
+.page-management .management-leadership-grid .person-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.page-management .management-leadership-grid .person-card__body {
+  position: absolute;
+  z-index: 2;
+  right: 30px;
+  bottom: 28px;
+  left: 30px;
+  padding: 0;
+  color: #fff;
+}
+.page-management .management-leadership-grid .person-card__name {
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+.page-management .management-leadership-grid .person-card__role {
+  color: var(--cs-amber);
+  font-size: 1rem;
+  font-weight: 800;
+}
+.page-management .management-leadership-grid .person-card__dept {
+  color: rgba(255,255,255,.82);
+  font-size: .95rem;
+}
+
+@media(max-width:576px) {
+  .page-management .management-leadership-grid .person-card {
+    min-height: 380px;
+    height: 380px !important;
+  }
+}
+
+/* Events: images sit flush with the card edges; spacing belongs to text only. */
+.page-events .event-card,
+.page-events .achievement-card {
+  padding: 0 !important;
+  overflow: hidden;
+}
+.page-events .event-card__media,
+.page-events .event-card__media .card-media-carousel,
+.page-events .achievement-card__media {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+.page-events .event-card__media .card-media-carousel > img,
+.page-events .achievement-card__media > img {
+  width: 100%;
+  height: 190px;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  object-fit: cover;
+}
+.page-events .achievement-card__media {
+  margin-bottom: 18px;
+}
+.page-events .achievement-card__title,
+.page-events .achievement-card__text {
+  margin-right: 18px;
+  margin-left: 18px;
+}
+.page-events .achievement-card__title {
+  color: var(--cs-ink-soft) !important;
+}
+.page-events .achievement-card__text {
+  margin-bottom: 20px;
+}
+
+/* Match School Fees Details to the Online Application panel. */
+.page-admissions .admission-fees.card {
+  border-color: rgba(255,255,255,.12) !important;
+  color: #fff;
+  background: var(--cs-ink) !important;
+  box-shadow: 0 14px 35px rgba(16,42,67,.16);
+}
+.page-admissions .admission-fees.card h2,
+.page-admissions .admission-fees.card .h3,
+.page-admissions .admission-fees.card p,
+.page-admissions .admission-fees.card li {
+  color: #fff !important;
+}
+.page-admissions .admission-fees.card .check-list li::before {
+  color: var(--cs-ink);
+  background: var(--cs-amber);
+}
+
+/* Compact card galleries and their shared medium modal. */
+.card-media-carousel {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  display: block;
+  overflow: hidden;
+  border: 0;
+  border-radius: 14px;
+  background: var(--cs-mist);
+  cursor: pointer;
+}
+.card-media-carousel > img,
+.page-facilities .card-media-carousel > .facility__img,
+.page-events .event-card__media .card-media-carousel > img,
+.page-events .achievement-card__media > img {
+  width: 100%;
+  height: 140px;
+  display: block;
+  border-radius: 14px;
+  object-fit: cover;
+}
+.card-media-carousel > span {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(16,42,67,.86);
+  font-size: .72rem;
+  font-weight: 800;
+  line-height: 1;
+}
+.card-media-carousel.has-multiple-images::before,
+.card-media-carousel.has-multiple-images::after {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.65);
+  border-radius: 50%;
+  color: #fff;
+  /* background: rgba(16,42,67,.72); */
+  background: rgb(126 177 225 / 72%);
+  font-size: 1.35rem;
+  line-height: 1;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.card-media-carousel.has-multiple-images::before {
+  content: "‹";
+  left: 10px;
+}
+.card-media-carousel.has-multiple-images::after {
+  content: "›";
+  right: 10px;
+}
+.card-media-carousel:hover > img,
+.card-media-carousel:focus-visible > img {
+  transform: scale(1.06);
+}
+.card-media-carousel:focus-visible {
+  outline: 3px solid var(--cs-amber);
+  outline-offset: 3px;
+}
+.page-events .event-card__media {
+  padding: 0;
+  background: transparent;
+}
+.page-events .event-card__media .card-media-carousel,
+.page-events .event-card__media .card-media-carousel > img {
+  height: 190px;
+  border-radius: 0;
+}
+.page-events .achievement-card__media {
+  margin-bottom: 18px;
+}
+
+.media-modal-open { overflow: hidden; }
+.media-gallery-modal {
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  padding: 24px;
+  display: grid;
+  place-items: center;
+}
+.media-gallery-modal[hidden] { display: none !important; }
+.media-gallery-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5,18,30,.78);
+  backdrop-filter: blur(5px);
+}
+.media-gallery-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(760px,100%);
+  overflow: hidden;
+  border-radius: 22px;
+  color: #fff;
+  background: var(--cs-ink);
+  box-shadow: 0 28px 80px rgba(0,0,0,.38);
+}
+.media-gallery-modal__header {
+  min-height: 64px;
+  padding: 14px 18px 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.media-gallery-modal__header h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
+.media-gallery-modal__header button,
+.media-gallery-modal__arrow {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  flex: 0 0 40px;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(255,255,255,.1);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.media-gallery-modal__stage {
+  position: relative;
+  min-height: 420px;
+  display: grid;
+  place-items: center;
+  background: #081b2b;
+}
+.media-gallery-modal__stage > img {
+  width: 100%;
+  height: min(58vh,480px);
+  display: block;
+  object-fit: contain;
+}
+.media-gallery-modal__arrow {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.media-gallery-modal__arrow--prev { left: 16px; }
+.media-gallery-modal__arrow--next { right: 16px; }
+.media-gallery-modal__header button:hover,
+.media-gallery-modal__arrow:hover {
+  color: var(--cs-ink);
+  border-color: var(--cs-amber);
+  background: var(--cs-amber);
+}
+.media-gallery-modal__counter {
+  padding: 12px 20px 16px;
+  color: rgba(255,255,255,.72);
+  text-align: center;
+  font-weight: 700;
+}
+.events-footer-separator {
+  width: min(1180px,calc(100% - 40px));
+  margin: 0 auto;
+  border: 0;
+  border-top: 2px solid var(--cs-amber);
+  opacity: 1;
+}
+
+@media(max-width:576px) {
+  .media-gallery-modal { padding: 12px; }
+  .media-gallery-modal__stage { min-height: 300px; }
+  .media-gallery-modal__stage > img { height: min(56vh,380px); }
+}
+
+/* Campus Updates is the shared card scale for Home and About image sections. */
+@media(min-width:701px) {
+  .home-page .activity-grid.row {
+    width: 100%;
+    max-width: none;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 16px;
+  }
+  .home-page .activity-grid.row > a.col,
+  .home-page .facility-home-grid > a,
+  .home-page .stats-grid > article {
+    flex: 0 0 calc(25% - 12px);
+    width: calc(25% - 12px);
+    min-width: calc(25% - 12px);
+    max-width: calc(25% - 12px);
+  }
+  .home-page .activity-section .mobile-carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 28px;
+  }
+}
+.home-page .activity-grid.row > a.col,
+.home-page .facility-home-grid > a,
+.home-page .stats-grid > article,
+.home-page .story,
+.page-about .about-gallery .gallery__item {
+  height: 360px !important;
+  min-height: 360px;
+  overflow: hidden;
+  border-radius: 22px !important;
+  box-shadow: 0 14px 32px rgba(16,42,67,.1);
+  transition: transform .35s ease,box-shadow .35s ease;
+}
+.home-page .activity-grid.row > a.col:hover,
+.home-page .facility-home-grid > a:hover,
+.home-page .stats-grid > article:hover,
+.home-page .story:hover,
+.page-about .about-gallery .gallery__item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 42px rgba(16,42,67,.18);
+}
+.home-page .activity-grid.row > a.col > img,
+.home-page .facility-home-grid > a > img,
+.home-page .stats-grid > article > img,
+.page-about .about-gallery .gallery__item > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 22px !important;
+  object-fit: cover;
+}
+
+/* Four statistics use the same full-width four-card row. */
+.home-page .stats-section > .home-container {
+  display: block;
+}
+.home-page .stats-heading {
+  position: static;
+  margin-bottom: 48px;
+  text-align: center;
+}
+.home-page .stats-grid {
+  display: flex;
+  gap: 16px;
+}
+
+/* Learning Spaces has five cards, so its four-card viewport remains a carousel. */
+.home-page .facility-home-grid {
+  gap: 16px;
+}
+
+/* School Life contains exactly four images: no carousel is required. */
+.page-about .about-gallery {
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 16px;
+}
+
+/* Reduce School Management portraits without changing their composition. */
+.page-management .management-leadership-grid {
+  max-width: 760px;
+}
+.page-management .management-leadership-grid .person-card {
+  min-height: 340px;
+  height: 340px !important;
+}
+
+@media(max-width:900px) {
+  .home-page .stats-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .home-page .stats-grid > article { width: auto; min-width: 0; max-width: none; }
+  .page-about .about-gallery { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media(min-width:701px) and (max-width:1000px) {
+  .home-page .activity-grid.row > a.col,
+  .home-page .facility-home-grid > a {
+    flex-basis: calc(50% - 8px);
+    width: calc(50% - 8px);
+    min-width: calc(50% - 8px);
+    max-width: calc(50% - 8px);
+  }
+}
+@media(max-width:700px) {
+  .home-page .activity-grid.row > a.col,
+  .home-page .facility-home-grid > a,
+  .home-page .stats-grid > article,
+  .page-about .about-gallery .gallery__item {
+    height: 360px !important;
+    min-height: 360px;
+  }
+  .home-page .stats-grid { grid-template-columns: 1fr; }
+}
+@media(max-width:576px) {
+  .page-about .about-gallery { grid-template-columns: 1fr; }
+  .page-management .management-leadership-grid { max-width: 620px; }
+  .page-management .management-leadership-grid .person-card {
+    min-height: 310px;
+    height: 310px !important;
+  }
+}
+
+/* Final alignment corrections for Home card rows and controls. */
+.home-page .activity-section .mobile-track-viewport {
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+.home-page .activity-grid.row {
+  column-gap: 16px !important;
+  row-gap: 16px !important;
+}
+@media(min-width:1001px) {
+  .home-page .activity-grid.row > a.col {
+    flex-basis: calc(25% - 12px);
+    width: calc(25% - 12px);
+    min-width: calc(25% - 12px);
+    max-width: calc(25% - 12px);
+  }
+}
+
+.home-page .activity-section .mobile-carousel-controls,
+.home-page .activity-section .activity-carousel-controls,
+.home-page .facilities-showcase .strip-controls,
+.home-page .stories-section > .strip-controls,
+.home-page .gallery-section .mobile-carousel-controls {
+  width: min(1180px,100%);
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: flex-start !important;
+}
+
+/* Restore only the original side placement of the statistics heading. */
+.home-page .stats-section > .home-container {
+  display: grid;
+  grid-template-columns: 300px minmax(0,1fr);
+  gap: 72px;
+  align-items: start;
+}
+.home-page .stats-heading {
+  position: sticky;
+  top: 140px;
+  margin-bottom: 0;
+  text-align: left;
+}
+.home-page .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 16px;
+}
+.home-page .stats-grid > article {
+  width: auto;
+  min-width: 0;
+  max-width: none;
+}
+
+@media(max-width:900px) {
+  .home-page .stats-section > .home-container {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+  .home-page .stats-heading {
+    position: static;
+    text-align: center;
+  }
+  .home-page .stats-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:700px) {
+  .home-page .stats-grid { grid-template-columns: 1fr; }
+}
+
+/* School Life mirrors Learning Spaces without a section/card background or controls. */
+.page-about .school-life-section,
+.page-about .school-life-section::before,
+.page-about .school-life-section::after,
+.page-about .school-life-section .about-gallery {
+  border: 0 !important;
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+.page-about .school-life-section::before,
+.page-about .school-life-section::after {
+  display: none !important;
+}
+.page-about .school-life-section .section__head {
+  width: 100% !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+.page-about .school-life-section .gallery__item {
+  border: 0 !important;
+  background: transparent !important;
+  background-image: none !important;
+}
+.page-about .school-life-section .gallery__item::before,
+.page-about .school-life-section .gallery__item::after {
+  display: none !important;
+  border: 0 !important;
+  background: transparent !important;
+  background-image: none !important;
+}
+.page-about .school-life-section .gallery__item > img {
+  border: 0 !important;
+  background: transparent !important;
+  background-image: none !important;
+}
+.page-about .school-life-section .gallery__item figcaption {
+  right: 28px;
+  bottom: 28px;
+  left: 28px;
+  font-size: 1.3rem;
+  text-shadow: 0 2px 10px rgba(7,25,41,.75);
+}
+
+/* By The Numbers: left heading with Campus Updates-sized cards on the right. */
+.home-page .stats-section > .home-container {
+  width: min(1180px,calc(100% - 40px));
+  grid-template-columns: 200px minmax(0,1fr);
+  gap: 24px;
+}
+.home-page .stats-grid {
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 16px;
+}
+.home-page .stats-grid > article {
+  height: 360px !important;
+  min-height: 360px;
+  padding: 18px;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.home-page .stats-grid > article > strong,
+.home-page .stats-grid > article > span {
+  right: auto;
+  bottom: auto;
+  left: auto;
+  margin: 0;
+  text-align: left;
+}
+.home-page .stats-grid > article > strong {
+  font-size: 1.55rem;
+  line-height: 1.15;
+}
+.home-page .stats-grid > article > span {
+  margin-top: 5px;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+@media(max-width:1100px) {
+  .home-page .stats-section > .home-container {
+    width: min(1180px,calc(100% - 40px));
+    grid-template-columns: 180px minmax(0,1fr);
+    gap: 20px;
+  }
+}
+@media(max-width:900px) {
+  .home-page .stats-section > .home-container {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+  .home-page .stats-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:700px) {
+  .home-page .stats-grid { grid-template-columns: 1fr; }
+}
+
+/* Match the fees title with the Online Application title. */
+.page-admissions .admission-fees > h2.text-light {
+  color: #fff !important;
+}
+
+/* About: accessible vertical navigation for long-form content. */
+.page-about .about-tabs {
+  display: grid;
+  grid-template-columns: minmax(220px,280px) minmax(0,1fr);
+  gap: clamp(32px,5vw,72px);
+  align-items: start;
+  margin-top: 56px;
+  padding-bottom: 64px;
+}
+.page-about .about-tabs__sidebar {
+  position: sticky;
+  top: 150px;
+  padding: 26px 24px;
+  border-radius: 20px;
+  color: #fff;
+  background: var(--cs-ink);
+  box-shadow: 0 18px 42px rgba(16,42,67,.15);
+}
+.page-about .about-tabs__eyebrow {
+  margin: 0 0 16px;
+  color: var(--cs-amber);
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.page-about .about-tabs__nav {
+  display: flex;
+  flex-direction: column;
+}
+.page-about .about-tabs__button {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 17px 2px;
+  border: 0;
+  border-bottom: 1px solid rgba(255,255,255,.2);
+  border-radius: 0;
+  color: rgba(255,255,255,.76);
+  background: transparent;
+  font: inherit;
+  font-weight: 650;
+  text-align: left;
+  transition: color .25s ease,padding-left .25s ease,border-color .25s ease;
+}
+.page-about .about-tabs__button:last-child { border-bottom: 0; }
+.page-about .about-tabs__button:hover,
+.page-about .about-tabs__button:focus-visible {
+  color: #fff;
+  padding-left: 7px;
+}
+.page-about .about-tabs__button:focus-visible {
+  outline: 2px solid var(--cs-amber);
+  outline-offset: 4px;
+}
+.page-about .about-tabs__button.is-active {
+  color: var(--cs-amber);
+  border-color: var(--cs-amber);
+}
+.page-about .about-tabs__button span:last-child {
+  font-size: 1.15rem;
+  transition: transform .25s ease;
+}
+.page-about .about-tabs__button:hover span:last-child,
+.page-about .about-tabs__button.is-active span:last-child { transform: translateX(4px); }
+.page-about .about-tabs__content { min-width: 0; }
+.page-about .about-tab-panel[hidden] { display: none !important; }
+.page-about .about-tab-panel.is-active { animation: aboutTabFade .55s ease both; }
+.page-about .about-tab-panel > :first-child { margin-top: 0 !important; }
+.page-about .about-tab-panel .school-life-section { padding-top: 0 !important; }
+.page-about .about-tab-panel .section__head {
+  width: 100% !important;
+  margin-top: 0 !important;
+}
+.page-about .about-tab-panel .about-band,
+.page-about .about-tab-panel > .row { margin-top: 0 !important; }
+@keyframes aboutTabFade {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-about .about-tab-panel.is-active { animation: none; }
+}
+@media(max-width:991px) {
+  .page-about .about-tabs {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 40px;
+  }
+  .page-about .about-tabs__sidebar {
+    position: static;
+    padding: 18px;
+  }
+  .page-about .about-tabs__nav {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 8px;
+  }
+  .page-about .about-tabs__button,
+  .page-about .about-tabs__button:last-child {
+    padding: 13px 14px;
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 12px;
+  }
+  .page-about .about-tabs__button:hover,
+  .page-about .about-tabs__button:focus-visible { padding-left: 14px; }
+  .page-about .about-tabs__button.is-active {
+    border-color: var(--cs-amber);
+    background: rgba(244,185,66,.1);
+  }
+}
+@media(max-width:575px) {
+  .page-about .about-tabs { margin-top: 30px; padding-bottom: 44px; }
+  .page-about .about-tabs__nav { grid-template-columns: 1fr; }
+}
+
+/* About navigator keeps every section visible and preserves the original content width. */
+.page-about .about-tabs {
+  display: block;
+  margin-top: 56px;
+}
+.page-about .about-tabs__content {
+  width: 100%;
+}
+.page-about .about-tab-panel,
+.page-about .about-tab-panel[hidden] {
+  display: block !important;
+  scroll-margin-top: 155px;
+  margin-top: 72px;
+}
+.page-about .about-tab-panel:first-child { margin-top: 0; }
+.page-about .about-tab-panel.is-active { animation: none; }
+.page-about .about-tabs__sidebar {
+  position: static;
+  width: 100%;
+  margin-bottom: 40px;
+}
+.page-about .about-tabs__nav {
+  display: grid;
+  grid-template-columns: repeat(5,minmax(0,1fr));
+  gap: 8px;
+}
+.page-about .about-tabs__button,
+.page-about .about-tabs__button:last-child {
+  padding: 13px 14px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 12px;
+}
+.page-about .about-tabs__button:hover,
+.page-about .about-tabs__button:focus-visible { padding-left: 14px; }
+.page-about .about-tabs__button.is-active {
+  border-color: var(--cs-amber);
+  background: rgba(244,185,66,.1);
+}
+.page-about .about-tab-panel.section-fade-target {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .55s ease,transform .55s ease;
+}
+.page-about .about-tab-panel.section-fade-target.is-section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media(min-width:1800px) {
+  .page-about .about-tabs {
+    display: grid;
+    width: 100%;
+    grid-template-columns: minmax(0,1fr);
+    position: relative;
+    left: auto;
+    transform: none;
+  }
+  .page-about .about-tabs__sidebar {
+    grid-area: 1 / 1;
+    position: sticky;
+    top: 150px;
+    z-index: 4;
+    align-self: start;
+    justify-self: start;
+    width: 290px;
+    margin: 0;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(calc(-100% - 20px));
+  }
+  .page-about .about-tabs__content {
+    grid-area: 1 / 1;
+    width: 100%;
+    min-width: 0;
+  }
+  .page-about .about-tabs__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .page-about .about-tabs__button,
+  .page-about .about-tabs__button:last-child {
+    padding: 17px 2px;
+    border: 0;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+    border-radius: 0;
+    background: transparent;
+  }
+  .page-about .about-tabs__button:last-child { border-bottom: 0; }
+  .page-about .about-tabs__button:hover,
+  .page-about .about-tabs__button:focus-visible { padding-left: 7px; }
+  .page-about .about-tabs__button.is-active { border-color: var(--cs-amber); }
+}
+@media(max-width:991px) {
+  .page-about .about-tabs__nav { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .page-about .about-tab-panel,
+  .page-about .about-tab-panel[hidden] { margin-top: 54px; }
+  .page-about .about-tab-panel:first-child { margin-top: 0; }
+}
+@media(max-width:575px) {
+  .page-about .about-tabs__nav { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-about .about-tab-panel.section-fade-target {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Academics and Admissions use the approved About section navigator. */
+:is(.page-academics,.page-admissions) .about-tabs {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin-top: 56px;
+  padding-bottom: 64px;
+}
+:is(.page-academics,.page-admissions) .about-tabs__sidebar {
+  position: static;
+  width: 100%;
+  margin-bottom: 40px;
+  padding: 26px 24px;
+  border-radius: 20px;
+  color: #fff;
+  background: var(--cs-ink);
+  box-shadow: 0 18px 42px rgba(16,42,67,.15);
+}
+:is(.page-academics,.page-admissions) .about-tabs__eyebrow {
+  margin: 0 0 16px;
+  color: var(--cs-amber);
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+:is(.page-academics,.page-admissions) .about-tabs__nav {
+  display: grid;
+  grid-template-columns: repeat(5,minmax(0,1fr));
+  gap: 8px;
+}
+.page-academics .about-tabs__nav { grid-template-columns: repeat(3,minmax(0,1fr)); }
+:is(.page-academics,.page-admissions) .about-tabs__button {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 13px 14px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 12px;
+  color: rgba(255,255,255,.76);
+  background: transparent;
+  font: inherit;
+  font-weight: 650;
+  text-align: left;
+  transition: color .25s ease,border-color .25s ease,background .25s ease;
+}
+:is(.page-academics,.page-admissions) .about-tabs__button:hover,
+:is(.page-academics,.page-admissions) .about-tabs__button:focus-visible { color: #fff; }
+:is(.page-academics,.page-admissions) .about-tabs__button:focus-visible {
+  outline: 2px solid var(--cs-amber);
+  outline-offset: 3px;
+}
+:is(.page-academics,.page-admissions) .about-tabs__button.is-active {
+  color: var(--cs-amber);
+  border-color: var(--cs-amber);
+  background: rgba(244,185,66,.1);
+}
+:is(.page-academics,.page-admissions) .about-tabs__content { width: 100%; min-width: 0; }
+:is(.page-academics,.page-admissions) .about-tab-panel {
+  display: block !important;
+  margin-top: 72px;
+  scroll-margin-top: 155px;
+}
+:is(.page-academics,.page-admissions) .about-tab-panel:first-child { margin-top: 0; }
+:is(.page-academics,.page-admissions) .about-tab-panel > .row { margin-top: 0 !important; }
+:is(.page-academics,.page-admissions) .about-tab-panel.section-fade-target {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .55s ease,transform .55s ease;
+}
+:is(.page-academics,.page-admissions) .about-tab-panel.section-fade-target.is-section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media(min-width:1800px) {
+  :is(.page-academics,.page-admissions) .about-tabs {
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+  }
+  :is(.page-academics,.page-admissions) .about-tabs__sidebar {
+    grid-area: 1 / 1;
+    position: sticky;
+    top: 150px;
+    z-index: 4;
+    align-self: start;
+    justify-self: start;
+    width: 290px;
+    margin: 0;
+    transform: translateX(calc(-100% - 20px));
+  }
+  :is(.page-academics,.page-admissions) .about-tabs__content {
+    grid-area: 1 / 1;
+  }
+  :is(.page-academics,.page-admissions) .about-tabs__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  :is(.page-academics,.page-admissions) .about-tabs__button {
+    padding: 17px 2px;
+    border: 0;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+    border-radius: 0;
+    background: transparent;
+  }
+  :is(.page-academics,.page-admissions) .about-tabs__button:last-child { border-bottom: 0; }
+  :is(.page-academics,.page-admissions) .about-tabs__button.is-active { border-color: var(--cs-amber); }
+}
+@media(max-width:991px) {
+  :is(.page-academics,.page-admissions) .about-tabs__nav { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  :is(.page-academics,.page-admissions) .about-tab-panel { margin-top: 54px; }
+}
+@media(max-width:575px) {
+  :is(.page-academics,.page-admissions) .about-tabs { margin-top: 30px; padding-bottom: 44px; }
+  :is(.page-academics,.page-admissions) .about-tabs__nav { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :is(.page-academics,.page-admissions) .about-tab-panel.section-fade-target {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Restore the original mist/ink alternation inside the new page navigators. */
+:is(.page-about,.page-academics,.page-admissions) main > .section:first-child > .container > .about-tabs::before {
+  background: transparent !important;
+}
+:is(.page-about,.page-academics,.page-admissions) .about-tab-panel {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  margin-top: 0 !important;
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+:is(.page-about,.page-academics,.page-admissions) .about-tab-panel::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 0 calc(50% - 50vw);
+  background: var(--cs-mist);
+  pointer-events: none;
+}
+:is(.page-about,.page-academics,.page-admissions) .about-tab-panel:nth-child(even)::before {
+  background: var(--cs-ink);
+}
+:is(.page-about,.page-academics,.page-admissions) .about-tab-panel:nth-child(even) {
+  color: #fff;
+}
+:is(.page-about,.page-academics,.page-admissions) .about-tab-panel:nth-child(even) > h2,
+:is(.page-about,.page-academics,.page-admissions) .about-tab-panel:nth-child(even) > p {
+  color: #fff !important;
+}
+:is(.page-about,.page-academics,.page-admissions) .about-tab-panel .card {
+  color: var(--cs-ink);
+  background: #fff;
+}
+
+/* Management portraits match the Home Beyond-the-Classroom image scale. */
+.page-management .management-leadership-grid {
+  width: 100%;
+  max-width: 598px;
+  justify-content: flex-start;
+}
+@media(min-width:768px) {
+  .page-management .management-leadership-grid > .col {
+    flex: 0 0 299px;
+    width: 299px;
+    max-width: 299px;
+  }
+}
+.page-management .management-leadership-grid .person-card {
+  min-height: 360px;
+  height: 360px !important;
+  border-radius: 22px !important;
+  transition: transform .35s ease,box-shadow .35s ease;
+}
+.page-management .management-leadership-grid .person-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 42px rgba(16,42,67,.18);
+}
+.page-management .management-leadership-grid .person-card__photo,
+.page-management .management-leadership-grid .person-card__photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 22px;
+}
+.page-management .management-leadership-grid .person-card__photo img {
+  transition: transform .55s ease;
+}
+.page-management .management-leadership-grid .person-card:hover .person-card__photo img {
+  transform: scale(1.055);
+}
+.page-management .management-leadership-grid .person-card__body {
+  inset: 0;
+  padding: 0;
+}
+.page-management .management-leadership-grid .person-card__role {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  max-width: calc(100% - 40px);
+  padding: 7px 12px;
+  border-radius: 999px;
+  color: var(--cs-amber);
+  backdrop-filter: blur(6px);
+  text-align: right;
+}
+.page-management .management-leadership-grid .person-card__name {
+  position: absolute;
+  right: 28px;
+  bottom: 86px;
+  left: 28px;
+}
+.page-management .management-leadership-grid .person-card__dept {
+  position: absolute;
+  right: 28px;
+  bottom: 27px;
+  left: 28px;
+}
+@media(max-width:767px) {
+  .page-management .management-leadership-grid {
+    max-width: 380px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .page-management .management-leadership-grid > .col {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+@media(max-width:576px) {
+  .page-management .management-leadership-grid .person-card {
+    min-height: 360px;
+    height: 360px !important;
+  }
+}
+
+/* Final Events media alignment overrides. */
+.page-events .event-card,
+.page-events .achievement-card { padding: 0 !important; overflow: hidden; }
+.page-events .event-card__media,
+.page-events .event-card__media .card-media-carousel,
+.page-events .achievement-card__media {
+  width: 100%;
+  /* margin: 0 0 18px; */
+  border: 0;
+  border-radius: 0;
+}
+/* .page-events .event-card__media { margin-bottom: 0; } */
+.page-events .event-card__media .card-media-carousel > img,
+.page-events .achievement-card__media > img {
+  width: 100%;
+  height: 190px;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  object-fit: cover;
+}
+.page-events .achievement-card__title {
+  margin-right: 18px;
+  margin-left: 18px;
+  color: var(--cs-ink-soft) !important;
+}
+.page-events .achievement-card__text {
+  margin: 0 18px 20px;
+}
+
+/* Gallery modal triggers retain the existing Gallery card design. */
+.page-gallery .gallery__item[data-media-gallery] { cursor: pointer; }
+.page-gallery .gallery__item[data-media-gallery]:focus-visible {
+  outline: 3px solid var(--cs-amber);
+  outline-offset: 4px;
+}
+
+/* Facilities: gallery images fill the card media area edge to edge. */
+.page-facilities .card:has(> .card-media-carousel) {
+  padding: 0 !important;
+  overflow: hidden;
+}
+.page-facilities .card > .card-media-carousel,
+.page-facilities .card > .card-media-carousel > .facility__img {
+  width: 100%;
+  margin: 0;
+  padding: 0 !important;
+  border: 0;
+  border-radius: 0;
+}
+.page-facilities .card > .card-media-carousel > .facility__img {
+  height: 200px;
+  object-fit: cover;
+}
+.page-facilities .card:has(> .card-media-carousel) > h2,
+.page-facilities .card:has(> .card-media-carousel) > ul,
+.page-facilities .card:has(> .card-media-carousel) > p,
+.page-facilities .card:has(> .card-media-carousel) > .facility-badge {
+  margin-right: 22px;
+  margin-left: 22px;
+}
+.page-facilities .card:has(> .card-media-carousel) > h2,
+.page-facilities .card:has(> .card-media-carousel) > .facility-badge {
+  margin-top: 22px;
+}
+.page-facilities .card:has(> .card-media-carousel) > .facility-read-more {
+  margin-right: 22px;
+  margin-bottom: 22px;
+  margin-left: 22px;
+}
+.page-facilities .card:has(> .card-media-carousel) > p:last-child,
+.page-facilities .card:has(> .card-media-carousel) > ul:last-child {
+  margin-bottom: 22px;
+}
+
+/* JPEG logo options must retain their original colours over the hero. */
+.home-page .home-header:not(.is-sticky) .home-brand img,
+.page-about .home-header:not(.is-sticky) .home-brand img {
+  filter: none !important;
+  background: transparent !important;
+}
+
+/* School Life begins immediately at the start of the About content. */
+.page-about #about-panel-school-life {
+  padding-top: 0;
+}
+
+/* First navigated card rows begin without additional top padding. */
+.page-academics #academics-programme,
+.page-admissions #admission-process {
+  padding-top: 0;
+}
+
+/* Events hero uses the current Annual Day photograph. */
+.page-events .page-hero {
+  background-image: linear-gradient(90deg,rgba(0,50,31,.86),rgba(0,50,31,.18)),
+    url("../images/KE CARMEL (1)/Annual Day/AB1_4388.jpg");
+}
+
+/* Gallery hero uses the selected Annual Day photograph. */
+.page-gallery .page-hero {
+  background-image: linear-gradient(90deg,rgba(0,50,31,.86),rgba(0,50,31,.15)),
+    url("../images/KE CARMEL (1)/Annual Day/DSC_8418.jpg");
+}
+
+/* Co-Curricular event information card includes an edge-to-edge gallery image. */
+.page-events .event-information-card--media {
+  padding: 0 !important;
+  overflow: hidden;
+}
+.page-events .event-information-card--media > .card-media-carousel,
+.page-events .event-information-card--media > .card-media-carousel > img {
+  width: 100%;
+  height: 190px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  object-fit: cover;
+}
+.page-events .event-information-card--media > h3,
+.page-events .event-information-card--media > p {
+  margin-right: 22px;
+  margin-left: 22px;
+}
+.page-events .event-information-card--media > h3 { margin-top: 22px; }
+.page-events .event-information-card--media > p:last-child { margin-bottom: 22px; }
