@@ -3,7 +3,7 @@
   const isHomePage = document.body.classList.contains("home-page");
   const currentPageName = (window.location.pathname.split("/").pop() || "index.html").replace(/\.html$/i, "").toLowerCase();
   const innerHeaderLogo = currentPageName === "about"
-    ? "assets/images/logo/logo4.jpeg"
+    ? "assets/images/logo/logo4-removebg-preview.png"
     : "assets/images/logo/temp-carmel-school-logo.png";
   if (!isHomePage) {
     document.body.classList.add("inner-page", "is-loading");
