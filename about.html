@@ -91,17 +91,9 @@
           <aside class="about-tabs__sidebar" aria-label="About page sections">
             <p class="about-tabs__eyebrow">Explore our school</p>
             <nav class="about-tabs__nav" aria-label="About page section navigation">
-              <button class="about-tabs__button is-active" id="about-tab-school-life" type="button" aria-current="true"
-                aria-controls="about-panel-school-life" data-tab-target="about-panel-school-life">
-                <span>School Life</span><span aria-hidden="true">&#8594;</span>
-              </button>
-              <button class="about-tabs__button" id="about-tab-about-us" type="button"
+              <button class="about-tabs__button is-active" id="about-tab-about-us" type="button" aria-current="true"
                 aria-controls="about-panel-about-us" data-tab-target="about-panel-about-us">
                 <span>About Us</span><span aria-hidden="true">&#8594;</span>
-              </button>
-              <button class="about-tabs__button" id="about-tab-motto" type="button" aria-controls="about-panel-motto"
-                data-tab-target="about-panel-motto">
-                <span>Motto &amp; Affiliation</span><span aria-hidden="true">&#8594;</span>
               </button>
               <button class="about-tabs__button" id="about-tab-history" type="button"
                 aria-controls="about-panel-history" data-tab-target="about-panel-history">
@@ -109,7 +101,15 @@
               </button>
               <button class="about-tabs__button" id="about-tab-vision" type="button" aria-controls="about-panel-vision"
                 data-tab-target="about-panel-vision">
-                <span>Vision &amp; Mission</span><span aria-hidden="true">&#8594;</span>
+                <span>Vision, Mission &amp; Motto</span><span aria-hidden="true">&#8594;</span>
+              </button>
+              <button class="about-tabs__button" id="about-tab-motto" type="button" aria-controls="about-panel-motto"
+                data-tab-target="about-panel-motto">
+                <span>Affiliation</span><span aria-hidden="true">&#8594;</span>
+              </button>
+              <button class="about-tabs__button" id="about-tab-school-life" type="button"
+                aria-controls="about-panel-school-life" data-tab-target="about-panel-school-life">
+                <span>School Life</span><span aria-hidden="true">&#8594;</span>
               </button>
             </nav>
           </aside>
@@ -150,13 +150,7 @@
               <section class="about-band about-band--ink">
                 <article class="card about-content-card">
                   <h2 class="h3">About Us</h2>
-                  <div id="about-us-part-1" class="read-more-content read-more-content--about-part"
-                    data-expandable-content>
-                    <!-- <p>K.E. Carmel Group of Schools, West Bengal belongs to the Christian Catholic Religious Congregation of Carmelites of Mary Immaculate (C.M.I.) Fathers. It is solely owned and managed by C.M.I. Dharmanivas Educational Trust (DET) and C.M.I. Dharmaniketan Educational Trust (Eastern Region), under the aegis of Dharmaniketan C.M.I. Sub Region, West Bengal, of C.M.I. St. Joseph’s Province, Trivandrum, Kerala, India.</p>
-            <p>The group draws inspiration from Saint Kuriakose Elias Chavara (1805–1871), a saint and social reformer and one of the founders of the C.M.I. Congregation—the first Catholic religious congregation for men in India. Following his vision, the congregation has established more than 700 educational institutions in India and abroad. K.E. Carmel Group carries this vision through eight educational institutions in West Bengal and is approved as a Minority Educational Institution under F.No.1525 of 2006-143/8. The school imparts instruction from Nursery to Class XII under the CISCE curriculum, New Delhi.</p>
-            <p>Our institutions are open to all, irrespective of sex, caste, colour or faith. Catholic students receive religious formation based on Gospel values, while others receive moral and spiritual formation. Curricular and co-curricular activities support the integral development of every student.</p>
-            <p>The C.M.I. Missionary Fathers invest their best in forming the next generation as a contribution to national development. Committed teachers accompany students in their physical, intellectual, moral, cultural, aesthetic, emotional, spiritual and skill development.</p>
-            <p>We form leaders who are intellectually competent, spiritually mature, morally upright, psychologically integrated, physically healthy, socially responsible and God-loving—people who champion justice, love, truth and peace and remain open to further growth.</p> -->
+                  <div id="about-us-part-1">
                     <p>K.E. Carmel Group of Schools, West Bengal belongs to the Christian Catholic Religious
                       Congregation of
                       Carmelites of Mary Immaculate (C.M.I) Fathers. It is solely owned and managed by C.M.I Dharmanivas
@@ -182,7 +176,7 @@
                       group is
                       approved as a Minority Educational Institution as F.No.1525 of 2006-143/8. It imparts instructions
                       to
-                      students from NURSERY TO CLASS XII under CISCE curriculum, New Delhi, India.</p>
+                      students from Nursery to class XII under CISCE curriculum, New Delhi, India.</p>
                     <p>Being aware that educational process is the most important human resource development, we open
                       our
                       institutions to all, irrespective of sex, caste, colour or faith. We usually prefer Catholics as
@@ -193,11 +187,7 @@
                       activities for
                       the integral development of our students,</p>
                   </div>
-                  <button id="about-us-part-1-button" class="facility-read-more" type="button" data-expand-content
-                    data-expand-target="about-us-part-1" data-reveal-targets="about-us-part-2 about-us-part-2-button"
-                    data-hide-on-expand aria-expanded="false">Read More</button>
-                  <div id="about-us-part-2" class="read-more-content read-more-content--about-part mt-3"
-                    data-expandable-content hidden>
+                  <div id="about-us-part-2" class="mt-3">
                     <p>The CMI Missionary Fathers from Kerala (St. Joseph’s Province, Trivandrum) invest their best for
                       the
                       excellent formation of the next generation as our contribution towards the national development.
@@ -230,10 +220,6 @@
                       national integration are to field and where the poor and marginalized are specially attended to.
                     </p>
                   </div>
-                  <button id="about-us-part-2-button" class="facility-read-more" type="button" data-expand-content
-                    data-expand-target="about-us-part-2" data-reset-show="about-us-part-1-button"
-                    data-reset-hide="about-us-part-2 about-us-part-2-button"
-                    data-reset-content="about-us-part-1 about-us-part-2" aria-expanded="false" hidden>Read More</button>
                 </article>
               </section>
             </div>
@@ -275,7 +261,7 @@
               <section class="about-band about-band--ink">
                 <article class="card affiliation-card">
                   <h2 class="h3">School History</h2>
-                  <div class="read-more-content" data-expandable-content>
+                  <div>
                     <p>K.E. Carmel School, Siliguri is part of the K.E. Carmel Group of Schools, West Bengal, which
                       belongs to the
                       Christian Catholic Religious Congregation of Carmelites of Mary Immaculate Fathers. The school is
@@ -296,7 +282,7 @@
                       institutions in West
                       Bengal. K.E. Carmel School, Siliguri follows the C.I.S.C.E. / ISC curriculum, New Delhi, and
                       serves students
-                      from Nursery to Class XII.
+                      from Nursery to class XII.
                       The school continues the C.M.I. mission of forming students who are intellectually competent,
                       spiritually
                       mature, morally upright, psychologically integrated, physically healthy and socially acceptable.
@@ -306,8 +292,6 @@
                       discipline, character formation and holistic development.
                     </p>
                   </div>
-                  <button class="facility-read-more" type="button" data-expand-content aria-expanded="false">Read
-                    More</button>
                 </article>
               </section>
             </div>
@@ -317,7 +301,7 @@
                 <div class="col">
                   <article class="card card--accent h-100">
                     <h2 class="h3">Our Vision</h2>
-                    <div class="read-more-content" data-expandable-content>
+                    <div>
                       <p>We imbibe our vision from the educational vision of St. Kurriakose Elias Chavara, our Heavenly
                         Patron.
                         He believed that Reason must be guided by one’s aith in God and the latter should be educated
@@ -331,14 +315,12 @@
                         them
                         into better individuals and globally competent citizens.</p>
                     </div>
-                    <button class="facility-read-more" type="button" data-expand-content aria-expanded="false">Read
-                      More</button>
                   </article>
                 </div>
                 <div class="col">
                   <article class="card card--accent h-100">
                     <h2 class="h3">Our Mission</h2>
-                    <div class="read-more-content" data-expandable-content>
+                    <div>
                       <p>The CMI Mission aims at an education by which character is formed, strength of mind is
                         increased,
                         intellect is expanded and help is extended for one to stand on one’s own feet with a conviction
@@ -360,8 +342,6 @@
                         spread of
                         materialistic culture.</p>
                     </div>
-                    <button class="facility-read-more" type="button" data-expand-content aria-expanded="false">Read
-                      More</button>
                   </article>
                 </div>
               </div>

@@ -465,6 +465,7 @@ a.card:hover {
   text-decoration: none;
   cursor: pointer;
   background: rgba(255, 255, 255, 0.85);
+  margin-top: 20px;
 }
 
 .btn:hover {
@@ -3461,6 +3462,44 @@ textarea:not(.form-control):focus-visible {
   }
 }
 
+/* Admissions follows the About page's full-width section rhythm. */
+.page-admissions .admission-content-card {
+  width: 100%;
+}
+.page-admissions .admission-content-card p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+.page-admissions .admission-list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+.page-admissions .admission-list li {
+  position: static;
+  padding-left: 0;
+  margin-bottom: .7rem;
+}
+.page-admissions .admission-list li::before {
+  content: none !important;
+  display: none !important;
+}
+.page-admissions #admission-help {
+  margin-bottom: 0 !important;
+  padding-bottom: 32px;
+}
+.page-admissions #admission-help .btn {
+  margin-left: auto;
+  flex: 0 0 auto;
+}
+.page-admissions main > .section:first-child {
+  padding-bottom: 0;
+}
+@media(max-width:767px) {
+  .page-admissions #admission-help .btn {
+    align-self: flex-end;
+  }
+}
+
 /* Revert Admission/social topbar changes to the original shared arrangement. */
 .home-page .home-header .social-bar,
 .inner-page .home-header .social-bar,
@@ -3827,8 +3866,8 @@ main .stats-grid article:hover img {
   z-index: 0;
   isolation: isolate;
   margin-top: 0 !important;
-  padding-top: 72px;
-  padding-bottom: 72px;
+  padding-top: 50px;
+  
 }
 .inner-page main > .section:first-child > .container > *:not(.page-hero)::before {
   content: "";
@@ -5031,6 +5070,7 @@ main .stats-grid article:hover img {
 
 .page-about .page-hero {
   background-image: linear-gradient(90deg, rgba(0, 50, 31, .88), rgba(0, 50, 31, .2)), url("../images/about/image_1.png");
+  /* background-image: linear-gradient(90deg, rgba(0, 50, 31, .88), rgba(0, 50, 31, .2)), url("../images/KE CARMEL (1)/Investiture ceremony/WhatsApp Image 2026-07-26 at 4.29.28 PM.jpeg"); */
 }
 
 .page-management .page-hero {
@@ -5041,7 +5081,7 @@ main .stats-grid article:hover img {
   background-image: linear-gradient(90deg, rgba(0, 50, 31, .9), rgba(0, 50, 31, .25)), url("../images/home/image_5.png");
 }
 
-.page-admissions .page-hero {
+.page-admissions .page-hero { 
   background-image: linear-gradient(90deg, rgba(0, 50, 31, .9), rgba(0, 50, 31, .22)), url("../images/home/image_1.png");
 }
 
@@ -7916,7 +7956,7 @@ main h4,
 .page-management .management-band .section__head {
   width: 100% !important;
   max-width: none !important;
-  margin: 0 0 42px !important;
+  margin: 0 0 2px !important;
   padding: 0 !important;
   position: relative;
   z-index: 2;
@@ -7975,7 +8015,7 @@ main h4,
   z-index: 2;
   width: 100% !important;
   max-width: none !important;
-  margin: 0 0 42px !important;
+  margin: 0 0 0px !important;
   padding: 0 !important;
   text-align: left !important;
 }
@@ -9326,7 +9366,7 @@ main h4,
 .page-about .about-tabs__content { min-width: 0; }
 .page-about .about-tab-panel[hidden] { display: none !important; }
 .page-about .about-tab-panel.is-active { animation: aboutTabFade .55s ease both; }
-.page-about .about-tab-panel > :first-child { margin-top: 0 !important; }
+.page-about .about-tab-panel > :first-child { margin-top: 50px; }
 .page-about .about-tab-panel .school-life-section { padding-top: 0 !important; }
 .page-about .about-tab-panel .section__head {
   width: 100% !important;
@@ -9376,6 +9416,7 @@ main h4,
 
 /* About navigator keeps every section visible and preserves the original content width. */
 .page-about .about-tabs {
+  --about-sidebar-fixed-enabled: 0;
   display: block;
   margin-top: 56px;
 }
@@ -9385,7 +9426,7 @@ main h4,
 .page-about .about-tab-panel,
 .page-about .about-tab-panel[hidden] {
   display: block !important;
-  scroll-margin-top: 155px;
+  scroll-margin-top: var(--about-scroll-offset,155px);
   margin-top: 72px;
 }
 .page-about .about-tab-panel:first-child { margin-top: 0; }
@@ -9423,6 +9464,8 @@ main h4,
 }
 @media(min-width:1800px) {
   .page-about .about-tabs {
+    --about-sidebar-fixed-enabled: 1;
+    --about-sidebar-gap: 20px;
     display: grid;
     width: 100%;
     grid-template-columns: minmax(0,1fr);
@@ -9432,8 +9475,8 @@ main h4,
   }
   .page-about .about-tabs__sidebar {
     grid-area: 1 / 1;
-    position: sticky;
-    top: 150px;
+    position: absolute;
+    top: 0;
     z-index: 4;
     align-self: start;
     justify-self: start;
@@ -9442,6 +9485,19 @@ main h4,
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    transform: translateX(calc(-100% - 20px));
+  }
+  .page-about .about-tabs.is-sidebar-fixed .about-tabs__sidebar {
+    position: fixed;
+    top: var(--about-sidebar-top,0px);
+    left: var(--about-sidebar-left,0px);
+    transform: none;
+  }
+  .page-about .about-tabs.is-sidebar-ended .about-tabs__sidebar {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: auto;
     transform: translateX(calc(-100% - 20px));
   }
   .page-about .about-tabs__content {
@@ -9484,15 +9540,16 @@ main h4,
   }
 }
 
-/* Academics and Admissions use the approved About section navigator. */
-:is(.page-academics,.page-admissions) .about-tabs {
+/* Admissions uses the approved About section navigator. */
+.page-admissions .about-tabs {
+  --about-sidebar-fixed-enabled: 0;
   display: block;
   position: relative;
   width: 100%;
   margin-top: 56px;
   padding-bottom: 64px;
 }
-:is(.page-academics,.page-admissions) .about-tabs__sidebar {
+.page-admissions .about-tabs__sidebar {
   position: static;
   width: 100%;
   margin-bottom: 40px;
@@ -9502,7 +9559,7 @@ main h4,
   background: var(--cs-ink);
   box-shadow: 0 18px 42px rgba(16,42,67,.15);
 }
-:is(.page-academics,.page-admissions) .about-tabs__eyebrow {
+.page-admissions .about-tabs__eyebrow {
   margin: 0 0 16px;
   color: var(--cs-amber);
   font-size: .8rem;
@@ -9510,13 +9567,12 @@ main h4,
   letter-spacing: .12em;
   text-transform: uppercase;
 }
-:is(.page-academics,.page-admissions) .about-tabs__nav {
+.page-admissions .about-tabs__nav {
   display: grid;
   grid-template-columns: repeat(5,minmax(0,1fr));
   gap: 8px;
 }
-.page-academics .about-tabs__nav { grid-template-columns: repeat(3,minmax(0,1fr)); }
-:is(.page-academics,.page-admissions) .about-tabs__button {
+.page-admissions .about-tabs__button {
   display: flex;
   width: 100%;
   align-items: center;
@@ -9532,43 +9588,45 @@ main h4,
   text-align: left;
   transition: color .25s ease,border-color .25s ease,background .25s ease;
 }
-:is(.page-academics,.page-admissions) .about-tabs__button:hover,
-:is(.page-academics,.page-admissions) .about-tabs__button:focus-visible { color: #fff; }
-:is(.page-academics,.page-admissions) .about-tabs__button:focus-visible {
+.page-admissions .about-tabs__button:hover,
+.page-admissions .about-tabs__button:focus-visible { color: #fff; }
+.page-admissions .about-tabs__button:focus-visible {
   outline: 2px solid var(--cs-amber);
   outline-offset: 3px;
 }
-:is(.page-academics,.page-admissions) .about-tabs__button.is-active {
+.page-admissions .about-tabs__button.is-active {
   color: var(--cs-amber);
   border-color: var(--cs-amber);
   background: rgba(244,185,66,.1);
 }
-:is(.page-academics,.page-admissions) .about-tabs__content { width: 100%; min-width: 0; }
-:is(.page-academics,.page-admissions) .about-tab-panel {
+.page-admissions .about-tabs__content { width: 100%; min-width: 0; }
+.page-admissions .about-tab-panel {
   display: block !important;
   margin-top: 72px;
-  scroll-margin-top: 155px;
+  scroll-margin-top: var(--about-scroll-offset,155px);
 }
-:is(.page-academics,.page-admissions) .about-tab-panel:first-child { margin-top: 0; }
-:is(.page-academics,.page-admissions) .about-tab-panel > .row { margin-top: 0 !important; }
-:is(.page-academics,.page-admissions) .about-tab-panel.section-fade-target {
+.page-admissions .about-tab-panel:first-child { margin-top: 0; }
+.page-admissions .about-tab-panel > .row { margin-top: 0 !important; }
+.page-admissions .about-tab-panel.section-fade-target {
   opacity: 0;
   transform: translateY(18px);
   transition: opacity .55s ease,transform .55s ease;
 }
-:is(.page-academics,.page-admissions) .about-tab-panel.section-fade-target.is-section-visible {
+.page-admissions .about-tab-panel.section-fade-target.is-section-visible {
   opacity: 1;
   transform: translateY(0);
 }
 @media(min-width:1800px) {
-  :is(.page-academics,.page-admissions) .about-tabs {
+  .page-admissions .about-tabs {
+    --about-sidebar-fixed-enabled: 1;
+    --about-sidebar-gap: 20px;
     display: grid;
     grid-template-columns: minmax(0,1fr);
   }
-  :is(.page-academics,.page-admissions) .about-tabs__sidebar {
+  .page-admissions .about-tabs__sidebar {
     grid-area: 1 / 1;
-    position: sticky;
-    top: 150px;
+    position: absolute;
+    top: 0;
     z-index: 4;
     align-self: start;
     justify-self: start;
@@ -9576,34 +9634,47 @@ main h4,
     margin: 0;
     transform: translateX(calc(-100% - 20px));
   }
-  :is(.page-academics,.page-admissions) .about-tabs__content {
+  .page-admissions .about-tabs.is-sidebar-fixed .about-tabs__sidebar {
+    position: fixed;
+    top: var(--about-sidebar-top,0px);
+    left: var(--about-sidebar-left,0px);
+    transform: none;
+  }
+  .page-admissions .about-tabs.is-sidebar-ended .about-tabs__sidebar {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: auto;
+    transform: translateX(calc(-100% - 20px));
+  }
+  .page-admissions .about-tabs__content {
     grid-area: 1 / 1;
   }
-  :is(.page-academics,.page-admissions) .about-tabs__nav {
+  .page-admissions .about-tabs__nav {
     display: flex;
     flex-direction: column;
     gap: 0;
   }
-  :is(.page-academics,.page-admissions) .about-tabs__button {
+  .page-admissions .about-tabs__button {
     padding: 17px 2px;
     border: 0;
     border-bottom: 1px solid rgba(255,255,255,.2);
     border-radius: 0;
     background: transparent;
   }
-  :is(.page-academics,.page-admissions) .about-tabs__button:last-child { border-bottom: 0; }
-  :is(.page-academics,.page-admissions) .about-tabs__button.is-active { border-color: var(--cs-amber); }
+  .page-admissions .about-tabs__button:last-child { border-bottom: 0; }
+  .page-admissions .about-tabs__button.is-active { border-color: var(--cs-amber); }
 }
 @media(max-width:991px) {
-  :is(.page-academics,.page-admissions) .about-tabs__nav { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  :is(.page-academics,.page-admissions) .about-tab-panel { margin-top: 54px; }
+  .page-admissions .about-tabs__nav { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .page-admissions .about-tab-panel { margin-top: 54px; }
 }
 @media(max-width:575px) {
-  :is(.page-academics,.page-admissions) .about-tabs { margin-top: 30px; padding-bottom: 44px; }
-  :is(.page-academics,.page-admissions) .about-tabs__nav { grid-template-columns: 1fr; }
+  .page-admissions .about-tabs { margin-top: 30px; padding-bottom: 44px; }
+  .page-admissions .about-tabs__nav { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
-  :is(.page-academics,.page-admissions) .about-tab-panel.section-fade-target {
+  .page-admissions .about-tab-panel.section-fade-target {
     opacity: 1;
     transform: none;
     transition: none;
@@ -9611,10 +9682,10 @@ main h4,
 }
 
 /* Restore the original mist/ink alternation inside the new page navigators. */
-:is(.page-about,.page-academics,.page-admissions) main > .section:first-child > .container > .about-tabs::before {
+:is(.page-about,.page-admissions) main > .section:first-child > .container > .about-tabs::before {
   background: transparent !important;
 }
-:is(.page-about,.page-academics,.page-admissions) .about-tab-panel {
+:is(.page-about,.page-admissions) .about-tab-panel {
   position: relative;
   z-index: 0;
   isolation: isolate;
@@ -9622,7 +9693,7 @@ main h4,
   padding-top: 72px;
   padding-bottom: 72px;
 }
-:is(.page-about,.page-academics,.page-admissions) .about-tab-panel::before {
+:is(.page-about,.page-admissions) .about-tab-panel::before {
   content: "";
   position: absolute;
   z-index: -2;
@@ -9630,17 +9701,17 @@ main h4,
   background: var(--cs-mist);
   pointer-events: none;
 }
-:is(.page-about,.page-academics,.page-admissions) .about-tab-panel:nth-child(even)::before {
+:is(.page-about,.page-admissions) .about-tab-panel:nth-child(even)::before {
   background: var(--cs-ink);
 }
-:is(.page-about,.page-academics,.page-admissions) .about-tab-panel:nth-child(even) {
+:is(.page-about,.page-admissions) .about-tab-panel:nth-child(even) {
   color: #fff;
 }
-:is(.page-about,.page-academics,.page-admissions) .about-tab-panel:nth-child(even) > h2,
-:is(.page-about,.page-academics,.page-admissions) .about-tab-panel:nth-child(even) > p {
+:is(.page-about,.page-admissions) .about-tab-panel:nth-child(even) > h2,
+:is(.page-about,.page-admissions) .about-tab-panel:nth-child(even) > p {
   color: #fff !important;
 }
-:is(.page-about,.page-academics,.page-admissions) .about-tab-panel .card {
+:is(.page-about,.page-admissions) .about-tab-panel .card {
   color: var(--cs-ink);
   background: #fff;
 }
@@ -9803,7 +9874,7 @@ main h4,
 
 /* JPEG logo options must retain their original colours over the hero. */
 .home-page .home-header:not(.is-sticky) .home-brand img,
-.page-about .home-header:not(.is-sticky) .home-brand img {
+.inner-page .home-header:not(.is-sticky) .home-brand img {
   filter: none !important;
   background: transparent !important;
 }
@@ -9912,6 +9983,7 @@ main h4,
   min-height: 540px !important;
   max-height: 540px !important;
   overflow: hidden;
+  margin-bottom: 100px;
 }
 .page-facilities .facility-rules-source[hidden] { display: none !important; }
 .rules-modal-open { overflow: hidden; }
@@ -9991,10 +10063,410 @@ main h4,
 .page-facilities .facility.card > .facility-read-more {
   margin-bottom: 34px;
   position: relative;
-  bottom: 12px;
+  bottom: 16px;
 }
 @media(max-width:576px) {
   .rules-modal { padding: 12px; }
   .rules-modal__header,
   .rules-modal__content { padding: 20px; }
+}
+
+/* About narrative cards use justified paragraphs rather than checklist styling. */
+.page-about .about-tabs__content p {
+  padding-left: 0 !important;
+  text-align: justify;
+  text-justify: inter-word;
+}
+.page-about .about-tabs__content .card p::before {
+  content: none !important;
+  display: none !important;
+}
+/* Vision, Mission and Motto share one equal-height row. */
+.page-about #about-panel-vision .current-vision-mission.row {
+  align-items: stretch !important;
+}
+.page-about #about-panel-vision .current-vision-mission.row > .col {
+  display: flex;
+  align-self: stretch !important;
+}
+.page-about #about-panel-vision .current-vision-mission.row > .col > .card.h-100 {
+  height: 100% !important;
+  min-height: 100% !important;
+  flex: 1 1 auto;
+}
+
+/* Academics is a full-width content flow without the section navigator. */
+.page-academics .academics-content {
+  width: 100%;
+  margin-top: 56px;
+}
+.page-academics .academics-section {
+  position: relative;
+  isolation: isolate;
+  padding: 72px 0;
+}
+.page-academics .academics-section::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 0 calc(50% - 50vw);
+  background: var(--cs-mist);
+  pointer-events: none;
+}
+.page-academics .academics-section:nth-child(even) {
+  color: #fff;
+}
+.page-academics .academics-section:nth-child(even)::before {
+  background: var(--cs-ink);
+}
+.page-academics .academics-section .card {
+  height: 360px !important;
+  min-height: 360px;
+  color: var(--cs-ink);
+  background: #fff;
+}
+.page-academics #academics-programme {
+  padding-top: 0;
+}
+@media(max-width:767px) {
+  .page-academics .academics-content { margin-top: 30px; }
+  .page-academics .academics-section { padding: 54px 0; }
+  .page-academics .academics-section .card {
+    height: auto !important;
+    min-height: 0;
+  }
+}
+
+/* One application-wide typeface. */
+*,
+*::before,
+*::after {
+  font-family: ui-sans-serif !important;
+}
+
+/* Academics: compact final cards and footer spacing. */
+.page-academics #academics-support {
+  padding-bottom: 40px;
+}
+.page-academics #academics-support .card {
+  height: 270px !important;
+  min-height: 270px;
+}
+.page-academics main > .section:first-child {
+  padding-bottom: 0;
+}
+
+/* Management profiles use the Events card composition without changing card size. */
+.page-management .management-leadership-grid .person-card {
+  display: block !important;
+  height: 360px !important;
+  min-height: 360px;
+  padding: 0 !important;
+  overflow: hidden;
+  color: var(--cs-ink);
+  background: #fff !important;
+}
+.page-management .management-leadership-grid .person-card::after {
+  content: none !important;
+  display: none !important;
+}
+.page-management .management-leadership-grid .person-card__photo {
+  position: static !important;
+  display: block;
+  width: 100%;
+  height: 210px;
+  margin: 0 !important;
+  overflow: hidden;
+  border-radius: 0;
+}
+.page-management .management-leadership-grid .person-card__photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  object-fit: cover;
+}
+.page-management .management-leadership-grid .person-card__body {
+  position: static !important;
+  z-index: auto;
+  inset: auto !important;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 150px;
+  margin: 0 !important;
+  padding: 16px 20px 18px;
+  transform: none !important;
+  background: #fff;
+}
+.page-management .management-leadership-grid .person-card__name,
+.page-management .management-leadership-grid .person-card__role,
+.page-management .management-leadership-grid .person-card__dept,
+.page-management .management-leadership-grid .person-card__meta {
+  position: static;
+  inset: auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  color: var(--cs-ink);
+  background: transparent;
+  backdrop-filter: none;
+  text-align: left;
+}
+.page-management .management-leadership-grid .person-card__name {
+  order: 1;
+  margin-bottom: 4px;
+  font-size: 1.08rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+.page-management .management-leadership-grid .person-card__role {
+  order: 2;
+  margin-bottom: 7px;
+  color: var(--cs-coral);
+  font-size: .82rem;
+  font-weight: 800;
+}
+.page-management .management-leadership-grid .person-card__dept {
+  order: 3;
+  color: var(--cs-ink-soft);
+  font-size: .8rem;
+  line-height: 1.4;
+}
+.page-management .management-leadership-grid .person-card__meta {
+  order: 4;
+}
+@media(max-width:576px) {
+  .page-academics #academics-support .card {
+    height: auto !important;
+    min-height: 0;
+  }
+}
+
+/* Management profiles share the Gallery card and image treatment. */
+.page-management .management-leadership-grid .person-card {
+  height: 360px !important;
+  min-height: 360px;
+  padding: 10px 10px 0 !important;
+  border: 0 !important;
+  border-radius: 20px !important;
+  background: rgba(255,255,255,.94) !important;
+  box-shadow: none;
+}
+.page-management .management-leadership-grid .person-card__photo {
+  width: 100%;
+  height: 220px;
+  margin: 0 !important;
+  border-radius: 13px;
+}
+.page-management .management-leadership-grid .person-card__photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 13px;
+  object-fit: cover;
+  transition: transform .6s ease;
+}
+.page-management .management-leadership-grid .person-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+.page-management .management-leadership-grid .person-card:hover .person-card__photo img {
+  transform: scale(1.06);
+}
+.page-management .management-leadership-grid .person-card__body.card-body {
+  width: 100%;
+  height: 130px;
+  padding: 14px 10px 16px;
+  align-items: center;
+  justify-content: flex-start;
+  background: transparent;
+  text-align: center;
+}
+.page-management .management-leadership-grid .person-card__name,
+.page-management .management-leadership-grid .person-card__role,
+.page-management .management-leadership-grid .person-card__dept {
+  text-align: center;
+}
+@media(max-width:576px) {
+  .page-management .management-leadership-grid .person-card__photo { height: 210px; }
+  .page-management .management-leadership-grid .person-card__body.card-body { height: 140px; }
+}
+
+/* Facilities: balanced separation between each card group. */
+.page-facilities main > .section:first-child > .container > .row:not(.page-hero) {
+  margin-top: 0 !important;
+  margin-bottom: 48px;
+}
+.page-facilities main > .section:first-child > .container > .page-hero + .row {
+  margin-top: 48px !important;
+}
+.page-facilities main > .section:first-child > .container > .row:not(.page-hero):last-of-type {
+  margin-bottom: 56px;
+}
+.page-facilities main > .section:first-child > .container > .facilities-secondary-row {
+  margin-bottom: 48px;
+}
+@media(max-width:700px) {
+  .page-facilities main > .section:first-child > .container > .row:not(.page-hero) {
+    margin-top: 0 !important;
+    margin-bottom: 36px;
+  }
+  .page-facilities main > .section:first-child > .container > .page-hero + .row {
+    margin-top: 36px !important;
+  }
+  .page-facilities main > .section:first-child > .container > .row:not(.page-hero):last-of-type {
+    margin-bottom: 42px;
+  }
+  .page-facilities main > .section:first-child > .container > .facilities-secondary-row {
+    margin-bottom: 36px;
+  }
+}
+
+/* Final Admissions section layout and content treatment. */
+.page-admissions .admission-content-card {
+  width: 100%;
+}
+.page-admissions .admission-content-card p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+.page-admissions .admission-list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+.page-admissions .admission-list li {
+  position: static;
+  margin-bottom: .7rem;
+  padding-left: 0;
+}
+.page-admissions .admission-list li::before {
+  content: none !important;
+  display: none !important;
+}
+.page-admissions #admission-help {
+  margin-bottom: 0 !important;
+  padding-bottom: 32px;
+}
+.page-admissions #admission-help .btn {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+.page-admissions main > .section:first-child {
+  padding-bottom: 0;
+}
+@media(max-width:767px) {
+  .page-admissions #admission-help .btn { align-self: flex-end; }
+}
+
+/* Admissions cards use plain text and one consistent bordered surface. */
+.page-admissions .admission-content-card {
+  border: 1px solid var(--cs-line);
+  color: var(--cs-ink);
+  background: #fff;
+}
+.page-admissions .admission-content-card h2,
+.page-admissions .admission-content-card p,
+.page-admissions .admission-content-card small {
+  color: var(--cs-ink) !important;
+}
+.page-admissions .admission-content-card > p,
+.page-admissions .admission-content-card .row p {
+  padding-left: 0 !important;
+}
+.page-admissions .admission-content-card p::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Achievement cards show one clean preview; navigation remains inside the modal. */
+.page-events .achievement-media-trigger {
+  cursor: pointer;
+}
+.page-events .achievement-media-trigger::before,
+.page-events .achievement-media-trigger::after {
+  content: none !important;
+  display: none !important;
+}
+.page-events .achievement-media-trigger:focus-visible {
+  outline: 3px solid var(--cs-amber);
+  outline-offset: -3px;
+}
+.media-gallery-modal__arrow[hidden] {
+  display: none !important;
+}
+
+/* Contact address is an independent full-width card. */
+.page-contact .contact-address-panel {
+  width: 100%;
+  margin-bottom: 28px;
+  padding: 44px 48px;
+}
+@media(max-width:700px) {
+  .page-contact .contact-address-panel {
+    margin-bottom: 22px;
+    padding: 28px 24px;
+  }
+}
+
+/* Contact details mirror the two-card image row above. */
+.page-contact .contact-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 22px;
+  margin-bottom: 28px;
+}
+.page-contact .contact-card-grid:last-of-type {
+  margin-bottom: 0;
+}
+.page-contact .contact-card-grid .contact-detail-card,
+.page-contact .contact-card-grid .contact-address-panel {
+  width: 100%;
+  height: 260px;
+  margin: 0;
+  padding: 44px 48px;
+}
+@media(max-width:700px) {
+  .page-contact .contact-card-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-bottom: 22px;
+  }
+  .page-contact .contact-card-grid .contact-detail-card,
+  .page-contact .contact-card-grid .contact-address-panel {
+    height: auto;
+    min-height: 280px;
+    padding: 28px 24px;
+  }
+}
+
+/* Address text and map action share one line where space permits. */
+.page-contact .contact-address-panel {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto;
+  grid-template-rows: auto 1fr;
+  align-items: center;
+  column-gap: 24px;
+}
+.page-contact .contact-address-panel > h2 {
+  grid-column: 1 / -1;
+}
+.page-contact .contact-address-panel .contact-address {
+  margin: 0;
+}
+.page-contact .contact-address-panel .contact-map-action {
+  justify-self: end;
+}
+.page-contact .contact-address-panel .contact-map-action .btn {
+  margin-top: 0 !important;
+  white-space: nowrap;
+}
+@media(max-width:575px) {
+  .page-contact .contact-address-panel {
+    display: block;
+  }
+  .page-contact .contact-address-panel .contact-map-action {
+    margin-top: 20px;
+  }
 }

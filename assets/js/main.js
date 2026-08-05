@@ -2,14 +2,12 @@
   // Give every inner page the same shell and visual language as the redesigned homepage.
   const isHomePage = document.body.classList.contains("home-page");
   const currentPageName = (window.location.pathname.split("/").pop() || "index.html").replace(/\.html$/i, "").toLowerCase();
-  const innerHeaderLogo = currentPageName === "about"
-    ? "assets/images/logo/logo4-removebg-preview.png"
-    : "assets/images/logo/temp-carmel-school-logo.png";
+  const innerHeaderLogo = "assets/images/logo/logo4-removebg-preview.png";
   if (!isHomePage) {
     document.body.classList.add("inner-page", "is-loading");
     document.body.classList.add(`page-${(window.location.pathname.split("/").pop() || "inner").replace(/\.html$/i, "")}`);
     if (!document.querySelector('link[href*="family=Manrope"]')) {
-      document.head.insertAdjacentHTML("beforeend", '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="preload" href="assets/images/logo/logo6.jpeg" as="image" type="image/jpeg">');
+      document.head.insertAdjacentHTML("beforeend", '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="preload" href="assets/images/logo/logo4-removebg-preview.png" as="image" type="image/png">');
     }
     document.querySelector(".topbar")?.remove();
 
@@ -17,7 +15,7 @@
     if (oldHeader) {
       oldHeader.outerHTML = `
         <div class="splash" data-splash role="status" aria-label="Loading K.E. Carmel School website">
-          <div class="splash__mark"><img src="assets/images/logo/logo6.jpeg" alt="K.E. Carmel School logo option 6"></div>
+          <div class="splash__mark"><img src="assets/images/logo/logo4-removebg-preview.png" alt="K.E. Carmel School logo"></div>
           <p class="splash__name">K.E. Carmel School</p><span class="splash__place">Siliguri</span><span class="splash__loader" aria-hidden="true"></span>
         </div>
         <header class="home-header inner-header" data-header>
@@ -35,7 +33,7 @@
     const oldFooter = document.querySelector("footer");
     if (oldFooter) {
       oldFooter.outerHTML = `
-        <footer class="home-footer"><div class="home-container footer-main"><div class="footer-about"><a class="home-brand home-brand--footer" href="index.html" style="text-decoration: none;"><img src="assets/images/logo/temp-carmel-school-logo.png" alt=""><span><strong>K. E. CARMEL</strong><small>SCHOOL, SILIGURI</small><em>To Plant And Nurture</em></span></a><p class="text-light">A co-educational English-medium institution committed to academic excellence, discipline, strong values and holistic development.</p><div class="elements-social footer-social"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="X">X</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="LinkedIn">in</a></div></div><div><h3>Quick Links</h3><a href="index.html">Home</a><a href="about.html">About</a><a href="academics.html">Academics</a><a href="management.html">Management</a></div><div><h3>Quick Links</h3><a href="facilities.html">Facilities</a><a href="admissions.html">Admissions</a><a href="events.html">Events</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div></div><div class="home-container footer-bottom"><a href="#main">Go Top ↑</a><p style="color:#ffffff9a">© <span data-year></span> K.E. Carmel School, Siliguri. All Rights Reserved.</p></div><div class="home-container footer-credit-line">Designed, Developed &amp; Maintained by&nbsp; | &nbsp;<a href="https://christinfotech.org/" target="_blank" rel="noopener"><strong>CHRIST Infotech</strong></a> (Software Research &amp; Development Center), <a href="https://lavasa.christuniversity.in/" target="_blank" rel="noopener"><strong>CHRIST University, Pune - Lavasa</strong></a>, India</div></footer>`;
+        <footer class="home-footer"><div class="home-container footer-main"><div class="footer-about"><a class="home-brand home-brand--footer" href="index.html" style="text-decoration: none;"><img src="assets/images/logo/logo1-removebg-preview.png" alt=""><span><strong>K. E. CARMEL</strong><small>SCHOOL, SILIGURI</small><em>To Plant And Nurture</em></span></a><p class="text-light">A co-educational English-medium institution committed to academic excellence, discipline, strong values and holistic development.</p><div class="elements-social footer-social"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="X">X</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="LinkedIn">in</a></div></div><div><h3>Quick Links</h3><a href="index.html">Home</a><a href="about.html">About</a><a href="academics.html">Academics</a><a href="management.html">Management</a></div><div><h3>Quick Links</h3><a href="facilities.html">Facilities</a><a href="admissions.html">Admissions</a><a href="events.html">Events</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div></div><div class="home-container footer-bottom"><a href="#main">Go Top ↑</a><p style="color:#ffffff9a">© <span data-year></span> K.E. Carmel School, Siliguri. All Rights Reserved.</p></div><div class="home-container footer-credit-line">Designed, Developed &amp; Maintained by&nbsp; | &nbsp;<a href="https://christinfotech.org/" target="_blank" rel="noopener"><strong>CHRIST Infotech</strong></a> (Software Research &amp; Development Center), <a href="https://lavasa.christuniversity.in/" target="_blank" rel="noopener"><strong>CHRIST University, Pune - Lavasa</strong></a>, India</div></footer>`;
     }
 
     const topSocial = document.querySelector(".social-icon");
@@ -418,8 +416,66 @@
       "assets/images/KE CARMEL (1)/School Bus/IMG_20260717_130359.jpg",
       "assets/images/KE CARMEL (1)/School Bus/IMG_7596.jpg"
     ],
+    "picnics-study-tours": [
+      "assets/images/KE CARMEL (1)/School Bus/20220803_144212.jpg",
+      "assets/images/KE CARMEL (1)/School Bus/IMG_20260717_130359.jpg",
+      "assets/images/KE CARMEL (1)/School Bus/IMG_7596.jpg"
+    ],
     "co-curricular": [
       "assets/images/KE CARMEL (1)/Co curicular activities/IMG-20220821-WA0008.jpg"
+    ],
+    "gallery-achievements": [
+      "assets/images/KE CARMEL (1)/Awards/Bosco Fizza, Don Bosco Oodlabari/WhatsApp Image 2026-07-26 at 6.10.34 PM (1).jpeg",
+      "assets/images/KE CARMEL (1)/Awards/Bosco Fizza, Don Bosco Oodlabari/WhatsApp Image 2026-07-26 at 6.10.34 PM.jpeg"
+    ],
+    "gallery-co-curricular": [
+      "assets/images/KE CARMEL (1)/Co curicular activities/IMG-20220821-WA0008.jpg",
+      "assets/images/KE CARMEL (1)/Co curicular activities/workshop.jpg"
+    ],
+    "gallery-environment-day": [
+      "assets/images/KE CARMEL (1)/Environment day/WhatsApp Image 2026-07-26 at 4.31.27 PM (1).jpeg",
+      "assets/images/KE CARMEL (1)/Environment day/WhatsApp Image 2026-07-26 at 4.31.27 PM.jpeg",
+      "assets/images/KE CARMEL (1)/Environment day/WhatsApp Image 2026-07-26 at 4.31.28 PM (1).jpeg",
+      "assets/images/KE CARMEL (1)/Environment day/WhatsApp Image 2026-07-26 at 4.31.28 PM.jpeg",
+      "assets/images/KE CARMEL (1)/Environment day/WhatsApp Image 2026-07-26 at 4.31.29 PM (1).jpeg",
+      "assets/images/KE CARMEL (1)/Environment day/WhatsApp Image 2026-07-26 at 4.31.29 PM.jpeg",
+      "assets/images/KE CARMEL (1)/Environment day/WhatsApp Image 2026-07-26 at 4.31.30 PM.jpeg",
+      "assets/images/KE CARMEL (1)/Environment day/WhatsApp Image.jpeg"
+    ],
+    "gallery-independence-day": [
+      "assets/images/KE CARMEL (1)/Independence Day/IMG-20220815-WA0096.jpg"
+    ],
+    "gallery-investiture": [
+      "assets/images/KE CARMEL (1)/Investiture ceremony/WhatsApp Image 2026-07-26 at 4.29.24 PM (1).jpeg",
+      "assets/images/KE CARMEL (1)/Investiture ceremony/WhatsApp Image 2026-07-26 at 4.29.24 PM (2).jpeg",
+      "assets/images/KE CARMEL (1)/Investiture ceremony/WhatsApp Image 2026-07-26 at 4.29.24 PM.jpeg",
+      "assets/images/KE CARMEL (1)/Investiture ceremony/WhatsApp Image 2026-07-26 at 4.29.25 PM (1).jpeg",
+      "assets/images/KE CARMEL (1)/Investiture ceremony/WhatsApp Image 2026-07-26 at 4.29.25 PM.jpeg",
+      "assets/images/KE CARMEL (1)/Investiture ceremony/WhatsApp Image 2026-07-26 at 4.29.26 PM (1).jpeg",
+      "assets/images/KE CARMEL (1)/Investiture ceremony/WhatsApp Image 2026-07-26 at 4.29.26 PM.jpeg",
+      "assets/images/KE CARMEL (1)/Investiture ceremony/WhatsApp Image 2026-07-26 at 4.29.27 PM (1).jpeg",
+      "assets/images/KE CARMEL (1)/Investiture ceremony/WhatsApp Image 2026-07-26 at 4.29.27 PM.jpeg",
+      "assets/images/KE CARMEL (1)/Investiture ceremony/WhatsApp Image 2026-07-26 at 4.29.28 PM.jpeg"
+    ],
+    "gallery-speech-competition": [
+      "assets/images/KE CARMEL (1)/Speech Competition/IMG_20260717_133750.jpg",
+      "assets/images/KE CARMEL (1)/Speech Competition/WhatsApp Image 2026-07-26 at 3.00.25 PM.jpeg",
+      "assets/images/KE CARMEL (1)/Speech Competition/WhatsApp Image 2026-07-26 at 3.00.26 PM (1).jpeg",
+      "assets/images/KE CARMEL (1)/Speech Competition/WhatsApp Image 2026-07-26 at 3.00.26 PM (2).jpeg",
+      "assets/images/KE CARMEL (1)/Speech Competition/WhatsApp Image 2026-07-26 at 3.00.27 PM.jpeg"
+    ],
+    "gallery-students": [
+      "assets/images/KE CARMEL (1)/only Students/A3IMG-20260801-WA0016.jpeg",
+      "assets/images/KE CARMEL (1)/only Students/A4IMG-20260801-WA0017.jpeg",
+      "assets/images/KE CARMEL (1)/only Students/classroom.jpeg",
+      "assets/images/KE CARMEL (1)/only Students/IMG-20260801-WA0022.jpeg",
+      "assets/images/KE CARMEL (1)/only Students/std.jpeg",
+      "assets/images/KE CARMEL (1)/only Students/stdlife.jpg",
+      "assets/images/KE CARMEL (1)/only Students/studsimg.jpeg",
+      "assets/images/KE CARMEL (1)/only Students/WhatsApp Image 2026-07-26 at 3.08.09 PM (1).jpeg",
+      "assets/images/KE CARMEL (1)/only Students/WhatsApp Image 2026-07-26 at 3.08.10 PM (2).jpeg",
+      "assets/images/KE CARMEL (1)/only Students/WhatsApp Image 2026-07-26 at 3.08.10 PM.jpeg",
+      "assets/images/KE CARMEL (1)/only Students/WhatsApp Image 2026-07-26 at 3.08.11 PM.jpeg"
     ],
     "merit-awards": [
       "assets/images/KE CARMEL (1)/Awards/Bosco Fizza, Don Bosco Oodlabari/WhatsApp Image 2026-07-26 at 6.10.34 PM (1).jpeg",
@@ -431,6 +487,18 @@
       "assets/images/KE CARMEL (1)/Awards/Telegraph Awards/techersimg.jpeg",
       "assets/images/KE CARMEL (1)/Awards/Telegraph Awards/WhatsApp Image 2026-07-26 at 6.10.35 PM (2).jpeg",
       "assets/images/KE CARMEL (1)/Awards/Telegraph Awards/WhatsApp Image 2026-07-26 at 6.10.35 PM.jpeg"
+    ],
+    "achievement-award-1": [
+      "assets/images/KE CARMEL (1)/Awards/Telegraph Awards/award1.jpeg"
+    ],
+    "achievement-award-2": [
+      "assets/images/KE CARMEL (1)/Awards/Telegraph Awards/award2.jpeg"
+    ],
+    "achievement-award-3": [
+      "assets/images/KE CARMEL (1)/Awards/Telegraph Awards/award3.jpeg"
+    ],
+    "achievement-award-4": [
+      "assets/images/KE CARMEL (1)/Awards/Telegraph Awards/award4.jpeg"
     ],
     "cultural-day": [
       "assets/images/KE CARMEL (1)/Annual Day/AB1_4388.jpg",
@@ -464,12 +532,6 @@
     "campus-cleanliness": [
       "assets/images/KE CARMEL (1)/school photo/IMG_20260717_130345.jpg",
       "assets/images/KE CARMEL (1)/school photo/IMG_20260717_130347.jpg"
-    ],
-    "recent-achievements": [
-      "assets/images/KE CARMEL (1)/Awards/Telegraph Awards/award1.jpeg",
-      "assets/images/KE CARMEL (1)/Awards/Telegraph Awards/award2.jpeg",
-      "assets/images/KE CARMEL (1)/Awards/Telegraph Awards/award3.jpeg",
-      "assets/images/KE CARMEL (1)/Awards/Telegraph Awards/award4.jpeg"
     ]
   };
 
@@ -576,11 +638,51 @@
     floatTargets.forEach((target) => target.classList.add("is-floated"));
   }
 
+  // About page: approved section order and the combined Vision/Mission/Motto row.
+  if (document.body.classList.contains("page-about")) {
+    const aboutContent = document.querySelector(".about-tabs__content");
+    [
+      "about-panel-about-us",
+      "about-panel-history",
+      "about-panel-vision",
+      "about-panel-motto",
+      "about-panel-school-life"
+    ].forEach((id) => {
+      const panel = document.getElementById(id);
+      if (panel && aboutContent) aboutContent.appendChild(panel);
+    });
+
+    const visionRow = document.querySelector("#about-panel-vision > .row");
+    const mottoRow = document.querySelector("#about-panel-motto > .row");
+    const mottoColumn = mottoRow?.querySelector(":scope > .col:first-child");
+    if (visionRow && mottoColumn) {
+      visionRow.appendChild(mottoColumn);
+      visionRow.classList.remove("row-cols-lg-2");
+      visionRow.classList.add("row-cols-lg-3");
+    }
+    if (mottoRow) {
+      mottoRow.classList.remove("row-cols-lg-2");
+      mottoRow.classList.add("row-cols-lg-1");
+    }
+
+    document.querySelectorAll(".about-tabs__button").forEach((button, index) => {
+      button.classList.toggle("is-active", index === 0);
+      if (index === 0) button.setAttribute("aria-current", "true");
+      else button.removeAttribute("aria-current");
+    });
+    document.querySelectorAll(".about-tab-panel").forEach((panel, index) => {
+      panel.classList.toggle("is-active", index === 0);
+    });
+  }
+
   // About page: section navigation with smooth scrolling and scroll-aware highlighting.
   document.querySelectorAll("[data-vertical-tabs]").forEach((tabGroup) => {
     const controls = Array.from(tabGroup.querySelectorAll("[data-tab-target]"));
     const sections = controls.map((control) => document.getElementById(control.dataset.tabTarget)).filter(Boolean);
     if (!controls.length || !sections.length) return;
+    const isStickyNavigator = document.body.matches(".page-about,.page-admissions");
+    const pageHeader = document.querySelector("[data-header]");
+    const getHeaderOffset = () => (pageHeader?.getBoundingClientRect().height || 0) + 16;
 
     const setActiveControl = (sectionId) => {
       controls.forEach((control) => {
@@ -595,7 +697,16 @@
       const target = document.getElementById(control.dataset.tabTarget);
       if (!target) return;
       setActiveControl(target.id);
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (isStickyNavigator) {
+        const offset = getHeaderOffset();
+        document.documentElement.style.setProperty("--about-scroll-offset", `${offset}px`);
+        window.scrollTo({
+          top: window.scrollY + target.getBoundingClientRect().top - offset,
+          behavior: "smooth"
+        });
+      } else {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }));
 
     sections.forEach((section) => section.classList.add("section-fade-target"));
@@ -604,12 +715,71 @@
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
           entry.target.classList.add("is-section-visible");
-          setActiveControl(entry.target.id);
         });
       }, { rootMargin: "-24% 0px -55% 0px", threshold: 0.01 });
       sections.forEach((section) => sectionObserver.observe(section));
     } else {
       sections.forEach((section) => section.classList.add("is-section-visible"));
+    }
+
+    if (isStickyNavigator) {
+      const hero = document.querySelector(".page-hero");
+      const sidebar = tabGroup.querySelector(".about-tabs__sidebar");
+      let sidebarFrame = 0;
+
+      const updateActiveSection = () => {
+        const headerOffset = getHeaderOffset();
+        let activeSection = sections[0];
+
+        sections.forEach((section) => {
+          if (section.getBoundingClientRect().top <= headerOffset + 1) activeSection = section;
+        });
+
+        const documentBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1;
+        if (documentBottom) activeSection = sections[sections.length - 1];
+        if (activeSection) setActiveControl(activeSection.id);
+      };
+
+      const fixedLayoutEnabled = () => getComputedStyle(tabGroup)
+        .getPropertyValue("--about-sidebar-fixed-enabled").trim() === "1";
+
+      const getSidebarLeft = () => {
+        if (!sidebar) return 0;
+        const sidebarGap = Number.parseFloat(getComputedStyle(tabGroup)
+          .getPropertyValue("--about-sidebar-gap")) || 0;
+        return tabGroup.getBoundingClientRect().left - sidebar.offsetWidth - sidebarGap;
+      };
+
+      const updateSidebar = () => {
+        sidebarFrame = 0;
+        updateActiveSection();
+        tabGroup.classList.remove("is-sidebar-fixed", "is-sidebar-ended");
+        if (!hero || !sidebar || !fixedLayoutEnabled()) return;
+
+        const headerOffset = getHeaderOffset();
+        document.documentElement.style.setProperty("--about-scroll-offset", `${headerOffset}px`);
+        tabGroup.style.setProperty("--about-sidebar-top", `${headerOffset}px`);
+
+        if (hero.getBoundingClientRect().bottom > headerOffset) return;
+
+        const contentBottom = tabGroup.getBoundingClientRect().bottom;
+        const sidebarBottom = headerOffset + sidebar.offsetHeight;
+        if (contentBottom <= sidebarBottom + 16) {
+          tabGroup.classList.add("is-sidebar-ended");
+        } else {
+          tabGroup.style.setProperty("--about-sidebar-left", `${getSidebarLeft()}px`);
+          tabGroup.classList.add("is-sidebar-fixed");
+        }
+      };
+
+      const requestSidebarUpdate = () => {
+        if (sidebarFrame) return;
+        sidebarFrame = window.requestAnimationFrame(updateSidebar);
+      };
+
+      updateSidebar();
+      window.addEventListener("scroll", requestSidebarUpdate, { passive: true });
+      window.addEventListener("resize", requestSidebarUpdate);
     }
 
   });
