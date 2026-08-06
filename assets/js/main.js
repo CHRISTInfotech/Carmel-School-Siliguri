@@ -638,32 +638,21 @@
     floatTargets.forEach((target) => target.classList.add("is-floated"));
   }
 
-  // About page: approved section order and the combined Vision/Mission/Motto row.
+  // About page: approved full-width section order.
   if (document.body.classList.contains("page-about")) {
     const aboutContent = document.querySelector(".about-tabs__content");
     [
       "about-panel-about-us",
       "about-panel-history",
       "about-panel-vision",
+      "about-panel-mission",
       "about-panel-motto",
+      "about-panel-affiliation",
       "about-panel-school-life"
     ].forEach((id) => {
       const panel = document.getElementById(id);
       if (panel && aboutContent) aboutContent.appendChild(panel);
     });
-
-    const visionRow = document.querySelector("#about-panel-vision > .row");
-    const mottoRow = document.querySelector("#about-panel-motto > .row");
-    const mottoColumn = mottoRow?.querySelector(":scope > .col:first-child");
-    if (visionRow && mottoColumn) {
-      visionRow.appendChild(mottoColumn);
-      visionRow.classList.remove("row-cols-lg-2");
-      visionRow.classList.add("row-cols-lg-3");
-    }
-    if (mottoRow) {
-      mottoRow.classList.remove("row-cols-lg-2");
-      mottoRow.classList.add("row-cols-lg-1");
-    }
 
     document.querySelectorAll(".about-tabs__button").forEach((button, index) => {
       button.classList.toggle("is-active", index === 0);
