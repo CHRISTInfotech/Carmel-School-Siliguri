@@ -91,7 +91,11 @@
           <aside class="about-tabs__sidebar" aria-label="About page sections">
             <p class="about-tabs__eyebrow">Explore our school</p>
             <nav class="about-tabs__nav" aria-label="About page section navigation">
-              <button class="about-tabs__button is-active" id="about-tab-about-us" type="button" aria-current="true"
+              <button class="about-tabs__button is-active" id="about-tab-school-life" type="button" aria-current="true"
+                aria-controls="about-panel-school-life" data-tab-target="about-panel-school-life">
+                <span>School Life</span><span aria-hidden="true">&#8594;</span>
+              </button>
+              <button class="about-tabs__button" id="about-tab-about-us" type="button"
                 aria-controls="about-panel-about-us" data-tab-target="about-panel-about-us">
                 <span>About Us</span><span aria-hidden="true">&#8594;</span>
               </button>
@@ -114,10 +118,6 @@
               <button class="about-tabs__button" id="about-tab-affiliation" type="button" aria-controls="about-panel-affiliation"
                 data-tab-target="about-panel-affiliation">
                 <span>Affiliation</span><span aria-hidden="true">&#8594;</span>
-              </button>
-              <button class="about-tabs__button" id="about-tab-school-life" type="button"
-                aria-controls="about-panel-school-life" data-tab-target="about-panel-school-life">
-                <span>School Life</span><span aria-hidden="true">&#8594;</span>
               </button>
             </nav>
           </aside>

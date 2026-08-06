@@ -642,13 +642,13 @@
   if (document.body.classList.contains("page-about")) {
     const aboutContent = document.querySelector(".about-tabs__content");
     [
+      "about-panel-school-life",
       "about-panel-about-us",
       "about-panel-history",
       "about-panel-vision",
       "about-panel-mission",
       "about-panel-motto",
-      "about-panel-affiliation",
-      "about-panel-school-life"
+      "about-panel-affiliation"
     ].forEach((id) => {
       const panel = document.getElementById(id);
       if (panel && aboutContent) aboutContent.appendChild(panel);
