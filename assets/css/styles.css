@@ -10470,3 +10470,116 @@ main h4,
     margin-top: 20px;
   }
 }
+
+/* Shared vertical rhythm sourced from the Home page. */
+:root {
+  --site-section-space: 112px;
+}
+@media(max-width:700px) {
+  :root { --site-section-space: 78px; }
+}
+
+/* Inner-page heroes meet the first section exactly as the Home hero does. */
+.inner-page .page-hero {
+  margin-bottom: 0 !important;
+}
+.inner-page main > .section:first-child {
+  padding-bottom: 0 !important;
+}
+
+/* About and Admissions: every navigated panel is one complete section. */
+:is(.page-about,.page-admissions) .about-tabs {
+  margin-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+:is(.page-about,.page-admissions) .about-tab-panel,
+.page-about .about-tab-panel[hidden] {
+  margin-top: 0 !important;
+  padding-top: var(--site-section-space) !important;
+  padding-bottom: var(--site-section-space) !important;
+}
+.page-about .about-tab-panel > :first-child {
+  margin-top: 0 !important;
+}
+.page-about #about-panel-school-life,
+.page-admissions #admission-process,
+.page-admissions #admission-help {
+  padding-top: var(--site-section-space) !important;
+  padding-bottom: var(--site-section-space) !important;
+}
+
+/* Academics, Management and Events expose explicit section wrappers. */
+.page-academics .academics-content {
+  margin-top: 0 !important;
+}
+.page-academics .academics-section,
+.page-management .management-band,
+.page-events .events-band {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: var(--site-section-space) !important;
+  padding-bottom: var(--site-section-space) !important;
+}
+.page-academics #academics-programme,
+.page-academics #academics-support {
+  padding-top: var(--site-section-space) !important;
+  padding-bottom: var(--site-section-space) !important;
+}
+
+/* Facilities card groups use the same gap and final footer clearance. */
+.page-facilities main > .section:first-child > .container > .row:not(.page-hero) {
+  margin-top: var(--site-section-space) !important;
+  margin-bottom: 0 !important;
+}
+.page-facilities main > .section:first-child > .container > .row:not(.page-hero):last-of-type {
+  margin-bottom: var(--site-section-space) !important;
+}
+
+/* Single-content pages receive one Home-sized section above the footer. */
+.page-gallery .gallery {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: var(--site-section-space);
+  padding-bottom: var(--site-section-space);
+}
+.page-contact .contact-overview {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: var(--site-section-space);
+  padding-bottom: var(--site-section-space);
+}
+.page-announcements main > .section:first-child > .container > .section__head {
+  margin-top: 0 !important;
+  padding-top: var(--site-section-space);
+}
+.page-announcements main > .section:first-child > .container > .section__head + .row {
+  margin-bottom: 0 !important;
+  padding-bottom: var(--site-section-space);
+}
+
+/* First inner-page content matches the Home hero-to-Notice spacing. */
+:root {
+  --site-first-section-space: 78px;
+}
+:is(.page-about,.page-admissions) .about-tabs__content > .about-tab-panel:first-child {
+  padding-top: var(--site-first-section-space) !important;
+}
+.page-about .about-tabs__content > .about-tab-panel:first-child > .section {
+  padding-top: 0 !important;
+}
+.page-academics .academics-content > .academics-section:first-child,
+.page-management .page-hero + .management-band,
+.page-events .page-hero + .events-band {
+  padding-top: var(--site-first-section-space) !important;
+}
+.page-academics .academics-content > .academics-section:first-child > .row:first-child {
+  margin-top: 0 !important;
+}
+.page-facilities main > .section:first-child > .container > .page-hero + .row {
+  margin-top: var(--site-first-section-space) !important;
+}
+.page-gallery .page-hero + .gallery,
+.page-contact .page-hero + .contact-overview,
+.page-announcements .page-hero + .section__head {
+  padding-top: var(--site-first-section-space) !important;
+}
