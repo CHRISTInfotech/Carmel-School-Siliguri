@@ -28,6 +28,33 @@
     <span class="splash__loader" aria-hidden="true"></span>
   </div>
 
+  <dialog class="admission-popup" data-admission-popup aria-labelledby="admission-popup-title">
+    <div class="admission-popup__layout">
+      <button class="admission-popup__close" type="button" data-admission-popup-close
+        aria-label="Close admission announcement">&times;</button>
+      <div class="admission-popup__media">
+        <img src="assets/images/Admission form/admission form 1.jpeg"
+          alt="K.E. Carmel School admission announcement for the 2027–28 academic session">
+      </div>
+      <div class="admission-popup__content">
+        <span class="admission-popup__badge">Admissions Open</span>
+        <h2 id="admission-popup-title">Admissions Open 2027–28</h2>
+        <p class="admission-popup__intro">Join <strong>K.E. Carmel School, Siliguri</strong> and give your child the
+          opportunity to learn, grow and excel in a nurturing educational environment.</p>
+        <h3>Admission Highlights</h3>
+        <ul class="admission-popup__highlights">
+          <li>Admissions Open for <strong>Nursery to Class VIII</strong></li>
+          <li>Academic Session <strong>2027–28</strong></li>
+          <li>Admission Starts from <strong>1st August 2026</strong></li>
+          <li>Affiliated to <strong>C.I.S.C.E., New Delhi</strong></li>
+          <li>Transparent Admission Process – <strong>No Donation</strong></li>
+        </ul>
+        <a class="btn btn--primary admission-popup__apply" data-admission-form-link href="#" target="_blank"
+          rel="noopener noreferrer" aria-label="Open the admission application Google Form in a new tab">Apply Now</a>
+      </div>
+    </div>
+  </dialog>
+
   <header class="home-header" data-header>
     <div class="home-container social-bar">
       <div class="elements-social social-icon"><a href="#" aria-label="Facebook">f</a><a href="#"
@@ -48,7 +75,7 @@
     <div class="home-container home-header__inner">
       <nav class="home-nav home-nav--left"><a class="site-nav__link" href="index.html">Home</a><a class="site-nav__link"
           href="about.html">About</a><a class="site-nav__link" href="academics.html">Academics</a><a
-          class="site-nav__link" href="management.html">Management</a></nav>
+          class="site-nav__link" href="management.html">Our Team</a></nav>
       <a class="home-brand" href="index.html" style="text-decoration: none;"
         aria-label="K.E. Carmel School Siliguri home">
         <img src="assets/images/logo/logo4-removebg-preview.png" alt="K.E. Carmel School logo">
@@ -66,7 +93,7 @@
       <nav id="site-nav" class="mobile-home-nav site-nav" aria-label="Mobile navigation">
         <a class="site-nav__link" href="index.html">Home</a><a class="site-nav__link" href="about.html">About</a><a
           class="site-nav__link" href="academics.html">Academics</a><a class="site-nav__link"
-          href="management.html">Management</a><a class="site-nav__link" href="facilities.html">Facilities</a><a
+          href="management.html">Our Team</a><a class="site-nav__link" href="facilities.html">Facilities</a><a
           class="site-nav__link" href="admissions.html">Admissions</a><a class="site-nav__link"
           href="events.html">Events</a><a class="site-nav__link" href="gallery.html">Gallery</a><a
           class="site-nav__link" href="contact.html">Contact</a>
@@ -76,13 +103,15 @@
 
   <main id="main">
     <section class="home-hero" data-carousel aria-label="School highlights">
-      <article class="home-slide is-active">
-        <img src="assets/images/KE CARMEL (1)/Annual Day/AB1_4388.jpg"
-          alt="Students performing during the Annual Day programme">
+      <article class="home-slide home-slide--chavara is-active">
+        <img src="assets/images/St Kuriakose Elias/St Kuriakose Elias.jpeg"
+          alt="St. Kuriakose Elias Chavara, founder of the CMI Congregation">
         <div class="home-slide__shade"></div>
         <div class="home-container home-slide__content">
-          <p class="text-light">K.E. Carmel School, Siliguri</p>
-          <h1>Where Knowledge Meets <em>Inspiration.</em></h1><a href="about.html">Discover our school
+          <p class="home-slide__eyebrow">Our Guiding Inspiration</p>
+          <h1>St. Kuriakose Elias <em>Chavara</em></h1>
+          <p class="home-slide__description">St. Kuriakose Elias Chavara, founder of the CMI Congregation, was a visionary educator and social reformer who believed that education should enlighten the mind, strengthen character and uplift society. His enduring legacy inspires us to nurture every child with knowledge, faith, compassion and a commitment to serve others.</p>
+          <a href="about.html">Discover his legacy
             <span>→</span></a>
         </div>
       </article>
@@ -107,7 +136,7 @@
         </div>
       </article>
       <article class="home-slide">
-        <img src="assets/images/KE CARMEL (1)/Environment day/WhatsApp Image.jpeg"
+        <img src="assets/images/KE CARMEL (1)/Annual Day/AB1_4388.jpg"
           alt="Students participating in a school programme">
         <div class="home-slide__shade"></div>
         <div class="home-container home-slide__content">
@@ -199,7 +228,7 @@
                 alt="Students participating in sports"><b>Sports &<br>Games</b></a><a class="col"
               href="events.html"><img src="assets/images/KE CARMEL (1)/Annual Day/DSC_8418.jpg"
                 alt="Students presenting a cultural programme"><b>Arts &<br>Culture</b></a><a class="col"
-              href="events.html"><img src="assets/images/KE CARMEL (1)/Co curicular activities/workshop.jpg"
+              href="events.html"><img src="assets/images/KE CARMEL (1)/Co curicular activities/workshop.jpeg"
                 alt="Students taking part in a co-curricular workshop"><b>Tours
                 &<br>Workshops</b></a><a class="col" href="events.html"><img
                 src="assets/images/KE CARMEL (1)/Speech Competition/WhatsApp Image 2026-07-26 at 3.00.27 PM.jpeg"
@@ -255,7 +284,7 @@
                   Campus</b></span></a><a href="facilities.html">
               <img src="assets/images/home/image_2.png" alt="Achievement area"><span><b>Activity Areas</b></span></a><a
               href="facilities.html">
-              <img src="assets/images/KE CARMEL (1)/school photo/IMG-20260801-WA0021.jpeg"
+              <img src="assets/images/KE CARMEL (1)/school photo/infrastructure.jpeg"
                 alt="School infrastructure"><span><b>Infrastructure</b></span></a>
           </div>
         </div>
@@ -360,6 +389,32 @@
       </div>
     </section>
 
+    <section class="home-section facilities-showcase branches-section reveal" data-branch-slider>
+      <div class="home-container">
+        <div class="ornament">◆</div>
+        <div class="section-heading centered">
+          <h2>Our <em>Branches</em></h2>
+          <p>Discover the schools that form the K.E. Carmel educational family.</p>
+        </div>
+        <div class="card-viewport">
+          <div class="facility-home-grid" data-card-track>
+            <a href="contact.html"><img src="assets/images/home/image_1.png" alt="Placeholder for Branch 1"><span><b>Branch Name 01</b></span></a>
+            <a href="contact.html"><img src="assets/images/home/image_2.png" alt="Placeholder for Branch 2"><span><b>Branch Name 02</b></span></a>
+            <a href="contact.html"><img src="assets/images/home/image_3.png" alt="Placeholder for Branch 3"><span><b>Branch Name 03</b></span></a>
+            <a href="contact.html"><img src="assets/images/home/image_4.png" alt="Placeholder for Branch 4"><span><b>Branch Name 04</b></span></a>
+            <a href="contact.html"><img src="assets/images/home/image_5.png" alt="Placeholder for Branch 5"><span><b>Branch Name 05</b></span></a>
+            <a href="contact.html"><img src="assets/images/home/image_6.png" alt="Placeholder for Branch 6"><span><b>Branch Name 06</b></span></a>
+            <a href="contact.html"><img src="assets/images/KE CARMEL (1)/school photo/IMG_20260717_130345.jpg" alt="Placeholder for Branch 7"><span><b>Branch Name 07</b></span></a>
+            <a href="contact.html"><img src="assets/images/KE CARMEL (1)/school photo/IMG_20260717_130347.jpg" alt="Placeholder for Branch 8"><span><b>Branch Name 08</b></span></a>
+          </div>
+        </div>
+        <div class="strip-controls branches-section__controls">
+          <button data-branch-prev aria-label="Previous branch">←</button>
+          <button data-branch-next aria-label="Next branch">→</button>
+        </div>
+      </div>
+    </section>
+
     <section class="faq-section reveal">
       <div class="home-container">
         <!-- <div class="o rnament">◆</div> -->
@@ -415,7 +470,7 @@
       </div>
       <div>
         <h3>Quick Links</h3><a href="index.html">Home</a><a href="about.html">About</a><a
-          href="academics.html">Academics</a><a href="management.html">Management</a>
+          href="academics.html">Academics</a><a href="management.html">Our Team</a>
       </div>
       <div>
         <h3>Quick Links</h3><a href="facilities.html">Facilities</a><a href="admissions.html">Admissions</a><a

@@ -5069,24 +5069,24 @@ main .stats-grid article:hover img {
 }
 
 .page-about .page-hero {
-  background-image: linear-gradient(90deg, rgba(0, 50, 31, .88), rgba(0, 50, 31, .2)), url("../images/about/image_1.png");
+  background-image: linear-gradient(90deg, rgba(0, 50, 31, .88), rgba(0, 50, 31, .2)), url("../images/KE CARMEL (1)/Students-compressed/IMG_20260813_093744.jpeg");
   /* background-image: linear-gradient(90deg, rgba(0, 50, 31, .88), rgba(0, 50, 31, .2)), url("../images/KE CARMEL (1)/Investiture ceremony/WhatsApp Image 2026-07-26 at 4.29.28 PM.jpeg"); */
 }
 
-.page-management .page-hero {
-  background-image: linear-gradient(90deg, rgba(0, 50, 31, .88), rgba(0, 50, 31, .25)), url("../images/about/image_3.png");
+.page-management .page-hero { 
+  background-image: linear-gradient(90deg, rgba(0, 50, 31, .88), rgba(0, 50, 31, .25)), url("../images/KE CARMEL (1)/school photo/IMG_20260813_094313.jpeg");
 }
 
 .page-academics .page-hero {
-  background-image: linear-gradient(90deg, rgba(0, 50, 31, .9), rgba(0, 50, 31, .25)), url("../images/home/image_5.png");
+  background-image: linear-gradient(90deg, rgba(0, 50, 31, .9), rgba(0, 50, 31, .25)), url("../images/KE CARMEL (1)/Smart Class-compressed/IMG-20260813-WA0019.jpeg");
 }
 
 .page-admissions .page-hero { 
-  background-image: linear-gradient(90deg, rgba(0, 50, 31, .9), rgba(0, 50, 31, .22)), url("../images/home/image_1.png");
+  background-image: linear-gradient(90deg, rgba(0, 50, 31, .9), rgba(0, 50, 31, .22)), url("../images/KE CARMEL (1)/Graduation for UKG-compressed/IMG-20260812-WA0057.jpeg");
 }
 
 .page-facilities .page-hero {
-  background-image: linear-gradient(90deg, rgba(0, 50, 31, .88), rgba(0, 50, 31, .22)), url("../images/home/image_3.png");
+  background-image: linear-gradient(90deg, rgba(0, 50, 31, .88), rgba(0, 50, 31, .22)), url("../images/KE CARMEL (1)/Investiture ceremony/WhatsApp Image 2026-07-26 at 4.29.28 PM.jpeg");
 }
 
 .page-gallery .page-hero {
@@ -5099,7 +5099,7 @@ main .stats-grid article:hover img {
 }
 
 .page-contact .page-hero {
-  background-image: linear-gradient(90deg, rgba(0, 50, 31, .9), rgba(0, 50, 31, .2)), url("../images/contact/image_1.png");
+  background-image: linear-gradient(90deg, rgba(0, 50, 31, .9), rgba(0, 50, 31, .2)), url("../images/KE CARMEL (1)/school photo/infrastructure.jpeg");
 }
 
 .inner-page .page-hero__content {
@@ -6249,7 +6249,7 @@ main .stats-grid article:hover img {
   .inner-page .page-hero {
     min-height: 450px;
     padding-top: 170px;
-    border-radius: 0 0 28px 28px;
+    /* border-radius: 0 0 28px 28px; */
   }
 }
 
@@ -10582,4 +10582,398 @@ main h4,
 .page-contact .page-hero + .contact-overview,
 .page-announcements .page-hero + .section__head {
   padding-top: var(--site-first-section-space) !important;
+}
+
+/* Home: St. Chavara introduction and branch cards. */
+.home-page .home-slide--chavara > img {
+  /* object-position: 72% center; */
+}
+.home-page .home-slide--chavara .home-slide__content {
+  max-width: 1180px;
+}
+.home-page .home-slide--chavara .home-slide__content h1 {
+  max-width: 720px;
+  margin-bottom: 22px;
+  font-size: clamp(2.8rem,5vw,5.2rem);
+}
+.home-page .home-slide--chavara .home-slide__description {
+  max-width: 720px;
+  margin-bottom: 28px;
+  color: #fff;
+  font-size: clamp(.94rem,1.25vw,1.08rem);
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.home-page .branches-section .facility-home-grid {
+  gap: 16px;
+}
+.home-page .branches-section__controls {
+  width: min(1180px,100%);
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: flex-start !important;
+}
+
+/* Continue the Home mist/ink sequence after the new Branches section. */
+.home-page main > .branches-section + .faq-section {
+  color: #fff;
+  background: var(--cs-ink) !important;
+}
+.home-page main > .branches-section + .faq-section .section-heading h2,
+.home-page main > .branches-section + .faq-section .section-heading h2 em {
+  color: #fff !important;
+}
+.home-page main > .branches-section + .faq-section .section-heading p {
+  color: rgba(255,255,255,.8) !important;
+}
+
+/* Shared mobile-phone symbol for header and footer social groups. */
+.elements-social a[href^="tel:"] {
+  font-size: 0 !important;
+}
+.elements-social a[href^="tel:"]::before {
+  content: "";
+  display: block;
+  width: 11px;
+  height: 18px;
+  border: 1.7px solid currentColor;
+  border-radius: 2.5px;
+  box-shadow: inset 0 -3px 0 -2px currentColor;
+}
+
+/* Home admission announcement. */
+.admission-popup {
+  width: min(1040px,calc(100% - 36px));
+  max-width: none;
+  max-height: min(88dvh,760px);
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 24px;
+  color: var(--cs-ink);
+  background: #fff;
+  box-shadow: 0 28px 90px rgba(5,25,43,.36);
+}
+.admission-popup::backdrop {
+  background: rgba(5,25,43,.72);
+  backdrop-filter: blur(5px);
+}
+.admission-popup__layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(300px,42%) minmax(0,58%);
+  min-height: 610px;
+}
+.admission-popup__media {
+  min-width: 0;
+  padding: 16px;
+  background: var(--cs-mist);
+}
+.admission-popup__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 17px;
+}
+.admission-popup__content {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding: 58px 58px 48px;
+}
+.admission-popup__close {
+  position: absolute;
+  z-index: 3;
+  top: 16px;
+  right: 18px;
+  display: grid;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: var(--cs-ink-soft);
+  background: rgba(242,247,250,.94);
+  font: 400 2rem/1 ui-sans-serif,system-ui,sans-serif;
+  cursor: pointer;
+  transition: color .2s ease,background-color .2s ease,transform .2s ease;
+}
+.admission-popup__close:hover,
+.admission-popup__close:focus-visible {
+  color: #fff;
+  background: var(--cs-ink-soft);
+  transform: rotate(4deg);
+}
+.admission-popup__badge {
+  align-self: flex-start;
+  margin-bottom: 22px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  color: var(--cs-ink);
+  background: rgba(244,185,66,.22);
+  font-size: .84rem;
+  font-weight: 700;
+}
+.admission-popup__content h2 {
+  margin: 0 0 16px;
+  color: var(--cs-ink-soft) !important;
+  font-size: clamp(1.9rem,3vw,2.65rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+}
+.admission-popup__intro {
+  margin: 0 0 27px;
+  color: rgba(16,42,67,.8);
+  font-size: .98rem;
+  line-height: 1.65;
+}
+.admission-popup__content h3 {
+  margin: 0 0 14px;
+  color: var(--cs-ink-soft);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.admission-popup__highlights {
+  margin: 0 0 30px;
+  padding: 0;
+  list-style: none;
+}
+.admission-popup__highlights li {
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(16,42,67,.12);
+  color: rgba(16,42,67,.88);
+  font-size: .94rem;
+  line-height: 1.45;
+}
+.admission-popup__highlights li:last-child {
+  border-bottom: 0;
+}
+.admission-popup__apply {
+  align-self: flex-start;
+  border-radius: 999px;
+}
+
+/* Events: horizontal arrangement for Recent Events only. */
+.page-events .recent-events-viewport {
+  width: 100%;
+  padding: 10px 0 18px;
+  overflow: hidden;
+}
+.page-events .recent-events-track.row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 16px;
+  margin: 0;
+  transition: transform .45s ease;
+}
+.page-events .recent-events-track.row > .col {
+  width: calc((100% - 32px)/3);
+  min-width: calc((100% - 32px)/3);
+  max-width: calc((100% - 32px)/3);
+  padding: 0;
+  flex: 0 0 calc((100% - 32px)/3);
+}
+.page-events .recent-events-controls {
+  width: 100%;
+  margin: 18px 0 0;
+  justify-content: flex-start;
+}
+
+/* Compact event-information summaries; full copy opens below the image in the shared modal. */
+.page-events .event-information-source[hidden] {
+  display: none !important;
+}
+.page-events .event-information-card--compact > .event-information-summary {
+  min-height: 0;
+  margin-bottom: 20px;
+  padding-left: 0;
+}
+.page-events .event-information-card--compact > .event-information-summary::before {
+  display: none;
+  content: none;
+}
+.page-events .event-information-read-more {
+  align-self: flex-start;
+  margin: auto 22px 24px;
+}
+.page-events .recent-events-track .event-card__body {
+  height: 100%;
+}
+.page-events .recent-events-track .event-card__body > .event-information-read-more {
+  margin: auto 0 0;
+}
+
+/* Our Team directory: the same image-over-content card language with replaceable placeholders. */
+.page-management .team-directory-grid {
+  align-items: stretch;
+}
+.page-management .team-directory-grid > .col {
+  display: flex;
+}
+.page-management .team-directory-card {
+  display: block;
+  width: 100%;
+  height: 150px !important;
+  min-height: 150px;
+  padding: 0 !important;
+  overflow: hidden;
+  border: 0 !important;
+  border-radius: 20px !important;
+  background: rgba(255,255,255,.96) !important;
+  box-shadow: 0 14px 35px rgba(16,42,67,.13);
+  content-visibility: auto;
+  contain-intrinsic-size: auto 150px;
+}
+.page-management .team-directory-card .person-card__photo {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 13px;
+}
+.page-management .team-placeholder {
+  display: none !important;
+}
+.page-management .team-directory-card .person-card__body.card-body {
+  position: static;
+  display: flex;
+  width: 100%;
+  height: 150px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 10px 16px;
+  color: var(--cs-ink);
+  background: transparent;
+  text-align: center;
+}
+.page-management .team-directory-card .person-card__name,
+.page-management .team-directory-card .person-card__role,
+.page-management .team-directory-card .person-card__dept {
+  position: static;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: var(--cs-ink);
+  background: transparent;
+  text-align: center;
+}
+.page-management .team-directory-card .person-card__name {
+  margin-bottom: 5px;
+  font-size: 1.02rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+.page-management .team-directory-card .person-card__role {
+  color: var(--cs-coral);
+  font-size: .84rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+.page-management .team-directory-card .person-card__dept {
+  margin-top: 4px;
+  color: var(--cs-ink-soft);
+  font-size: .78rem;
+  line-height: 1.35;
+}
+.page-management .team-teachers-section .team-directory-card {
+  height: 130px !important;
+  min-height: 130px;
+  contain-intrinsic-size: auto 130px;
+}
+.page-management .team-teachers-section .team-directory-card .person-card__body.card-body {
+  height: 130px;
+  padding: 8px 7px;
+}
+@media(max-width:576px) {
+  .page-management .team-directory-card {
+    max-width: 390px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+.rules-modal__content [data-rules-content] p {
+  color: var(--cs-ink);
+  line-height: 1.7;
+  text-align: justify;
+}
+.rules-modal__content [data-rules-content] p:last-child {
+  margin-bottom: 0;
+}
+@media(min-width:701px) and (max-width:1000px) {
+  .page-events .recent-events-track.row > .col {
+    width: calc((100% - 16px)/2);
+    min-width: calc((100% - 16px)/2);
+    max-width: calc((100% - 16px)/2);
+    flex-basis: calc((100% - 16px)/2);
+  }
+}
+@media(max-width:700px) {
+  .page-events .recent-events-track.row > .col {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+@media(max-width:767px) {
+  .admission-popup {
+    width: min(94%,560px);
+    max-height: 90dvh;
+    overflow-y: auto;
+    border-radius: 18px;
+  }
+  .admission-popup__layout {
+    display: block;
+    min-height: 0;
+  }
+  .admission-popup__media {
+    height: clamp(210px,43vh,340px);
+    padding: 12px;
+  }
+  .admission-popup__media img {
+    object-position: center 18%;
+    border-radius: 12px;
+  }
+  .admission-popup__content {
+    padding: 30px 24px 32px;
+  }
+  .admission-popup__close {
+    position: fixed;
+    top: max(7vh,18px);
+    right: max(5vw,18px);
+  }
+  .admission-popup__badge {
+    margin-bottom: 16px;
+  }
+  .admission-popup__intro {
+    margin-bottom: 22px;
+  }
+  .admission-popup__highlights {
+    margin-bottom: 24px;
+  }
+}
+@media(max-width:700px) {
+  .home-page .home-slide--chavara > img {
+    object-position: 62% center;
+  }
+  .home-page .home-slide--chavara .home-slide__shade {
+    background: linear-gradient(90deg,rgba(9,31,50,.94) 0%,rgba(9,31,50,.76) 68%,rgba(9,31,50,.42) 100%);
+  }
+  .home-page .home-slide--chavara .home-slide__content h1 {
+    font-size: clamp(2.25rem,10vw,3.25rem);
+  }
+  .home-page .home-slide--chavara .home-slide__description {
+    max-width: 94%;
+    font-size: .88rem;
+    line-height: 1.55;
+  }
 }

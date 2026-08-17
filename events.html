@@ -50,7 +50,7 @@
       <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
         <a class="site-nav__link" href="index.html">Home</a>
         <a class="site-nav__link" href="about.html">About</a>
-        <a class="site-nav__link" href="management.html">Management</a>
+        <a class="site-nav__link" href="management.html">Our Team</a>
         <a class="site-nav__link" href="academics.html">Academics</a>
         <a class="site-nav__link" href="admissions.html">Admissions</a>
         <a class="site-nav__link" href="facilities.html">Facilities</a>
@@ -91,12 +91,13 @@
           </div>
         </div>
 
-        <section class="events-band events-band--mist">
+        <section class="events-band events-band--mist" data-recent-events-slider>
         <div class="section__head">
           <h2>Recent Events</h2>
           <!-- <p class="section__sub">Sample entries that can be replaced with the latest school updates.</p> -->
         </div>
-        <div class="events-grid row row-cols-1 row-cols-md-2 row-cols-xl-3 g-2">
+        <div class="recent-events-viewport">
+        <div class="events-grid recent-events-track row row-cols-1 row-cols-md-2 row-cols-xl-3 g-2" data-recent-events-track>
           <div class="col">
             <article class="card event-card h-100">
               <div class="event-card__media">
@@ -219,39 +220,118 @@
               </div>
             </article>
           </div>
-        </div>
 
-        <div class="row row-cols-1 row-cols-lg-2 g-3 event-information mt-4">
           <div class="col">
-            <article class="card h-100 event-information-card event-information-card--media">
-              <button class="card-media-carousel" type="button" data-media-gallery="picnics-study-tours"
-                aria-label="Open Picnics and Study Tours image gallery"><img
-                  src="assets/images/KE CARMEL (1)/School Bus/IMG_7596.jpg"
-                  alt="School buses used for student travel" loading="lazy"><span>View gallery</span></button>
-              <h3>Picnics and Study Tours</h3>
-              <p><strong>10.1.</strong> Picnics and Study tours are a part of the study and class activity and hence all
-                are expected to join. It will encourage and strengthen friendliness and love for each other. It is also
-                a source of relaxation and helps to widen knowledge, good relations, social values, maturity and
-                curiosity.</p>
-              <p><strong>10.2.</strong> All the divisions of each standard will plan together and finalize the
-                destination, date and expenditure with the approval of the Principal. Class teachers have to organise
-                the programme.</p>
+            <article class="card event-card h-100">
+              <div class="event-card__media">
+                <button class="card-media-carousel" type="button" data-media-gallery="picnics-study-tours"
+                  aria-label="Open Picnics and Study Tours image gallery"><img
+                    src="assets/images/KE CARMEL (1)/School Bus/IMG_7596.jpg"
+                    alt="School buses used for student travel" loading="lazy"><span>View gallery</span></button>
+              </div>
+              <div class="event-card__body">
+                <div class="event-card__meta"><span class="event-card__date">Educational Outing</span></div>
+                <div class="event-card__title">Picnics and Study Tours</div>
+                <p class="event-card__text">Educational outings help students learn beyond the classroom while
+                  building friendship, curiosity and social values.</p>
+                <div id="picnics-study-tours-details" class="event-information-source" hidden>
+                  <p><strong>10.1.</strong> Picnics and Study tours are a part of the study and class activity and hence
+                    all are expected to join. It will encourage and strengthen friendliness and love for each other. It
+                    is also a source of relaxation and helps to widen knowledge, good relations, social values,
+                    maturity and curiosity.</p>
+                  <p><strong>10.2.</strong> All the divisions of each standard will plan together and finalize the
+                    destination, date and expenditure with the approval of the Principal. Class teachers have to
+                    organise the programme.</p>
+                </div>
+                <button class="facility-read-more event-information-read-more" type="button" data-rules-modal
+                  data-rules-source="picnics-study-tours-details" data-rules-label="Event Information"
+                  data-rules-title="Picnics and Study Tours">Read More</button>
+              </div>
             </article>
           </div>
+
           <div class="col">
-            <article class="card h-100 event-information-card event-information-card--media">
-              <button class="card-media-carousel" type="button" data-media-gallery="co-curricular"
-                aria-label="Open Co-Curricular Activities image gallery"><img
-                  src="assets/images/KE CARMEL (1)/Co curicular activities/IMG-20220821-WA0008.jpg"
-                  alt="Students participating in a co-curricular activity" loading="lazy"><span>View gallery</span></button>
-              <h3>Co-Curricular Activities</h3>
-              <p>K.E.Carmel school believes in the integral formation of the children and insists on values, morals,
-                character and skill development of all the students. To develop the varied interests and different
-                talents of pupils, we provide ample opportunity through several co-curricular activities. Besides
-                academic training, the students are given opportunity to get involved in artistic, cultural and social
-                activities through various clubs.</p>
+            <article class="card event-card h-100">
+              <div class="event-card__media">
+                <button class="card-media-carousel" type="button" data-media-gallery="co-curricular"
+                  aria-label="Open Co-Curricular Activities image gallery"><img
+                    src="assets/images/KE CARMEL (1)/Co curicular activities/IMG-20220821-WA0008.jpg"
+                    alt="Students participating in a co-curricular activity" loading="lazy"><span>View gallery</span></button>
+              </div>
+              <div class="event-card__body">
+                <div class="event-card__meta"><span class="event-card__date">Student Development</span></div>
+                <div class="event-card__title">Co-Curricular Activities</div>
+                <p class="event-card__text">Artistic, cultural and social activities help students discover their
+                  talents, build confidence and develop character.</p>
+                <div id="co-curricular-event-details" class="event-information-source" hidden>
+                  <p>K.E.Carmel school believes in the integral formation of the children and insists on values,
+                    morals, character and skill development of all the students. To develop the varied interests and
+                    different talents of pupils, we provide ample opportunity through several co-curricular
+                    activities. Besides academic training, the students are given opportunity to get involved in
+                    artistic, cultural and social activities through various clubs.</p>
+                </div>
+                <button class="facility-read-more event-information-read-more" type="button" data-rules-modal
+                  data-rules-source="co-curricular-event-details" data-rules-label="Event Information"
+                  data-rules-title="Co-Curricular Activities">Read More</button>
+              </div>
             </article>
           </div>
+
+          <div class="col">
+            <article class="card event-card h-100">
+              <div class="event-card__media">
+                <button class="card-media-carousel" type="button" data-media-gallery="ethnic-day"
+                  aria-label="Open Ethnic Day image gallery"><img
+                    src="assets/images/KE CARMEL (1)/Ethnic Day-compressed/IMG-20260812-WA0083.jpg.jpeg"
+                    alt="Students celebrating Ethnic Day" loading="lazy"><span>View gallery</span></button>
+              </div>
+              <div class="event-card__body">
+                <div class="event-card__meta"><span class="event-card__date">Cultural Celebration</span></div>
+                <div class="event-card__title">Ethnic Day</div>
+                <p class="event-card__text">Students celebrated India’s cultural diversity through traditional
+                  attire, shared experiences and vibrant campus activities.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="col">
+            <article class="card event-card h-100">
+              <div class="event-card__media">
+                <button class="card-media-carousel" type="button" data-media-gallery="graduation-ukg"
+                  aria-label="Open Graduation for UKG image gallery"><img
+                    src="assets/images/KE CARMEL (1)/Graduation for UKG-compressed/IMG-20260812-WA0050.jpg.jpeg"
+                    alt="UKG students at their graduation celebration" loading="lazy"><span>View gallery</span></button>
+              </div>
+              <div class="event-card__body">
+                <div class="event-card__meta"><span class="event-card__date">Student Milestone</span></div>
+                <div class="event-card__title">Graduation for UKG</div>
+                <p class="event-card__text">Our UKG learners marked an important milestone with a joyful graduation
+                  celebration shared with teachers and families.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="col">
+            <article class="card event-card h-100">
+              <div class="event-card__media">
+                <button class="card-media-carousel" type="button" data-media-gallery="field-visit"
+                  aria-label="Open Field Visit image gallery"><img
+                    src="assets/images/KE CARMEL (1)/Field Visit-compressed/IMG-20260812-WA0269.jpg.jpeg"
+                    alt="Students participating in a field visit" loading="lazy"><span>View gallery</span></button>
+              </div>
+              <div class="event-card__body">
+                <div class="event-card__meta"><span class="event-card__date">Experiential Learning</span></div>
+                <div class="event-card__title">Field Visit</div>
+                <p class="event-card__text">Students connected classroom learning with real-world observation through
+                  an engaging and informative field visit.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        </div>
+        <div class="strip-controls recent-events-controls">
+          <button type="button" data-recent-events-prev aria-label="Previous recent event">←</button>
+          <button type="button" data-recent-events-next aria-label="Next recent event">→</button>
         </div>
 
         </section>
@@ -336,7 +416,7 @@
       </div>
       <div class="footer__right">
         <a href="about.html">About</a>
-        <a href="management.html">Management</a>
+        <a href="management.html">Our Team</a>
         <a href="academics.html">Academics</a>
         <a href="admissions.html">Admissions</a>
         <a href="events.html">Events</a>

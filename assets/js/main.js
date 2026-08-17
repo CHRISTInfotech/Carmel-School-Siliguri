@@ -3,6 +3,7 @@
   const isHomePage = document.body.classList.contains("home-page");
   const currentPageName = (window.location.pathname.split("/").pop() || "index.html").replace(/\.html$/i, "").toLowerCase();
   const innerHeaderLogo = "assets/images/logo/logo4-removebg-preview.png";
+  const admissionFormUrl = "https://docs.google.com/forms/d/e/REPLACE_WITH_GOOGLE_FORM_ID/viewform";
   if (!isHomePage) {
     document.body.classList.add("inner-page", "is-loading");
     document.body.classList.add(`page-${(window.location.pathname.split("/").pop() || "inner").replace(/\.html$/i, "")}`);
@@ -21,11 +22,11 @@
         <header class="home-header inner-header" data-header>
           <div class="home-container social-bar"><div class="elements-social social-icon"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="X">X</a><a href="#" aria-label="YouTube">▶</a><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a><a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.6a8 8 0 0 1-11.8 7L4 20l1.4-4A8 8 0 1 1 20 11.6Z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 8.2c.2-.4.5-.4.8-.4h.4c.2 0 .4.1.5.5l.8 1.8c.1.3 0 .5-.2.7l-.6.7c-.2.2-.1.4 0 .6.6 1 1.4 1.8 2.5 2.3.2.1.4.1.6-.1l.8-1c.2-.2.4-.3.7-.2l1.8.9c.3.2.4.3.4.5 0 .5-.2 1.2-.7 1.6-.5.5-1.3.8-2.1.6-1.3-.3-3.1-1.1-4.7-2.6-1.3-1.3-2.2-2.8-2.5-4.1-.2-.8.1-1.4.5-1.8Z" fill="currentColor"/></svg></a><a href="tel:+916295975836" aria-label="Call">☎</a></div><a class="overlay-admission" href="admissions.html">Get Admission</a></div>
           <div class="home-container home-header__inner">
-            <nav class="home-nav home-nav--left"><a class="site-nav__link" href="index.html">Home</a><a class="site-nav__link" href="about.html">About</a><a class="site-nav__link" href="academics.html">Academics</a><a class="site-nav__link" href="management.html">Management</a></nav>
+            <nav class="home-nav home-nav--left"><a class="site-nav__link" href="index.html">Home</a><a class="site-nav__link" href="about.html">About</a><a class="site-nav__link" href="academics.html">Academics</a><a class="site-nav__link" href="management.html">Our Team</a></nav>
             <a class="home-brand" href="index.html" style="text-decoration: none;" aria-label="K.E. Carmel School Siliguri home"><img src="${innerHeaderLogo}" alt="K.E. Carmel School logo"><span><strong>K. E. CARMEL</strong><small>SCHOOL, SILIGURI</small><em>To Plant And Nurture</em></span></a>
             <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
             <nav class="home-nav home-nav--right"><a class="site-nav__link" href="facilities.html">Facilities</a><a class="site-nav__link" href="admissions.html">Admissions</a><a class="site-nav__link" href="events.html">Events</a><a class="site-nav__link" href="gallery.html">Gallery</a><a class="site-nav__link" href="contact.html">Contact</a></nav>
-            <nav id="site-nav" class="mobile-home-nav site-nav" aria-label="Mobile navigation"><a class="site-nav__link" href="index.html">Home</a><a class="site-nav__link" href="about.html">About</a><a class="site-nav__link" href="academics.html">Academics</a><a class="site-nav__link" href="management.html">Management</a><a class="site-nav__link" href="facilities.html">Facilities</a><a class="site-nav__link" href="admissions.html">Admissions</a><a class="site-nav__link" href="events.html">Events</a><a class="site-nav__link" href="gallery.html">Gallery</a><a class="site-nav__link" href="contact.html">Contact</a></nav>
+            <nav id="site-nav" class="mobile-home-nav site-nav" aria-label="Mobile navigation"><a class="site-nav__link" href="index.html">Home</a><a class="site-nav__link" href="about.html">About</a><a class="site-nav__link" href="academics.html">Academics</a><a class="site-nav__link" href="management.html">Our Team</a><a class="site-nav__link" href="facilities.html">Facilities</a><a class="site-nav__link" href="admissions.html">Admissions</a><a class="site-nav__link" href="events.html">Events</a><a class="site-nav__link" href="gallery.html">Gallery</a><a class="site-nav__link" href="contact.html">Contact</a></nav>
           </div>
         </header>`;
     }
@@ -33,7 +34,7 @@
     const oldFooter = document.querySelector("footer");
     if (oldFooter) {
       oldFooter.outerHTML = `
-        <footer class="home-footer"><div class="home-container footer-main"><div class="footer-about"><a class="home-brand home-brand--footer" href="index.html" style="text-decoration: none;"><img src="assets/images/logo/logo1-removebg-preview.png" alt=""><span><strong>K. E. CARMEL</strong><small>SCHOOL, SILIGURI</small><em>To Plant And Nurture</em></span></a><p class="text-light">A co-educational English-medium institution committed to academic excellence, discipline, strong values and holistic development.</p><div class="elements-social footer-social"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="X">X</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="LinkedIn">in</a></div></div><div><h3>Quick Links</h3><a href="index.html">Home</a><a href="about.html">About</a><a href="academics.html">Academics</a><a href="management.html">Management</a></div><div><h3>Quick Links</h3><a href="facilities.html">Facilities</a><a href="admissions.html">Admissions</a><a href="events.html">Events</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div></div><div class="home-container footer-bottom"><a href="#main">Go Top ↑</a><p style="color:#ffffff9a">© <span data-year></span> K.E. Carmel School, Siliguri. All Rights Reserved.</p></div><div class="home-container footer-credit-line">Designed, Developed &amp; Maintained by&nbsp; | &nbsp;<a href="https://christinfotech.org/" target="_blank" rel="noopener"><strong>CHRIST Infotech</strong></a> (Software Research &amp; Development Center), <a href="https://lavasa.christuniversity.in/" target="_blank" rel="noopener"><strong>CHRIST University, Pune - Lavasa</strong></a>, India</div></footer>`;
+        <footer class="home-footer"><div class="home-container footer-main"><div class="footer-about"><a class="home-brand home-brand--footer" href="index.html" style="text-decoration: none;"><img src="assets/images/logo/logo1-removebg-preview.png" alt=""><span><strong>K. E. CARMEL</strong><small>SCHOOL, SILIGURI</small><em>To Plant And Nurture</em></span></a><p class="text-light">A co-educational English-medium institution committed to academic excellence, discipline, strong values and holistic development.</p><div class="elements-social footer-social"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="X">X</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="LinkedIn">in</a></div></div><div><h3>Quick Links</h3><a href="index.html">Home</a><a href="about.html">About</a><a href="academics.html">Academics</a><a href="management.html">Our Team</a></div><div><h3>Quick Links</h3><a href="facilities.html">Facilities</a><a href="admissions.html">Admissions</a><a href="events.html">Events</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div></div><div class="home-container footer-bottom"><a href="#main">Go Top ↑</a><p style="color:#ffffff9a">© <span data-year></span> K.E. Carmel School, Siliguri. All Rights Reserved.</p></div><div class="home-container footer-credit-line">Designed, Developed &amp; Maintained by&nbsp; | &nbsp;<a href="https://christinfotech.org/" target="_blank" rel="noopener"><strong>CHRIST Infotech</strong></a> (Software Research &amp; Development Center), <a href="https://lavasa.christuniversity.in/" target="_blank" rel="noopener"><strong>CHRIST University, Pune - Lavasa</strong></a>, India</div></footer>`;
     }
 
     const topSocial = document.querySelector(".social-icon");
@@ -45,6 +46,26 @@
   }
 
   const header = document.querySelector("[data-header]");
+  document.querySelectorAll("[data-admission-form-link]").forEach((link) => {
+    link.setAttribute("href", admissionFormUrl);
+  });
+
+  const admissionPopup = document.querySelector("[data-admission-popup]");
+  if (isHomePage && admissionPopup instanceof HTMLDialogElement) {
+    const closeButton = admissionPopup.querySelector("[data-admission-popup-close]");
+    const openAdmissionPopup = () => {
+      if (!admissionPopup.open) admissionPopup.showModal();
+    };
+    closeButton?.addEventListener("click", () => admissionPopup.close());
+    admissionPopup.addEventListener("click", (event) => {
+      if (event.target === admissionPopup) admissionPopup.close();
+    });
+    window.addEventListener("load", () => window.setTimeout(openAdmissionPopup, 1250), { once: true });
+  }
+
+  document.querySelectorAll('.elements-social a[href^="tel:"]').forEach((link) => {
+    link.setAttribute("aria-label", "Mobile");
+  });
   const navToggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector("#site-nav");
   const navLinks = Array.from(document.querySelectorAll(".site-nav__link"));
@@ -192,46 +213,83 @@
   }
 
   // Reusable horizontal sliders used by notices, facilities and campus stories.
-  const initTrackSlider = (rootSelector, trackSelector, prevSelector, nextSelector) => {
+  const initTrackSlider = (rootSelector, trackSelector, prevSelector, nextSelector, options = {}) => {
     const root = document.querySelector(rootSelector);
     const track = root?.querySelector(trackSelector);
     if (!root || !track) return;
+    const { autoSlide = false, autoSlideInterval = 4200 } = options;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const items = Array.from(track.children);
     let position = 0;
+    let autoSlideTimer;
     const visibleItems = () => {
       if (window.innerWidth <= 700) return 1;
       if (root.matches("[data-activity-slider]")) return window.innerWidth <= 1000 ? 2 : 4;
+      if (root.matches("[data-recent-events-slider]")) return window.innerWidth <= 1000 ? 2 : 3;
       if (root.matches("[data-gallery-slider]")) return 5;
       if (root.matches("[data-story-slider]")) return Math.max(1, Math.floor(window.innerWidth / 332));
+      if (root.matches("[data-branch-slider]")) return window.innerWidth <= 1000 ? 2 : 4;
       if (root.matches("[data-card-slider]")) return window.innerWidth <= 1000 ? 2 : 4;
       return 2;
     };
+    const maxPosition = () => Math.max(0, items.length - visibleItems());
     const render = () => {
       const first = items[0];
       if (!first) return;
       const gap = parseFloat(getComputedStyle(track).gap) || 0;
-      const max = Math.max(0, items.length - visibleItems());
+      const max = maxPosition();
       position = Math.min(position, max);
       track.style.transform = `translateX(-${position * (first.getBoundingClientRect().width + gap)}px)`;
     };
-    root.querySelector(prevSelector)?.addEventListener("click", () => {
-      const max = Math.max(0, items.length - visibleItems());
-      position = position <= 0 ? max : position - 1;
-      render();
-    });
-    root.querySelector(nextSelector)?.addEventListener("click", () => {
-      const max = Math.max(0, items.length - visibleItems());
+    const moveNext = () => {
+      const max = maxPosition();
       position = position >= max ? 0 : position + 1;
       render();
+    };
+    const stopAutoSlide = () => window.clearInterval(autoSlideTimer);
+    const startAutoSlide = () => {
+      stopAutoSlide();
+      if (!autoSlide || reduceMotion.matches || document.hidden || maxPosition() === 0) return;
+      autoSlideTimer = window.setInterval(moveNext, autoSlideInterval);
+    };
+    root.querySelector(prevSelector)?.addEventListener("click", () => {
+      const max = maxPosition();
+      position = position <= 0 ? max : position - 1;
+      render();
+      startAutoSlide();
     });
-    window.addEventListener("resize", render);
+    root.querySelector(nextSelector)?.addEventListener("click", () => {
+      moveNext();
+      startAutoSlide();
+    });
+    window.addEventListener("resize", () => {
+      render();
+      startAutoSlide();
+    });
+    if (autoSlide) {
+      root.addEventListener("mouseenter", stopAutoSlide);
+      root.addEventListener("mouseleave", startAutoSlide);
+      root.addEventListener("focusin", stopAutoSlide);
+      root.addEventListener("focusout", (event) => {
+        if (!root.contains(event.relatedTarget)) startAutoSlide();
+      });
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) stopAutoSlide();
+        else startAutoSlide();
+      });
+      reduceMotion.addEventListener("change", startAutoSlide);
+    }
     render();
+    startAutoSlide();
   };
-  initTrackSlider("[data-strip-slider]", "[data-strip-track]", "[data-strip-prev]", "[data-strip-next]");
-  initTrackSlider("[data-card-slider]", "[data-card-track]", "[data-card-prev]", "[data-card-next]");
+  const homeAutoSlide = { autoSlide: true, autoSlideInterval: 4200 };
+  initTrackSlider("[data-strip-slider]", "[data-strip-track]", "[data-strip-prev]", "[data-strip-next]", homeAutoSlide);
+  initTrackSlider("[data-card-slider]", "[data-card-track]", "[data-card-prev]", "[data-card-next]", homeAutoSlide);
+  initTrackSlider("[data-branch-slider]", "[data-card-track]", "[data-branch-prev]", "[data-branch-next]", homeAutoSlide);
   initTrackSlider("[data-story-slider]", "[data-story-track]", "[data-story-prev]", "[data-story-next]");
-  initTrackSlider("[data-activity-slider]", "[data-activity-track]", "[data-activity-prev]", "[data-activity-next]");
+  initTrackSlider("[data-activity-slider]", "[data-activity-track]", "[data-activity-prev]", "[data-activity-next]", homeAutoSlide);
   initTrackSlider("[data-gallery-slider]", "[data-gallery-track]", "[data-gallery-prev]", "[data-gallery-next]");
+  initTrackSlider("[data-recent-events-slider]", "[data-recent-events-track]", "[data-recent-events-prev]", "[data-recent-events-next]");
 
   document.querySelectorAll(".faq-list details").forEach((item) => {
     item.addEventListener("toggle", () => {
@@ -318,7 +376,7 @@
         <div class="rules-modal__backdrop" data-rules-close></div>
         <div class="rules-modal__dialog">
           <div class="rules-modal__header">
-            <div><p data-rules-label></p><h2 id="rules-modal-title">Rules</h2></div>
+            <div><p data-rules-label></p><h2 id="rules-modal-title" data-rules-title>Rules</h2></div>
             <button type="button" data-rules-close aria-label="Close rules modal">&times;</button>
           </div>
           <div class="rules-modal__content">
@@ -330,6 +388,7 @@
     const rulesModal = document.querySelector("[data-rules-dialog]");
     const rulesContent = rulesModal.querySelector("[data-rules-content]");
     const rulesLabel = rulesModal.querySelector("[data-rules-label]");
+    const rulesTitle = rulesModal.querySelector("[data-rules-title]");
     const rulesImage = rulesModal.querySelector("[data-rules-image]");
     let rulesReturnFocus = null;
     const closeRulesModal = () => {
@@ -342,7 +401,8 @@
       if (!source) return;
       rulesContent.innerHTML = source.innerHTML;
       rulesLabel.textContent = trigger.dataset.rulesLabel || "Facility";
-      const cardImage = trigger.closest(".facility")?.querySelector(".facility-static-media img");
+      rulesTitle.textContent = trigger.dataset.rulesTitle || "Rules";
+      const cardImage = trigger.closest(".facility, .event-information-card, .event-card")?.querySelector("img");
       rulesImage.src = cardImage?.getAttribute("src") || "";
       rulesImage.alt = cardImage?.getAttribute("alt") || `${rulesLabel.textContent} facility`;
       rulesImage.hidden = !rulesImage.src;
@@ -423,6 +483,44 @@
     ],
     "co-curricular": [
       "assets/images/KE CARMEL (1)/Co curicular activities/IMG-20220821-WA0008.jpg"
+    ],
+    "school-assembly": [
+      "assets/images/KE CARMEL (1)/Students-compressed/IMG_20260813_093708909_HDR.jpeg",
+      "assets/images/KE CARMEL (1)/Students-compressed/IMG_20260813_093744.jpeg",
+      "assets/images/KE CARMEL (1)/Students-compressed/IMG_20260813_093912.jpeg",
+      "assets/images/KE CARMEL (1)/Students-compressed/IMG_20260813_093948.jpeg",
+      "assets/images/KE CARMEL (1)/Students-compressed/IMG_20260813_094313.jpeg",
+      "assets/images/KE CARMEL (1)/Students-compressed/IMG_20260813_111832.jpeg",
+      "assets/images/KE CARMEL (1)/Students-compressed/IMG_20260813_111858.jpeg",
+      "assets/images/KE CARMEL (1)/Students-compressed/IMG_20260813_120251.jpeg"
+    ],
+    "ethnic-day": [
+      "assets/images/KE CARMEL (1)/Ethnic Day-compressed/IMG-20260812-WA0083.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Ethnic Day-compressed/IMG-20260812-WA0086.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Ethnic Day-compressed/IMG-20260812-WA0088.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Ethnic Day-compressed/IMG-20260812-WA0090.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Ethnic Day-compressed/IMG-20260812-WA0091.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Ethnic Day-compressed/IMG-20260812-WA0092.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Ethnic Day-compressed/IMG-20260812-WA0093.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Ethnic Day-compressed/IMG-20260812-WA0096.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Ethnic Day-compressed/IMG-20260812-WA0097.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Ethnic Day-compressed/IMG-20260812-WA0100.jpg.jpeg"
+    ],
+    "graduation-ukg": [
+      "assets/images/KE CARMEL (1)/Graduation for UKG-compressed/IMG-20260812-WA0050.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Graduation for UKG-compressed/IMG-20260812-WA0051.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Graduation for UKG-compressed/IMG-20260812-WA0053.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Graduation for UKG-compressed/IMG-20260812-WA0056.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Graduation for UKG-compressed/IMG-20260812-WA0057.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Graduation for UKG-compressed/IMG-20260812-WA0060.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Graduation for UKG-compressed/IMG-20260812-WA0066.jpg.jpeg"
+    ],
+    "field-visit": [
+      "assets/images/KE CARMEL (1)/Field Visit-compressed/IMG-20260812-WA0269.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Field Visit-compressed/IMG-20260812-WA0270.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Field Visit-compressed/IMG-20260812-WA0271.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Field Visit-compressed/IMG-20260812-WA0272.jpg.jpeg",
+      "assets/images/KE CARMEL (1)/Field Visit-compressed/workshop.jpeg"
     ],
     "gallery-achievements": [
       "assets/images/KE CARMEL (1)/Awards/Bosco Fizza, Don Bosco Oodlabari/WhatsApp Image 2026-07-26 at 6.10.34 PM (1).jpeg",
@@ -534,6 +632,38 @@
       "assets/images/KE CARMEL (1)/school photo/IMG_20260717_130347.jpg"
     ]
   };
+
+  // Gallery-page variants stay separate so Facilities and Events retain their existing modal sets.
+  mediaGallerySets["gallery-campus"] = [
+    "assets/images/KE CARMEL (1)/school photo/IMG-20260801-WA0021.jpeg",
+    "assets/images/KE CARMEL (1)/school photo/IMG_20260717_130345.jpg",
+    "assets/images/KE CARMEL (1)/school photo/IMG_20260717_130347.jpg",
+    "assets/images/KE CARMEL (1)/school photo/IMG_20260813_094313.jpeg",
+    "assets/images/KE CARMEL (1)/school photo/infrastructure.jpeg"
+  ];
+  mediaGallerySets["gallery-classrooms"] = [
+    "assets/images/KE CARMEL (1)/Classroom/IMG-20260801-WA0023.jpg.jpeg",
+    "assets/images/KE CARMEL (1)/Classroom/IMG-20260801-WA0024.jpg.jpeg",
+    "assets/images/KE CARMEL (1)/Classroom/A3IMG-20260801-WA0016.jpeg",
+    "assets/images/KE CARMEL (1)/Classroom/IMG-20260813-WA0019.jpeg",
+    "assets/images/KE CARMEL (1)/Classroom/IMG-20260813-WA0025.jpeg"
+  ];
+  mediaGallerySets["gallery-sports"] = [
+    ...mediaGallerySets["sports-playground"],
+    "assets/images/KE CARMEL (1)/sports-compressed/IMG-20260812-WA0024.jpeg",
+    "assets/images/KE CARMEL (1)/sports-compressed/IMG-20260812-WA0026.jpeg",
+    "assets/images/KE CARMEL (1)/sports-compressed/IMG-20260812-WA0029.jpeg",
+    "assets/images/KE CARMEL (1)/sports-compressed/IMG-20260812-WA0043.jpeg",
+    "assets/images/KE CARMEL (1)/sports-compressed/IMG-20260812-WA0169.jpeg",
+    "assets/images/KE CARMEL (1)/sports-compressed/IMG-20260812-WA0174.jpeg",
+    "assets/images/KE CARMEL (1)/sports-compressed/IMG-20260812-WA0175.jpeg",
+    "assets/images/KE CARMEL (1)/sports-compressed/IMG-20260812-WA0176.jpeg",
+    "assets/images/KE CARMEL (1)/sports-compressed/IMG-20260812-WA0184.jpeg"
+  ];
+  mediaGallerySets["gallery-events"] = [
+    ...mediaGallerySets["cultural-day"],
+    ...mediaGallerySets["ethnic-day"]
+  ];
 
   const mediaTriggers = document.querySelectorAll("[data-media-gallery]");
   if (mediaTriggers.length) {
