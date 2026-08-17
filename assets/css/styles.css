@@ -10893,6 +10893,78 @@ main h4,
   height: 130px;
   padding: 8px 7px;
 }
+
+/* Home-only single-column admission announcement. */
+.home-page .admission-popup {
+  width: min(680px, calc(100% - 36px));
+  max-height: min(90dvh, 720px);
+  overflow-y: auto;
+}
+.home-page .admission-popup__layout {
+  display: block;
+  min-height: 0;
+}
+.home-page .admission-popup__content {
+  min-height: 0;
+  padding: 58px 64px 52px;
+}
+
+/* First hero: right-aligned portrait with the same layered treatment as other slides. */
+.home-page .home-slide--chavara {
+  background: var(--cs-ink);
+}
+.home-page .home-slide--chavara > img {
+  position: absolute;
+  top: 0;
+  right: -5%;
+  width: 62%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  opacity: 1;
+  filter: none;
+}
+.home-page .home-slide--chavara .home-slide__shade {
+  z-index: 1;
+  background: linear-gradient(90deg, #102a43 0%, rgba(16,42,67,.88) 30%, rgba(16,42,67,.34) 54%, transparent 72%),
+    linear-gradient(0deg, rgba(9,31,50,.28), transparent 48%);
+  backdrop-filter: none;
+}
+.home-page .home-slide--chavara .home-slide__content {
+  z-index: 2;
+  display: flex;
+  max-width: 1180px;
+  padding-top: 130px;
+}
+
+@media(max-width: 767px) {
+  .home-page .admission-popup__content {
+    padding: 54px 24px 32px;
+  }
+  .home-page .home-slide--chavara > img {
+    width: 100%;
+    right: -8%;
+    object-position: 62% center;
+  }
+  .home-page .home-slide--chavara .home-slide__shade {
+    background: linear-gradient(90deg,rgba(9,31,50,.82) 0%,rgba(9,31,50,.52) 52%,rgba(9,31,50,.08) 100%),
+      linear-gradient(0deg,rgba(9,31,50,.3),transparent 58%);
+  }
+  .home-page .home-slide--chavara .home-slide__content {
+    justify-content: center;
+    padding: 110px 24px 42px;
+  }
+  .home-page .home-slide--chavara .home-slide__content h1 {
+    margin-bottom: 14px;
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+  .home-page .home-slide--chavara .home-slide__description {
+    max-width: 100%;
+    margin-bottom: 18px;
+    font-size: .82rem;
+    line-height: 1.45;
+  }
+}
 @media(max-width:576px) {
   .page-management .team-directory-card {
     max-width: 390px;
@@ -10966,7 +11038,8 @@ main h4,
     object-position: 62% center;
   }
   .home-page .home-slide--chavara .home-slide__shade {
-    background: linear-gradient(90deg,rgba(9,31,50,.94) 0%,rgba(9,31,50,.76) 68%,rgba(9,31,50,.42) 100%);
+    background: linear-gradient(90deg,rgba(9,31,50,.82) 0%,rgba(9,31,50,.52) 52%,rgba(9,31,50,.08) 100%),
+      linear-gradient(0deg,rgba(9,31,50,.3),transparent 58%);
   }
   .home-page .home-slide--chavara .home-slide__content h1 {
     font-size: clamp(2.25rem,10vw,3.25rem);
