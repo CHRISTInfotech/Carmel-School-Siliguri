@@ -484,16 +484,6 @@
     "co-curricular": [
       "assets/images/KE CARMEL (1)/Co curicular activities/IMG-20220821-WA0008.jpg"
     ],
-    "school-assembly": [
-      "assets/images/KE CARMEL (1)/Students-compressed/IMG_20260813_093708909_HDR.jpeg",
-      "assets/images/KE CARMEL (1)/Students-compressed/IMG_20260813_093744.jpeg",
-      "assets/images/KE CARMEL (1)/Students-compressed/IMG_20260813_093912.jpeg",
-      "assets/images/KE CARMEL (1)/Students-compressed/IMG_20260813_093948.jpeg",
-      "assets/images/KE CARMEL (1)/Students-compressed/IMG_20260813_094313.jpeg",
-      "assets/images/KE CARMEL (1)/Students-compressed/IMG_20260813_111832.jpeg",
-      "assets/images/KE CARMEL (1)/Students-compressed/IMG_20260813_111858.jpeg",
-      "assets/images/KE CARMEL (1)/Students-compressed/IMG_20260813_120251.jpeg"
-    ],
     "ethnic-day": [
       "assets/images/KE CARMEL (1)/Ethnic Day-compressed/IMG-20260812-WA0083.jpg.jpeg",
       "assets/images/KE CARMEL (1)/Ethnic Day-compressed/IMG-20260812-WA0086.jpg.jpeg",
