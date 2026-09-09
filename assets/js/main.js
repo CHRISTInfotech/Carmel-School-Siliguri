@@ -45,6 +45,75 @@
     document.querySelectorAll("main .section__head, main .card, main .gallery__item, main .person-card, main .event-card, main .achievement-card").forEach((item) => item.classList.add("reveal"));
   }
 
+  // Actual team portraits. Add a name/path entry here as new staff photos become available.
+  const teamPhotoPaths = {
+    "Bro. Brayan K. Sabu CMI": "assets/images/KECS/Administation/Bro. Brayan/Bro. Brayan Kunnath CMI, Supervising Co ordinator.png",
+    "Deepika Pradhan": "assets/images/KECS/Administation/Asst. Academic Co ordinators/Deepika Pradhan, Maths & Commerce.jpeg",
+    "Monoswita Saha": "assets/images/KECS/Administation/Asst. Academic Co ordinators/Monoswita Saha, English.jpeg",
+    "Roshmi Bhattacharjee": "assets/images/KECS/Administation/Asst. Academic Co ordinators/Roshmi Bhattacharjee, Geography.jpeg",
+    "Manoranjan Behera": "assets/images/KECS/Administation/Asst. Academic Co ordinators/Manoranjan Behera, Bengali.jpeg",
+    "Priya Gosh Chowdhury": "assets/images/KECS/Administation/Asst. Academic Co ordinators/Priya Ghosh Chowdhury, English.jpeg",
+    "Nibedita Roy": "assets/images/KECS/Administation/Asst. Academic Co ordinators/Nibedita Roy, Bengali.jpeg",
+    "Anchal Sah": "assets/images/KECS/Administation/Staff/Anchal Sah, Maths.jpeg",
+    "Anakha Nair": "assets/images/KECS/Administation/Staff/Anakha Nair, Biology, Chemistry.jpeg",
+    "Ankita Karmakar": "assets/images/KECS/Administation/Staff/Ankita Karmakar Sen, Maths.jpeg",
+    "Anubhab Ghosh": "assets/images/KECS/Administation/Staff/Anubhab Ghosh, Office staff & Computer.jpeg",
+    "Anuradha Prasad": "assets/images/KECS/Administation/Staff/Anuradha Prasad, Hindi.jpeg",
+    "Ashabari Choudhari": "assets/images/KECS/Administation/Staff/Ashabari Choudhuri, English.jpeg",
+    "Asha Agarwal": "assets/images/KECS/Administation/Staff/Asha Agarwal, Hindi.jpeg",
+    "Avijith Chatterjee": "assets/images/KECS/Administation/Staff/Avijit Chatterjee, English & Economics.jpeg",
+    "Barun Bapari": "assets/images/KECS/Administation/Staff/Barun Bapari, Office Staff.jpeg",
+    "Bernali Sarkar": "assets/images/KECS/Administation/Staff/Barnali Sarkar, Bengali.jpeg",
+    "Bony Bita Murmu": "assets/images/KECS/Administation/Staff/Bony Bita Murmu, Computer.jpeg",
+    "Deepshika Ghosh": "assets/images/KECS/Administation/Staff/Deepshika Ghosh, History Civics.jpeg",
+    "Dilip Roy": "assets/images/KECS/Administation/Staff/Dilip Roy, Chemistry.jpeg",
+    "Dipali Roy": "assets/images/KECS/Administation/Staff/Dipali Roy, English.jpeg",
+    "Divya Bhattacharjee": "assets/images/KECS/Administation/Staff/Divya Bhattacharjee, Maths & Business Studies.jpeg",
+    "Ditsa Hore": "assets/images/KECS/Administation/Staff/Ditsa Hore, English.jpeg",
+    "Girbani Kundu": "assets/images/KECS/Administation/Staff/Girbani Kundu, Biology.jpeg",
+    "Ipsita Gosh Singha": "assets/images/KECS/Administation/Staff/Ipsita Ghosh Singha, Biology.jpeg",
+    "Jagannath Bhattacharjee": "assets/images/KECS/Administation/Staff/Jagannath Bhattacharjee, Computer.jpeg",
+    "Jayeetashree Das": "assets/images/KECS/Administation/Staff/Jayeetashree Das, Maths.jpeg",
+    "Jhimli Bhattacharjee": "assets/images/KECS/Administation/Staff/Jhimli Bhattacharya, Biology.jpeg",
+    "Jiban Kumar Roy": "assets/images/KECS/Administation/Staff/Jiban Kumar Roy, PT.jpeg",
+    "Joachim Aind": "assets/images/KECS/Administation/Staff/Joachim Aind, Library.jpeg",
+    "Joseph Varghese": "assets/images/KECS/Administation/Staff/Joseph Varghese, Office Staff.jpeg",
+    "Kishore Sarkar": "assets/images/KECS/Administation/Staff/kishore Sarkar, Office Staff.jpeg",
+    "Koyel Modak": "assets/images/KECS/Administation/Staff/Koyel Modak, History, Civics.jpeg",
+    "Mohita Chakraborty": "assets/images/KECS/Administation/Staff/Mohita Chakraborty, Bengali.jpeg",
+    "Pampa B. Majumdar": "assets/images/KECS/Administation/Staff/Pampa B. Majumdar, English.jpeg",
+    "Pritha Saha": "assets/images/KECS/Administation/Staff/Pritha Saha, English.jpeg",
+    "Priyanka Majumdar": "assets/images/KECS/Administation/Staff/Priyanka Majumdar, Biology.jpeg",
+    "Puja Das": "assets/images/KECS/Administation/Staff/Puja Das, Maths & Accountancy.jpeg",
+    "Ranjana Jha": "assets/images/KECS/Administation/Staff/Anjana Jha, Computer.jpeg",
+    "Rounak Kr. Majumder": "assets/images/KECS/Administation/Staff/Rounak Kr. Majumder, Physics maths.jpeg",
+    "Sanju Prabha Barwa": "assets/images/KECS/Administation/Staff/Sanju Prabha Barwa, Hindi.jpeg",
+    "Sheetal Sarda Bhattacharjee": "assets/images/KECS/Administation/Staff/Sheetal Sarda Bhattacharjee, English.jpeg",
+    "Sonia Majumder": "assets/images/KECS/Administation/Staff/Sonia Majumder, English.jpeg",
+    "Subodh Roy": "assets/images/KECS/Administation/Staff/Subodh Roy, Physics & Maths.jpeg",
+    "Sucharita Chakraborty": "assets/images/KECS/Administation/Staff/Sucharita Chakraborty, English.jpeg",
+    "Swaraj Bhattacharjee": "assets/images/KECS/Administation/Staff/Swaraj Bhattacharjee, Social Studies & Geography.jpeg",
+    "Swarnashloke Chakraborty": "assets/images/KECS/Administation/Staff/Swarnashloke Chakraborty, English.jpeg"
+  };
+  if (document.body.classList.contains("page-management")) {
+    document.querySelectorAll(".team-directory-card").forEach((card) => {
+      const name = card.querySelector(".person-card__name")?.textContent.trim();
+      const photoPath = teamPhotoPaths[name];
+      if (!photoPath) return;
+      const photo = document.createElement("div");
+      photo.className = "person-card__photo card-img-top";
+      const image = document.createElement("img");
+      image.src = photoPath;
+      image.alt = name;
+      image.loading = "lazy";
+      photo.append(image);
+      const placeholder = card.querySelector(".team-placeholder");
+      if (placeholder) placeholder.replaceWith(photo);
+      else card.prepend(photo);
+      card.classList.add("person-card--with-photo");
+    });
+  }
+
   const header = document.querySelector("[data-header]");
   document.querySelectorAll("[data-admission-form-link]").forEach((link) => {
     link.setAttribute("href", admissionFormUrl);
@@ -620,6 +689,73 @@
     "campus-cleanliness": [
       "assets/images/KE CARMEL (1)/school photo/IMG_20260717_130345.jpg",
       "assets/images/KE CARMEL (1)/school photo/IMG_20260717_130347.jpg"
+    ],
+    "new-investiture": [
+      "assets/images/KE CARMEL (1)/New Events/Investiture Ceremony/IMG-20260817-WA0061.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Investiture Ceremony/IMG-20260817-WA0072.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Investiture Ceremony/IMG-20260817-WA0073.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Investiture Ceremony/IMG-20260817-WA0074.jpg"
+    ],
+    "new-nobobosha": [
+      "assets/images/KE CARMEL (1)/New Events/Nobobosha Bengali New Year/IMG-20260817-WA0075.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Nobobosha Bengali New Year/IMG-20260817-WA0076.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Nobobosha Bengali New Year/IMG-20260817-WA0077.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Nobobosha Bengali New Year/IMG-20260817-WA0078.jpg"
+    ],
+    "new-public-speaking": [
+      "assets/images/KE CARMEL (1)/New Events/Public Speaking Competition/IMG-20260817-WA0050.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Public Speaking Competition/IMG-20260817-WA0052.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Public Speaking Competition/IMG-20260817-WA0053.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Public Speaking Competition/IMG-20260817-WA0054.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Public Speaking Competition/IMG-20260817-WA0079.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Public Speaking Competition/IMG-20260817-WA0080.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Public Speaking Competition/IMG-20260817-WA0081.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Public Speaking Competition/IMG-20260817-WA0082.jpg"
+    ],
+    "new-spicy-puff-day": [
+      "assets/images/KE CARMEL (1)/New Events/Spicy And Puff day/IMG-20260817-WA0022.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Spicy And Puff day/IMG-20260817-WA0023.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Spicy And Puff day/IMG-20260817-WA0024.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Spicy And Puff day/IMG-20260817-WA0027.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Spicy And Puff day/IMG-20260817-WA0038.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Spicy And Puff day/IMG-20260817-WA0039.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Spicy And Puff day/IMG-20260817-WA0040.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Spicy And Puff day/IMG-20260817-WA0042.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Spicy And Puff day/IMG-20260817-WA0043.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Spicy And Puff day/IMG-20260817-WA0044.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Spicy And Puff day/IMG-20260817-WA0045.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Spicy And Puff day/IMG-20260817-WA0046.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Spicy And Puff day/IMG-20260817-WA0047.jpg"
+    ],
+    "new-student-council-vote": [
+      "assets/images/KE CARMEL (1)/New Events/Student Council Vote/IMG-20260817-WA0059.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Student Council Vote/IMG-20260817-WA0060.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Student Council Vote/IMG-20260817-WA0062.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Student Council Vote/IMG-20260817-WA0063.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Student Council Vote/IMG-20260817-WA0065.jpg"
+    ],
+    "new-womens-cricket": [
+      "assets/images/KE CARMEL (1)/New Events/Women Cricket Tournament/IMG-20260817-WA0064.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Women Cricket Tournament/IMG-20260817-WA0066.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Women Cricket Tournament/IMG-20260817-WA0067.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Women Cricket Tournament/IMG-20260817-WA0068.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Women Cricket Tournament/IMG-20260817-WA0069.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Women Cricket Tournament/IMG-20260817-WA0070.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Women Cricket Tournament/IMG-20260817-WA0071.jpg"
+    ],
+    "new-rainy-day": [
+      "assets/images/KE CARMEL (1)/New Events/Rainy Day/IMG-20260817-WA0055.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Rainy Day/IMG-20260817-WA0056.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Rainy Day/IMG-20260817-WA0057.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Rainy Day/IMG-20260817-WA0058.jpg"
+    ],
+    "new-fifa-bagless-day": [
+      "assets/images/KE CARMEL (1)/New Events/Fifa 2026 - Bagless Day/IMG-20260817-WA0086.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Fifa 2026 - Bagless Day/IMG-20260817-WA0087.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Fifa 2026 - Bagless Day/IMG-20260817-WA0088.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Fifa 2026 - Bagless Day/IMG-20260831-WA0068.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Fifa 2026 - Bagless Day/IMG-20260831-WA0069.jpg",
+      "assets/images/KE CARMEL (1)/New Events/Fifa 2026 - Bagless Day/IMG-20260831-WA0073.jpg"
     ]
   };
 

@@ -3462,6 +3462,80 @@ textarea:not(.form-control):focus-visible {
   }
 }
 
+/* Events: fixed eight-card recent grid with a single All Events action. */
+.page-events .recent-events-grid {
+  align-items: stretch;
+}
+.page-events .recent-events-grid > .col {
+  display: flex;
+}
+.page-events .recent-events-grid .event-card {
+  width: 100%;
+}
+.page-events .recent-events-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 28px;
+}
+.page-events .recent-events-footer .btn {
+  border-radius: 999px;
+}
+
+/* All Events follows the Gallery page's card grid and image interaction. */
+.page-all-events .all-events-heading {
+  margin-top: var(--site-first-section-space);
+}
+.page-all-events .gallery__item[data-media-gallery] {
+  width: 100%;
+  cursor: pointer;
+}
+.page-all-events .gallery__item[data-media-gallery]:focus-visible {
+  outline: 3px solid var(--cs-amber);
+  outline-offset: 4px;
+}
+
+/* Final proportions for Recent Events and the All Events listing. */
+.page-events:not(.page-all-events) .recent-events-grid .event-card__media,
+.page-events:not(.page-all-events) .recent-events-grid .event-card__media .card-media-carousel,
+.page-events:not(.page-all-events) .recent-events-grid .event-card__media .card-media-carousel > img {
+  height: 220px;
+}
+.page-events:not(.page-all-events) .recent-events-grid .event-card__body {
+  gap: .25rem;
+  padding: .8rem .9rem .9rem;
+}
+.page-all-events .all-events-grid > .col,
+.page-all-events .all-events-grid .gallery__item,
+.page-all-events .all-events-grid .gallery__item figcaption {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+.page-all-events .all-events-grid::before {
+  background: var(--cs-mist) !important;
+}
+.page-all-events .all-events-grid.row {
+  gap: 0;
+  --bs-gutter-x: 24px;
+  --bs-gutter-y: 24px;
+}
+.page-all-events .all-events-grid.row > .col {
+  width: 33.333333% !important;
+  max-width: 33.333333% !important;
+  flex: 0 0 auto !important;
+}
+@media(max-width:900px) {
+  .page-all-events .all-events-grid.row > .col {
+    width: 50% !important;
+    max-width: 50% !important;
+  }
+}
+@media(max-width:576px) {
+  .page-all-events .all-events-grid.row > .col {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
 /* Admissions follows the About page's full-width section rhythm. */
 .page-admissions .admission-content-card {
   width: 100%;
@@ -10892,6 +10966,51 @@ main h4,
 .page-management .team-teachers-section .team-directory-card .person-card__body.card-body {
   height: 130px;
   padding: 8px 7px;
+}
+
+/* Team directory cards switch to the established image-over-content design when a real portrait exists. */
+.page-management .team-directory-card.person-card--with-photo,
+.page-management .team-teachers-section .team-directory-card.person-card--with-photo {
+  height: 360px !important;
+  min-height: 360px;
+  padding: 10px 10px 0 !important;
+  overflow: hidden;
+  contain-intrinsic-size: auto 360px;
+}
+.page-management .team-directory-card.person-card--with-photo .person-card__photo {
+  position: static;
+  display: block;
+  width: 100%;
+  height: 220px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 13px;
+}
+.page-management .team-directory-card.person-card--with-photo .person-card__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 13px;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform .6s ease;
+}
+.page-management .team-directory-card.person-card--with-photo:hover .person-card__photo img {
+  transform: scale(1.06);
+}
+.page-management .team-directory-card.person-card--with-photo .person-card__body.card-body,
+.page-management .team-teachers-section .team-directory-card.person-card--with-photo .person-card__body.card-body {
+  height: 130px;
+  padding: 12px 8px 14px;
+}
+
+/* Recent Events use the same one-third desktop card width as the Gallery page. */
+@media(min-width:901px) {
+  .page-events:not(.page-all-events) .recent-events-grid.row > .col {
+    width: 33.333333% !important;
+    max-width: 33.333333% !important;
+    flex: 0 0 auto !important;
+  }
 }
 
 /* Home-only single-column admission announcement. */
