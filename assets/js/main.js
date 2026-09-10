@@ -93,7 +93,7 @@
     "Subodh Roy": "assets/images/KECS/Administation/Staff/Subodh Roy, Physics & Maths.jpeg",
     "Sucharita Chakraborty": "assets/images/KECS/Administation/Staff/Sucharita Chakraborty, English.jpeg",
     "Swaraj Bhattacharjee": "assets/images/KECS/Administation/Staff/Swaraj Bhattacharjee, Social Studies & Geography.jpeg",
-    "Swarnashloke Chakraborty": "assets/images/KECS/Administation/Staff/Swarnashloke Chakraborty, English.jpeg"
+    "Swarnashloke Chakraborty": "assets/images/KECS/Administation/Staff/Swarnashloke Chakraborty_ENGLISH.jpeg"
   };
   if (document.body.classList.contains("page-management")) {
     document.querySelectorAll(".team-directory-card").forEach((card) => {
