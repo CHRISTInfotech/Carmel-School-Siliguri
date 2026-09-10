@@ -11223,3 +11223,66 @@ main h4,
     line-height: 1.55;
   }
 }
+
+/* Our Team: fluid photo cards at every viewport width. */
+.page-management .management-leadership-grid .person-card,
+.page-management .team-directory-card.person-card--with-photo,
+.page-management .team-teachers-section .team-directory-card.person-card--with-photo {
+  display: grid !important;
+  grid-template-rows: auto auto;
+  width: 100%;
+  max-width: 100%;
+  height: auto !important;
+  min-width: 0;
+  min-height: 0 !important;
+  padding: clamp(6px, .65vw, 10px) !important;
+  overflow: hidden;
+}
+
+.page-management .management-leadership-grid .person-card__photo,
+.page-management .team-directory-card.person-card--with-photo .person-card__photo,
+.page-management .team-teachers-section .team-directory-card.person-card--with-photo .person-card__photo {
+  position: static !important;
+  width: 100%;
+  max-width: 100%;
+  height: auto !important;
+  aspect-ratio: 1 / 1;
+  flex: none;
+  margin: 0;
+  overflow: hidden;
+  transform: none !important;
+  background: #fff;
+}
+
+.page-management .management-leadership-grid .person-card__photo img,
+.page-management .team-directory-card.person-card--with-photo .person-card__photo img,
+.page-management .team-teachers-section .team-directory-card.person-card--with-photo .person-card__photo img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: inherit;
+}
+
+.page-management .management-leadership-grid .person-card__body.card-body,
+.page-management .team-directory-card.person-card--with-photo .person-card__body,
+.page-management .team-teachers-section .team-directory-card.person-card--with-photo .person-card__body {
+  position: static !important;
+  align-self: stretch;
+  width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: clamp(8px, 1vw, 12px) clamp(8px, 1.15vw, 14px) clamp(10px, 1.2vw, 14px) !important;
+  transform: none !important;
+}
+
+.page-management .team-directory-card.person-card--with-photo .person-card__name,
+.page-management .team-directory-card.person-card--with-photo .person-card__role,
+.page-management .management-leadership-grid .person-card__name,
+.page-management .management-leadership-grid .person-card__role {
+  margin-top: 0;
+  margin-bottom: clamp(2px, .4vw, 5px);
+}
