@@ -220,7 +220,17 @@
     document.body.classList.remove("is-loading");
   };
   if (splash) {
-    window.addEventListener("load", () => window.setTimeout(hideSplash, 1000), { once: true });
+    // Trigger off DOMContentLoaded (the document itself is parsed) rather than the
+    // "load" event, which only fires once every image and CDN asset on the page has
+    // finished downloading. On slower mobile connections that full download takes much
+    // longer than on desktop broadband, which was making the splash linger far past its
+    // intended ~1s on mobile even though the code and timing values are identical.
+    const scheduleHide = () => window.setTimeout(hideSplash, 1000);
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", scheduleHide, { once: true });
+    } else {
+      scheduleHide();
+    }
     window.setTimeout(hideSplash, 12000);
     document.querySelectorAll('a[href$=".html"]').forEach((link) => {
       link.addEventListener("click", (event) => {
