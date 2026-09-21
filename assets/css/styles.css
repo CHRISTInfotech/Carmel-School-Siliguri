@@ -10658,9 +10658,9 @@ main h4,
 }
 
 /* Home: St. Chavara introduction and branch cards. */
-.home-page .home-slide--chavara > img {
-  /* object-position: 72% center; */
-}
+/* .home-page .home-slide--chavara > img {
+  object-position: 72% center;
+} */
 .home-page .home-slide--chavara .home-slide__content {
   max-width: 1180px;
 }
