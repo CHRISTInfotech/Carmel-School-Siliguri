@@ -2,13 +2,13 @@
   // Give every inner page the same shell and visual language as the redesigned homepage.
   const isHomePage = document.body.classList.contains("home-page");
   const currentPageName = (window.location.pathname.split("/").pop() || "index.html").replace(/\.html$/i, "").toLowerCase();
-  const innerHeaderLogo = "assets/images/logo/logo4-removebg-preview.png";
+  const innerHeaderLogo = "assets/images/logo/newlogo-removebg-preview.png";
   const admissionFormUrl = "https://docs.google.com/forms/d/e/REPLACE_WITH_GOOGLE_FORM_ID/viewform";
   if (!isHomePage) {
     document.body.classList.add("inner-page", "is-loading");
     document.body.classList.add(`page-${(window.location.pathname.split("/").pop() || "inner").replace(/\.html$/i, "")}`);
     if (!document.querySelector('link[href*="family=Manrope"]')) {
-      document.head.insertAdjacentHTML("beforeend", '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="preload" href="assets/images/logo/logo4-removebg-preview.png" as="image" type="image/png">');
+      document.head.insertAdjacentHTML("beforeend", '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="preload" href="assets/images/logo/newlogo-removebg-preview.png" as="image" type="image/png">');
     }
     document.querySelector(".topbar")?.remove();
 
@@ -16,7 +16,7 @@
     if (oldHeader) {
       oldHeader.outerHTML = `
         <div class="splash" data-splash role="status" aria-label="Loading K.E. Carmel School website">
-          <div class="splash__mark"><img src="assets/images/logo/logo4-removebg-preview.png" alt="K.E. Carmel School logo"></div>
+          <div class="splash__mark"><img src="assets/images/logo/newlogo-removebg-preview.png" alt="K.E. Carmel School logo"></div>
           <p class="splash__name">K.E. Carmel School</p><span class="splash__place">Siliguri</span><span class="splash__loader" aria-hidden="true"></span>
         </div>
         <header class="home-header inner-header" data-header>
@@ -34,7 +34,7 @@
     const oldFooter = document.querySelector("footer");
     if (oldFooter) {
       oldFooter.outerHTML = `
-        <footer class="home-footer"><div class="home-container footer-main"><div class="footer-about"><a class="home-brand home-brand--footer" href="index.html" style="text-decoration: none;"><img src="assets/images/logo/logo1-removebg-preview.png" alt=""><span><strong>K. E. CARMEL</strong><small>SCHOOL, SILIGURI</small><em>To Plant And Nurture</em></span></a><p class="text-light">A co-educational English-medium institution committed to academic excellence, discipline, strong values and holistic development.</p><div class="elements-social footer-social"><a href="https://www.facebook.com/share/19A53M1JGj/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a><a href="#" aria-label="X">X</a><a href="https://youtube.com/@k.e.carmelschoolambari5248?si=dl_FgXkT2CdUKENe" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶</a><a href="#" aria-label="LinkedIn">in</a><a href="https://www.instagram.com/kecscmi?utm_source=qr&igsh=ZmxndThheDB2bW83" target="_blank" rel="noopener noreferrer" aria-label="Instagram">◎</a></div></div><div><h3>Quick Links</h3><a href="index.html">Home</a><a href="about.html">About</a><a href="academics.html">Academics</a><a href="management.html">Our Team</a></div><div><h3>Quick Links</h3><a href="facilities.html">Facilities</a><a href="admissions.html">Admissions</a><a href="events.html">Events</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div></div><div class="home-container footer-bottom"><a href="#main">Go Top ↑</a><p style="color:#ffffff9a">© <span data-year></span> K.E. Carmel School, Siliguri. All Rights Reserved.</p></div><div class="home-container footer-credit-line">Designed, Developed &amp; Maintained by&nbsp; | &nbsp;<a href="https://christinfotech.org/" target="_blank" rel="noopener"><strong>CHRIST Infotech</strong></a> (Software Research &amp; Development Center), <a href="https://lavasa.christuniversity.in/" target="_blank" rel="noopener"><strong>CHRIST University, Pune - Lavasa</strong></a>, India</div></footer>`;
+        <footer class="home-footer"><div class="home-container footer-main"><div class="footer-about"><a class="home-brand home-brand--footer" href="index.html" style="text-decoration: none;"><img src="assets/images/logo/newlogo-removebg-preview.png" alt=""><span><strong>K. E. CARMEL</strong><small>SCHOOL, SILIGURI</small><em>To Plant And Nurture</em></span></a><p class="text-light">A co-educational English-medium institution committed to academic excellence, discipline, strong values and holistic development.</p><div class="elements-social footer-social"><a href="https://www.facebook.com/share/19A53M1JGj/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a><a href="#" aria-label="X">X</a><a href="https://youtube.com/@k.e.carmelschoolambari5248?si=dl_FgXkT2CdUKENe" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶</a><a href="#" aria-label="LinkedIn">in</a><a href="https://www.instagram.com/kecscmi?utm_source=qr&igsh=ZmxndThheDB2bW83" target="_blank" rel="noopener noreferrer" aria-label="Instagram">◎</a></div></div><div><h3>Quick Links</h3><a href="index.html">Home</a><a href="about.html">About</a><a href="academics.html">Academics</a><a href="management.html">Our Team</a></div><div><h3>Quick Links</h3><a href="facilities.html">Facilities</a><a href="admissions.html">Admissions</a><a href="events.html">Events</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div></div><div class="home-container footer-bottom"><a href="#main">Go Top ↑</a><p style="color:#ffffff9a">© <span data-year></span> K.E. Carmel School, Siliguri. All Rights Reserved.</p></div><div class="home-container footer-credit-line">Designed, Developed &amp; Maintained by&nbsp; | &nbsp;<a href="https://christinfotech.org/" target="_blank" rel="noopener"><strong>CHRIST Infotech</strong></a> (Software Research &amp; Development Center), <a href="https://lavasa.christuniversity.in/" target="_blank" rel="noopener"><strong>CHRIST University, Pune - Lavasa</strong></a>, India</div></footer>`;
     }
 
     const topSocial = document.querySelector(".social-icon");

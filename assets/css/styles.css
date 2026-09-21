@@ -2778,7 +2778,6 @@ textarea:not(.form-control):focus-visible {
 .home-brand img {
   width: 92px;
   height: 92px;
-  filter: brightness(0) invert(1);
 }
 
 .home-brand span {
