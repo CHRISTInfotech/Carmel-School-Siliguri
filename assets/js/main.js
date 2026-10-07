@@ -3,7 +3,7 @@
   const isHomePage = document.body.classList.contains("home-page");
   const currentPageName = (window.location.pathname.split("/").pop() || "index.html").replace(/\.html$/i, "").toLowerCase();
   const innerHeaderLogo = "assets/images/logo/newlogo-removebg-preview.png";
-  const admissionFormUrl = "https://docs.google.com/forms/d/e/REPLACE_WITH_GOOGLE_FORM_ID/viewform";
+  const admissionFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLScJ9dyvlMPzFvhaZSO-ZuWFbPytELthn5xCVXwj67vKng3ezg/viewform?usp=dialog";
   if (!isHomePage) {
     document.body.classList.add("inner-page", "is-loading");
     document.body.classList.add(`page-${(window.location.pathname.split("/").pop() || "inner").replace(/\.html$/i, "")}`);
