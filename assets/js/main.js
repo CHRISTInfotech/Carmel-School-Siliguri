@@ -1037,27 +1037,27 @@
 
   });
 
-  // Admissions: keep About-style scroll reveals without making content depend on them.
-  // CSS stays visible by default; the pending state is enabled only after this
+  // About and Admissions: preserve scroll reveals without making content depend on
+  // them. CSS stays visible by default; pending states start only after both the
   // observer and its geometry-based scroll fallback are ready.
-  if (document.body.classList.contains("page-admissions") && "IntersectionObserver" in window) {
-    const admissionRevealTargets = Array.from(document.querySelectorAll([
-      ".page-admissions .about-tabs__content .about-tab-panel.section-fade-target",
-      ".page-admissions .about-tabs__content .reveal",
+  if (document.body.matches(".page-about,.page-admissions") && "IntersectionObserver" in window) {
+    const sectionRevealTargets = Array.from(document.querySelectorAll([
+      ".about-tabs__content .about-tab-panel.section-fade-target",
+      ".about-tabs__content .reveal",
     ].join(",")));
 
-    if (admissionRevealTargets.length) {
-      const revealAdmissionTarget = (target) => {
+    if (sectionRevealTargets.length) {
+      const revealSectionTarget = (target) => {
         if (target.classList.contains("about-tab-panel")) target.classList.add("is-section-visible");
         if (target.classList.contains("reveal")) target.classList.add("is-visible");
       };
 
-      let admissionRevealFrame = 0;
-      let admissionRevealObserver;
-      const revealVisibleAdmissionTargets = () => {
-        admissionRevealFrame = 0;
+      let sectionRevealFrame = 0;
+      let sectionRevealObserver;
+      const revealVisibleSectionTargets = () => {
+        sectionRevealFrame = 0;
         const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-        admissionRevealTargets.forEach((target) => {
+        sectionRevealTargets.forEach((target) => {
           const panelRevealComplete = !target.classList.contains("about-tab-panel")
             || target.classList.contains("is-section-visible");
           const cardRevealComplete = !target.classList.contains("reveal")
@@ -1065,31 +1065,31 @@
           if (panelRevealComplete && cardRevealComplete) return;
           const bounds = target.getBoundingClientRect();
           if (bounds.top <= viewportHeight * .92 && bounds.bottom >= viewportHeight * .08) {
-            revealAdmissionTarget(target);
-            admissionRevealObserver?.unobserve(target);
+            revealSectionTarget(target);
+            sectionRevealObserver?.unobserve(target);
           }
         });
       };
-      const requestAdmissionRevealCheck = () => {
-        if (admissionRevealFrame) return;
-        admissionRevealFrame = window.requestAnimationFrame(revealVisibleAdmissionTargets);
+      const requestSectionRevealCheck = () => {
+        if (sectionRevealFrame) return;
+        sectionRevealFrame = window.requestAnimationFrame(revealVisibleSectionTargets);
       };
 
       try {
-        admissionRevealObserver = new IntersectionObserver((entries, observer) => {
+        sectionRevealObserver = new IntersectionObserver((entries, observer) => {
           entries.forEach((entry) => {
             if (!entry.isIntersecting) return;
-            revealAdmissionTarget(entry.target);
+            revealSectionTarget(entry.target);
             observer.unobserve(entry.target);
           });
         }, { rootMargin: "0px 0px -8% 0px", threshold: .01 });
 
-        admissionRevealTargets.forEach((target) => admissionRevealObserver.observe(target));
-        document.body.classList.add("admissions-reveal-ready");
-        revealVisibleAdmissionTargets();
-        window.addEventListener("scroll", requestAdmissionRevealCheck, { passive: true });
-        window.addEventListener("resize", requestAdmissionRevealCheck);
-        window.addEventListener("pageshow", requestAdmissionRevealCheck);
+        sectionRevealTargets.forEach((target) => sectionRevealObserver.observe(target));
+        document.body.classList.add("section-reveal-ready");
+        revealVisibleSectionTargets();
+        window.addEventListener("scroll", requestSectionRevealCheck, { passive: true });
+        window.addEventListener("resize", requestSectionRevealCheck);
+        window.addEventListener("pageshow", requestSectionRevealCheck);
       } catch {
         // Leave the progressive-enhancement class unset: every section remains visible.
       }

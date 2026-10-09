@@ -8050,7 +8050,7 @@ main h4,
 .page-management .management-band .person-card { background: #fff !important; }
 
 @media(max-width:700px) {
-  .inner-page main > .section:first-child > .container > *:not(.page-hero) { margin-top: 22px !important; }
+  .inner-page main > .section:first-child > .container > *:not(.page-hero) { margin-top: -54px !important; }
   .page-management .management-band { padding-top: 54px; padding-bottom: 54px; }
 }
 
@@ -11285,17 +11285,17 @@ main h4,
   margin-bottom: clamp(2px, .4vw, 5px);
 }
 
-/* Admissions reveals use progressive enhancement: content is visible by default,
-   and becomes animation-pending only after its reliable observer is initialized. */
-.page-admissions .about-tabs__content .about-tab-panel.section-fade-target,
-.page-admissions .about-tabs__content .reveal {
+/* About and Admissions reveals use progressive enhancement: content is visible by
+   default and becomes animation-pending only after the reliable observer is ready. */
+:is(.page-about, .page-admissions) .about-tabs__content .about-tab-panel.section-fade-target,
+:is(.page-about, .page-admissions) .about-tabs__content .reveal {
   opacity: 1;
   visibility: visible !important;
   filter: none;
   transform: none;
 }
 
-.page-admissions.admissions-reveal-ready
+:is(.page-about, .page-admissions).section-reveal-ready
   .about-tabs__content .about-tab-panel.section-fade-target:not(.is-section-visible) {
   opacity: 0;
   filter: none;
@@ -11303,7 +11303,7 @@ main h4,
   animation: none;
 }
 
-.page-admissions.admissions-reveal-ready
+:is(.page-about, .page-admissions).section-reveal-ready
   .about-tabs__content .about-tab-panel.section-fade-target.is-section-visible {
   opacity: 1;
   filter: none;
@@ -11311,7 +11311,7 @@ main h4,
   transition: opacity .55s ease, transform .55s ease;
 }
 
-.page-admissions.admissions-reveal-ready
+:is(.page-about, .page-admissions).section-reveal-ready
   .about-tabs__content .reveal:not(.is-visible) {
   opacity: 0;
   filter: blur(3px);
@@ -11319,7 +11319,7 @@ main h4,
   animation: none;
 }
 
-.page-admissions.admissions-reveal-ready
+:is(.page-about, .page-admissions).section-reveal-ready
   .about-tabs__content .reveal.is-visible {
   opacity: 1;
   filter: none;
@@ -11328,8 +11328,9 @@ main h4,
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .page-admissions.admissions-reveal-ready .about-tabs__content .about-tab-panel.section-fade-target,
-  .page-admissions.admissions-reveal-ready .about-tabs__content .reveal {
+  :is(.page-about, .page-admissions).section-reveal-ready
+    .about-tabs__content .about-tab-panel.section-fade-target,
+  :is(.page-about, .page-admissions).section-reveal-ready .about-tabs__content .reveal {
     opacity: 1 !important;
     filter: none !important;
     transform: none !important;
@@ -11368,7 +11369,7 @@ main h4,
   width: 100% !important;
   max-width: 100%;
   margin: 0 !important;
-  /* padding: 10px 12px; */
+  /* padding: 0 !important; */
   overflow: visible;
   border-radius: 0;
   color: #fff;
@@ -11498,7 +11499,7 @@ main h4,
   :is(.page-about, .page-admissions) .about-tabs__sidebar,
   :is(.page-about, .page-admissions) .about-tabs.is-sidebar-fixed .about-tabs__sidebar,
   :is(.page-about, .page-admissions) .about-tabs.is-sidebar-ended .about-tabs__sidebar {
-    padding: 8px;
+    padding: 0 !important;
     border-radius: 0;
   }
 
