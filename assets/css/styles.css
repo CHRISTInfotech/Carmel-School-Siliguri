@@ -6392,9 +6392,9 @@ main .stats-grid article:hover img {
   background: var(--template-green);
 }
 
-.inner-page .announcement-card {
+/* .inner-page .announcement-card {
   border-left-color: var(--template-green) !important;
-}
+} */
 
 .inner-page input,
 .inner-page textarea,
@@ -11602,5 +11602,50 @@ body:is(
     transform: none !important;
     animation: none !important;
     transition: none !important;
+  }
+}
+/* Home Notice Board controls: retain the existing design with added viewport clearance. */
+.home-page .notice-strip .strip-controls {
+  margin-top: 66px;
+  margin-bottom: -10px;
+}
+
+/* Announcements follow the shared inner-page content-band and card-grid structure. */
+.page-announcements .announcements-band {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  margin: 0;
+  padding: var(--site-first-section-space) 0 var(--site-section-space);
+}
+
+.page-announcements .announcements-band::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0 calc(50% - 50vw);
+  background: var(--cs-mist);
+}
+
+.page-announcements .announcements-band .section__head {
+  width: 100%;
+  margin: 0 0 30px;
+  padding: 0;
+  text-align: left;
+}
+
+.page-announcements .announcements-grid {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.page-announcements .announcement-card {
+  height: 100%;
+  background: #fff;
+}
+
+@media (max-width: 700px) {
+  .home-page .notice-strip .strip-controls {
+    margin-top: 32px;
   }
 }
