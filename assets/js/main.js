@@ -930,22 +930,46 @@
     });
   }
 
-  // About page: section navigation with smooth scrolling and scroll-aware highlighting.
-  document.querySelectorAll("[data-vertical-tabs]").forEach((tabGroup) => {
+  // About and Admissions: sticky horizontal section navigation with smooth scrolling
+  // and scroll-aware highlighting.
+  document.querySelectorAll("[data-section-nav]").forEach((tabGroup) => {
     const controls = Array.from(tabGroup.querySelectorAll("[data-tab-target]"));
     const sections = controls.map((control) => document.getElementById(control.dataset.tabTarget)).filter(Boolean);
     if (!controls.length || !sections.length) return;
     const isStickyNavigator = document.body.matches(".page-about,.page-admissions");
     const pageHeader = document.querySelector("[data-header]");
-    const getHeaderOffset = () => (pageHeader?.getBoundingClientRect().height || 0) + 16;
+    const sectionNavbar = tabGroup.querySelector(".about-tabs__sidebar");
+    const sectionNav = tabGroup.querySelector(".about-tabs__nav");
+    const getHeaderHeight = () => pageHeader?.getBoundingClientRect().height || 0;
+    const getSectionNavOffset = () => getHeaderHeight()
+      + (sectionNavbar?.getBoundingClientRect().height || 0) + 12;
 
+    const updateNavigationMetrics = () => {
+      if (!isStickyNavigator || !sectionNavbar) return;
+      const headerHeight = getHeaderHeight();
+      tabGroup.style.setProperty("--section-nav-top", `${headerHeight}px`);
+      document.documentElement.style.setProperty("--about-scroll-offset", `${getSectionNavOffset()}px`);
+    };
+
+    const keepActiveControlVisible = (activeControl) => {
+      if (!sectionNav || !activeControl) return;
+      const targetLeft = activeControl.offsetLeft
+        - (sectionNav.clientWidth - activeControl.offsetWidth) / 2;
+      sectionNav.scrollTo({ left: Math.max(0, targetLeft), behavior: "smooth" });
+    };
+
+    let activeSectionId = controls.find((control) => control.classList.contains("is-active"))?.dataset.tabTarget || "";
     const setActiveControl = (sectionId) => {
+      let newlyActiveControl;
       controls.forEach((control) => {
         const active = control.dataset.tabTarget === sectionId;
         control.classList.toggle("is-active", active);
         if (active) control.setAttribute("aria-current", "true");
         else control.removeAttribute("aria-current");
+        if (active) newlyActiveControl = control;
       });
+      if (activeSectionId !== sectionId) keepActiveControlVisible(newlyActiveControl);
+      activeSectionId = sectionId;
     };
 
     controls.forEach((control) => control.addEventListener("click", () => {
@@ -953,7 +977,8 @@
       if (!target) return;
       setActiveControl(target.id);
       if (isStickyNavigator) {
-        const offset = getHeaderOffset();
+        updateNavigationMetrics();
+        const offset = getSectionNavOffset();
         document.documentElement.style.setProperty("--about-scroll-offset", `${offset}px`);
         window.scrollTo({
           top: window.scrollY + target.getBoundingClientRect().top - offset,
@@ -978,16 +1003,14 @@
     }
 
     if (isStickyNavigator) {
-      const hero = document.querySelector(".page-hero");
-      const sidebar = tabGroup.querySelector(".about-tabs__sidebar");
-      let sidebarFrame = 0;
+      let navigationFrame = 0;
 
       const updateActiveSection = () => {
-        const headerOffset = getHeaderOffset();
+        const sectionOffset = getSectionNavOffset();
         let activeSection = sections[0];
 
         sections.forEach((section) => {
-          if (section.getBoundingClientRect().top <= headerOffset + 1) activeSection = section;
+          if (section.getBoundingClientRect().top <= sectionOffset + 1) activeSection = section;
         });
 
         const documentBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1;
@@ -995,47 +1018,81 @@
         if (activeSection) setActiveControl(activeSection.id);
       };
 
-      const fixedLayoutEnabled = () => getComputedStyle(tabGroup)
-        .getPropertyValue("--about-sidebar-fixed-enabled").trim() === "1";
-
-      const getSidebarLeft = () => {
-        if (!sidebar) return 0;
-        const sidebarGap = Number.parseFloat(getComputedStyle(tabGroup)
-          .getPropertyValue("--about-sidebar-gap")) || 0;
-        return tabGroup.getBoundingClientRect().left - sidebar.offsetWidth - sidebarGap;
-      };
-
-      const updateSidebar = () => {
-        sidebarFrame = 0;
+      const updateSectionNavigation = () => {
+        navigationFrame = 0;
+        updateNavigationMetrics();
         updateActiveSection();
-        tabGroup.classList.remove("is-sidebar-fixed", "is-sidebar-ended");
-        if (!hero || !sidebar || !fixedLayoutEnabled()) return;
-
-        const headerOffset = getHeaderOffset();
-        document.documentElement.style.setProperty("--about-scroll-offset", `${headerOffset}px`);
-        tabGroup.style.setProperty("--about-sidebar-top", `${headerOffset}px`);
-
-        if (hero.getBoundingClientRect().bottom > headerOffset) return;
-
-        const contentBottom = tabGroup.getBoundingClientRect().bottom;
-        const sidebarBottom = headerOffset + sidebar.offsetHeight;
-        if (contentBottom <= sidebarBottom + 16) {
-          tabGroup.classList.add("is-sidebar-ended");
-        } else {
-          tabGroup.style.setProperty("--about-sidebar-left", `${getSidebarLeft()}px`);
-          tabGroup.classList.add("is-sidebar-fixed");
-        }
       };
 
-      const requestSidebarUpdate = () => {
-        if (sidebarFrame) return;
-        sidebarFrame = window.requestAnimationFrame(updateSidebar);
+      const requestNavigationUpdate = () => {
+        if (navigationFrame) return;
+        navigationFrame = window.requestAnimationFrame(updateSectionNavigation);
       };
 
-      updateSidebar();
-      window.addEventListener("scroll", requestSidebarUpdate, { passive: true });
-      window.addEventListener("resize", requestSidebarUpdate);
+      updateSectionNavigation();
+      window.addEventListener("scroll", requestNavigationUpdate, { passive: true });
+      window.addEventListener("resize", requestNavigationUpdate);
+      window.addEventListener("pageshow", requestNavigationUpdate);
     }
 
   });
+
+  // Admissions: keep About-style scroll reveals without making content depend on them.
+  // CSS stays visible by default; the pending state is enabled only after this
+  // observer and its geometry-based scroll fallback are ready.
+  if (document.body.classList.contains("page-admissions") && "IntersectionObserver" in window) {
+    const admissionRevealTargets = Array.from(document.querySelectorAll([
+      ".page-admissions .about-tabs__content .about-tab-panel.section-fade-target",
+      ".page-admissions .about-tabs__content .reveal",
+    ].join(",")));
+
+    if (admissionRevealTargets.length) {
+      const revealAdmissionTarget = (target) => {
+        if (target.classList.contains("about-tab-panel")) target.classList.add("is-section-visible");
+        if (target.classList.contains("reveal")) target.classList.add("is-visible");
+      };
+
+      let admissionRevealFrame = 0;
+      let admissionRevealObserver;
+      const revealVisibleAdmissionTargets = () => {
+        admissionRevealFrame = 0;
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+        admissionRevealTargets.forEach((target) => {
+          const panelRevealComplete = !target.classList.contains("about-tab-panel")
+            || target.classList.contains("is-section-visible");
+          const cardRevealComplete = !target.classList.contains("reveal")
+            || target.classList.contains("is-visible");
+          if (panelRevealComplete && cardRevealComplete) return;
+          const bounds = target.getBoundingClientRect();
+          if (bounds.top <= viewportHeight * .92 && bounds.bottom >= viewportHeight * .08) {
+            revealAdmissionTarget(target);
+            admissionRevealObserver?.unobserve(target);
+          }
+        });
+      };
+      const requestAdmissionRevealCheck = () => {
+        if (admissionRevealFrame) return;
+        admissionRevealFrame = window.requestAnimationFrame(revealVisibleAdmissionTargets);
+      };
+
+      try {
+        admissionRevealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            revealAdmissionTarget(entry.target);
+            observer.unobserve(entry.target);
+          });
+        }, { rootMargin: "0px 0px -8% 0px", threshold: .01 });
+
+        admissionRevealTargets.forEach((target) => admissionRevealObserver.observe(target));
+        document.body.classList.add("admissions-reveal-ready");
+        revealVisibleAdmissionTargets();
+        window.addEventListener("scroll", requestAdmissionRevealCheck, { passive: true });
+        window.addEventListener("resize", requestAdmissionRevealCheck);
+        window.addEventListener("pageshow", requestAdmissionRevealCheck);
+      } catch {
+        // Leave the progressive-enhancement class unset: every section remains visible.
+      }
+    }
+  }
 })();
