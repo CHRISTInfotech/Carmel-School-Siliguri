@@ -269,19 +269,71 @@
     startAutoplay();
   }
 
-  // Gentle reveal transitions as sections enter the viewport.
-  const revealItems = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window) {
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
+  // Progressive viewport reveals. Content is visible by default in CSS and enters
+  // a pending animation state only after both the observer and geometry fallback
+  // are ready, so short/high-zoom viewports can never leave it permanently hidden.
+  const initReliableViewportReveal = (targetsInput, { readyClass, visibleClass }) => {
+    const targets = Array.from(targetsInput);
+    if (!targets.length) return;
+    if (!("IntersectionObserver" in window)) {
+      targets.forEach((target) => target.classList.add(visibleClass));
+      return;
+    }
+
+    let revealFrame = 0;
+    let observer;
+    const revealTarget = (target) => {
+      target.classList.add(visibleClass);
+      observer?.unobserve(target);
+    };
+    const revealVisibleTargets = () => {
+      revealFrame = 0;
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      targets.forEach((target) => {
+        if (target.classList.contains(visibleClass)) return;
+        const bounds = target.getBoundingClientRect();
+        if (bounds.top <= viewportHeight * .92 && bounds.bottom >= viewportHeight * .08) {
+          revealTarget(target);
+        }
       });
-    }, { threshold: 0.12 });
-    revealItems.forEach((item) => revealObserver.observe(item));
-  } else {
-    revealItems.forEach((item) => item.classList.add("is-visible"));
+    };
+    const requestRevealCheck = () => {
+      if (revealFrame) return;
+      revealFrame = window.requestAnimationFrame(revealVisibleTargets);
+    };
+
+    try {
+      observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) revealTarget(entry.target);
+        });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: .01 });
+
+      targets.forEach((target) => observer.observe(target));
+      document.body.classList.add(readyClass);
+      revealVisibleTargets();
+      window.addEventListener("scroll", requestRevealCheck, { passive: true });
+      window.addEventListener("resize", requestRevealCheck);
+      window.addEventListener("pageshow", requestRevealCheck);
+    } catch {
+      targets.forEach((target) => target.classList.add(visibleClass));
+    }
+  };
+
+  const standardRevealPages = [
+    ".home-page",
+    ".page-academics",
+    ".page-facilities",
+    ".page-management",
+    ".page-gallery",
+    ".page-events",
+    ".page-contact",
+  ].join(",");
+  if (document.body.matches(standardRevealPages)) {
+    initReliableViewportReveal(document.querySelectorAll(".reveal"), {
+      readyClass: "site-reveal-ready",
+      visibleClass: "is-visible",
+    });
   }
 
   // The homepage navigation starts over the hero and becomes compact after scrolling.
@@ -891,18 +943,10 @@
     ".home-page .leadership-copy h2",
   ].join(","));
   floatTargets.forEach((target) => target.classList.add("float-in-target"));
-  if ("IntersectionObserver" in window) {
-    const floatObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-floated");
-        observer.unobserve(entry.target);
-      });
-    }, { threshold: 0.18 });
-    floatTargets.forEach((target) => floatObserver.observe(target));
-  } else {
-    floatTargets.forEach((target) => target.classList.add("is-floated"));
-  }
+  initReliableViewportReveal(floatTargets, {
+    readyClass: "float-reveal-ready",
+    visibleClass: "is-floated",
+  });
 
   // About page: approved full-width section order.
   if (document.body.classList.contains("page-about")) {

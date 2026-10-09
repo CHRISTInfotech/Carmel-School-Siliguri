@@ -11515,3 +11515,92 @@ main h4,
     padding-left: 14px;
   }
 }
+
+/* Shared reliable reveals for Home and the remaining inner pages. Content is
+   accessible by default and is hidden for animation only after JS is ready. */
+body:is(.home-page, .inner-page) .reveal {
+  opacity: 1;
+  visibility: visible;
+  filter: none;
+  transform: none;
+}
+
+body:is(
+  .home-page,
+  .page-academics,
+  .page-facilities,
+  .page-management,
+  .page-gallery,
+  .page-events,
+  .page-contact
+).site-reveal-ready .reveal:not(.is-visible) {
+  opacity: 0;
+  filter: blur(3px);
+  transform: translateY(50px);
+  animation: none;
+}
+
+body:is(
+  .home-page,
+  .page-academics,
+  .page-facilities,
+  .page-management,
+  .page-gallery,
+  .page-events,
+  .page-contact
+).site-reveal-ready .reveal.is-visible {
+  opacity: 1;
+  visibility: visible;
+  filter: none;
+  transform: none;
+  animation: powerpointFloatIn .85s cubic-bezier(.18, .78, .22, 1) both;
+}
+
+/* Home heading motion follows the same progressive-enhancement contract. */
+.home-page .float-in-target {
+  opacity: 1;
+  visibility: visible;
+  filter: none;
+  transform: none;
+}
+
+.home-page.float-reveal-ready .float-in-target:not(.is-floated) {
+  opacity: 0;
+  filter: blur(4px);
+  transform: translateY(58px);
+  animation: none;
+}
+
+.home-page.float-reveal-ready .float-in-target.is-floated {
+  opacity: 1;
+  visibility: visible;
+  filter: none;
+  transform: none;
+  animation: powerpointFloatIn .9s cubic-bezier(.18, .78, .22, 1) both;
+}
+
+/* If reveal initialization cannot run, Notice Board items remain readable. */
+.home-page:not(.site-reveal-ready) .notice-strip__items article {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:is(
+    .home-page,
+    .page-academics,
+    .page-facilities,
+    .page-management,
+    .page-gallery,
+    .page-events,
+    .page-contact
+  ).site-reveal-ready .reveal,
+  .home-page.float-reveal-ready .float-in-target {
+    opacity: 1 !important;
+    visibility: visible !important;
+    filter: none !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
